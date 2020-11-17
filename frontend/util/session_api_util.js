@@ -6,7 +6,7 @@ export const createUser = user => {
   })
 }
 
-export const createSession = user => {
+export const logIn = user => {
   return $.ajax({
     method: 'POST',
     url: '/api/session',
@@ -14,7 +14,7 @@ export const createSession = user => {
   })
 }
 
-export const closeSession = () => {
+export const logOut = () => {
   return $.ajax({
     method: 'DELETE',
     url: 'api/session'
