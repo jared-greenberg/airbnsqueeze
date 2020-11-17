@@ -3,8 +3,7 @@ import LogInContainer from '../sessions/log_in_container';
 import SignUpContainer from '../sessions/sign_up_container';
 
 export default ({modalType, closeModal}) => {
-  debugger
-  if (!modalType || currentUser) { return null };
+  if (!modalType) { return null };
 
   return (
     <div id="modal-background" onClick={closeModal}>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { closeModal } from '../../actions/modal_actions';
 
 class SessionForm extends React.Component{
   constructor(props){
@@ -14,7 +15,9 @@ class SessionForm extends React.Component{
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.action(this.state);
+    this.props.action(this.state).then(
+      () => this.props.closeModal()
+    );
   }
 
   handleDemo(e) {
