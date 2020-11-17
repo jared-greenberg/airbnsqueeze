@@ -12,9 +12,9 @@ class SessionForm extends React.Component{
   }
 
 
-  handleSubmit(e, user) {
+  handleSubmit(e) {
     e.preventDefault();
-    this.props.action(user);
+    this.props.action(this.state);
   }
 
   handleDemo(e) {

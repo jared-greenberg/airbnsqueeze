@@ -72,13 +72,13 @@
    padding-left: 10px;
  }
 
-.session-form input:focus + label {
+/* .session-form input:focus + label {
   transform: translate(0px, -22px);
   font-size: 12px;
-}
+} */
 
-.session-form input:valid{
-
+.session-form input:valid + label{
+  display: none;
 }
 
 
