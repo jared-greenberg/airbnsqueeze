@@ -3,11 +3,12 @@ import React from 'react';
 class SessionForm extends React.Component{
   constructor(props){
     super(props);
-    this.state = props.user;
+    this.state = {...props.user, ["passwordType"]: "password"};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.signUpExtras = this.signUpExtras.bind(this);
     this.demoButton = this.demoButton.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
+    this.togglePassword = this.togglePassword.bind(this);
   }
 
 
@@ -35,21 +36,35 @@ class SessionForm extends React.Component{
     if (this.props.formType === 'Log In') { return null }
     return (
       <>
-      <label htmlFor="first-name">First name</label>
-        <input type="text" 
-          value={this.state.first_name} 
-          onChange={this.changeField("first_name")}
-          placeholder="First name"/>
-      <label htmlFor="last-name">Last name</label>
-        <input type="text" 
-          value={this.state.last_name} 
-          onChange={this.changeField("last_name")}
-          placeholder="Last name"/>
-      <label htmlFor="birthday">Birthdate</label>
-        <input type="date" 
-          value={this.state.birthday} 
-          onChange={this.changeField("birthday")}
-          placeholder="Birthdate"/>
+        <div className="input-wrapper">
+          <input
+            type="text"
+            id="first-name"
+            value={this.state.first_name}
+            onChange={this.changeField("first_name")}
+            placeholder="First name"
+          />
+          <label htmlFor="first-name">First name</label>
+        </div>
+        <div className="input-wrapper">
+          <input
+            type="text"
+            id="last-name"
+            value={this.state.last_name}
+            onChange={this.changeField("last_name")}
+            placeholder="Last name"
+          />
+          <label htmlFor="last-name">Last name</label>
+        </div>
+        <div className="input-wrapper">
+          <input
+            type="date"
+            id="birthday"
+            value={this.state.birthday}
+            onChange={this.changeField("birthday")}
+          />
+          {/* <label htmlFor="birthday">Birthdate</label> */}
+        </div>
       </>
     ) 
   }
@@ -59,6 +74,11 @@ class SessionForm extends React.Component{
     return (
       <button onClick={this.handleDemo}>Demo Login</button>
     )
+  }
+
+  togglePassword(){
+    const toggle = this.state.passwordType === "password" ? "text" : "password"
+    this.setState({passwordType: toggle})
   }
 
   render() {
@@ -71,22 +91,27 @@ class SessionForm extends React.Component{
           <section className="form-wrapper">
             <form className="session-form" onSubmit={this.handleSubmit}>
               {this.signUpExtras()}
-              <label htmlFor="email">Email</label>
-              <input 
-                type="text"
-                id="email"
-                value={this.state.email}
-                onChange={this.changeField("email")}
-                placeHolder="Email"
-              />
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                value={this.state.password}
-                onChange={this.changeField("password")}
-                placeHolder="Password"
-              />
+              <div className="input-wrapper">
+                <input 
+                  type="text"
+                  id="email"
+                  value={this.state.email}
+                  onChange={this.changeField("email")}
+                  placeholder="Email"
+                  />
+                  <label htmlfor="email">Email</label>
+              </div>
+              <div className="input-wrapper">
+                <input
+                  type={this.state.passwordType}
+                  id="password"
+                  value={this.state.password}
+                  onChange={this.changeField("password")}
+                  placeholder="Password"
+                  />
+                  <label htmlfor="password">Password</label>
+                  <a id="password-show" href="#" onClick={this.togglePassword}>Show</a>
+              </div>
               <input type="submit" value={this.props.formType}/>
               {this.demoButton()}
             </form>

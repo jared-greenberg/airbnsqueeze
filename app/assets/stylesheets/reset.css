@@ -1,0 +1,31 @@
+html, body, form, label, input, section, h1, h2, h3, p, a {
+  border: 0;
+  padding: 0;
+  outline: 0;
+  margin: 0;
+  box-sizing: inherit;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  vertical-align: inherit;
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Palanquin', sans-serif;
+  font-weight: 100;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+button, a, input[type="submit"] {
+  cursor: pointer;
+}

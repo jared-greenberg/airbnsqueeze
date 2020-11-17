@@ -37,28 +37,60 @@
   text-align: center;
   border-bottom: #f0f0f0 1px solid;
   position: relative;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;;
  }
 
+
  .form-wrapper {
-   overflow: scroll;
-   height: 90%;
+   overflow-y: scroll;
+   height: 100%;
  }
+
+ .input-wrapper {
+   width: 100%;
+   position: relative;
+ }
+
+ .input-wrapper > label {
+   position: absolute;
+   top: 25px;
+   left: 10px;
+   transition-duration: 250ms;
+   background: #fefefe;
+  }
 
  .session-form input{
    font-size: 16px;
    height: 55px;
    padding: 8px 4px;
-   width: 95%;
    border: 1px solid #d7d7d7;
    border-radius: 8px;
+   width: 100%;
+   padding-left: 10px;
  }
 
- .session-form label{
-   position: relative; 
- }
+.session-form input:focus + label {
+  transform: translate(0px, -22px);
+  font-size: 12px;
+}
 
- .session-form input[type='submit'] {
+.session-form input:valid{
+
+}
+
+
+ .session-form input[type='submit'], button {
    background: #044241;
    color: white;
+ }
+
+ #password-show {
+   position: absolute;
+   text-decoration: underline;
+   right: 0;
+   top: 25%;
  }
 
