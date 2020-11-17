@@ -1,19 +1,39 @@
-.modal-background {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  background: rbga(0,0,0,0.8);
+#modal-background {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   left: 0;
+   background: rgba(0, 0, 0, 0.3);
+   z-index: 2;
+ }
 
-}
+ #modal-contents {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background: #fefefe;
+   border-radius: 20px;
+   width: 550px;
+   height: 475px;
+ }
 
-body {
-  background: red;
-}
+ .session-form {
+   padding: 25px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
 
-.modal-form {
-  position: absolute;
-  background: white;
-}
+ .session-title{
+
+ }
+
+
+ .session-form input[type="text"]{
+   font-size: 10px;
+   height: 55px;
+   padding: 8px 4px;
+   width: 95%;
+ }

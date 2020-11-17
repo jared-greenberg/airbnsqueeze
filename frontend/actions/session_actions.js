@@ -10,7 +10,6 @@ export const receiveCurrentUser = user => ({
 })
 
 export const removeCurrentUser = () => {
- debugger
   return {type: REMOVE_CURRENT_USER}
 }
 

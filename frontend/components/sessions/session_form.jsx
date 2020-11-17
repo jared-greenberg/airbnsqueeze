@@ -36,11 +36,20 @@ class SessionForm extends React.Component{
     return (
       <>
       <label htmlFor="first-name">First name</label>
-        <input type="text" value={this.state.first_name} onChange={this.changeField("first_name")}/>
+        <input type="text" 
+          value={this.state.first_name} 
+          onChange={this.changeField("first_name")}
+          placeholder="First name"/>
       <label htmlFor="last-name">Last name</label>
-        <input type="text" value={this.state.last_name} onChange={this.changeField("last_name")}/>
+        <input type="text" 
+          value={this.state.last_name} 
+          onChange={this.changeField("last_name")}
+          placeholder="Last name"/>
       <label htmlFor="birthday">Birthdate</label>
-        <input type="date" value={this.state.birthday} onChange={this.changeField("birthday")}/>
+        <input type="date" 
+          value={this.state.birthday} 
+          onChange={this.changeField("birthday")}
+          placeholder="Birthdate"/>
       </>
     ) 
   }
@@ -56,7 +65,9 @@ class SessionForm extends React.Component{
    
     return (
         <form className="session-form" onSubmit={this.handleSubmit}>
-          <h3>{this.props.formType}</h3>
+          <section className="session-title">
+            <h2>{this.props.formType}</h2>
+          </section>
           {this.signUpExtras()}
           <label htmlFor="email">Email</label>
           <input 
@@ -64,6 +75,7 @@ class SessionForm extends React.Component{
             id="email"
             value={this.state.email}
             onChange={this.changeField("email")}
+            placeHolder="Email"
           />
           <label htmlFor="password">Password</label>
           <input
@@ -71,6 +83,7 @@ class SessionForm extends React.Component{
             id="password"
             value={this.state.password}
             onChange={this.changeField("password")}
+            placeHolder="Password"
           />
           <input type="submit" value={this.props.formType}/>
           {this.demoButton()}
