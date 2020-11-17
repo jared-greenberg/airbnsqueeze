@@ -102,7 +102,7 @@ class SessionForm extends React.Component{
                   onChange={this.changeField("email")}
                   placeholder="Email"
                   />
-                  <label htmlfor="email">Email</label>
+                  <label htmlFor="email">Email</label>
               </div>
               <div className="input-wrapper">
                 <input
@@ -112,7 +112,7 @@ class SessionForm extends React.Component{
                   onChange={this.changeField("password")}
                   placeholder="Password"
                   />
-                  <label htmlfor="password">Password</label>
+                  <label htmlFor="password">Password</label>
                   <a id="password-show" href="#" onClick={this.togglePassword}>Show</a>
               </div>
               <input type="submit" value={this.props.formType}/>
