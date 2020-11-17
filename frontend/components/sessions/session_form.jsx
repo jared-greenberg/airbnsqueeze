@@ -6,12 +6,23 @@ class SessionForm extends React.Component{
     this.state = props.user;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.signUpExtras = this.signUpExtras.bind(this);
+    this.demoButton = this.demoButton.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
 
-  handleSubmit(e) {
+  handleSubmit(e, user) {
     e.preventDefault();
-    this.props.action(this.state);
+    this.props.action(user);
+  }
+
+  handleDemo(e) {
+    e.preventDefault();
+    const demoUser = {
+      email: "demo@gmail.com",
+      password: "abcd1234"
+    }
+    this.props.action(demoUser);
   }
 
   changeField(field){
@@ -32,6 +43,13 @@ class SessionForm extends React.Component{
         <input type="date" value={this.state.birthday} onChange={this.changeField("birthday")}/>
       </>
     ) 
+  }
+
+  demoButton(){
+    if (this.props.formType === 'Sign Up') { return null }
+    return (
+      <button onClick={this.handleDemo}>Demo Login</button>
+    )
   }
 
   render() {
@@ -55,6 +73,7 @@ class SessionForm extends React.Component{
           onChange={this.changeField("password")}
         />
         <input type="submit" value={this.props.formType}/>
+        {this.demoButton()}
       </form>
     )
   }

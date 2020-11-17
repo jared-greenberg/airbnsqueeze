@@ -32,3 +32,7 @@ export const signUp = user => dispatch => {
   )
 }
 
+export const demoLogIn = user => {
+  logIn(user)
+}
+
