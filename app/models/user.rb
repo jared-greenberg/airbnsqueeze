@@ -1,11 +1,11 @@
 require 'date'
 
 class User < ApplicationRecord 
-
+  
   validates :email, :session_token, presence: true, uniqueness: true
-  validates :first_name, :last_name, :password_digest, presence: true
   validates :password, length: {minimum: 8}, allow_nil: true
-  validate :valid_birthday
+  validates :first_name, :last_name, :password_digest, :birthday, presence: true
+  validate :valid_birthday, if: :birthday
 
   attr_reader :password
   after_initialize :ensure_session_token
@@ -16,10 +16,10 @@ class User < ApplicationRecord
     user
   end
 
-  def valid_birthday
+  def valid_birthday    
     today = Date.today
     unless self.birthday <= Date.new(today.year - 18, today.month, today.day)
-      errors.add("You must be 18 or older to use AirBnSqueeze")
+      errors.add(:birthday, "invalid")
     end
   end
 
