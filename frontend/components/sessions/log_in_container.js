@@ -7,7 +7,7 @@ const mapStatetoProps = state => ({
     email: "",
     password: ""
   },
-  formtype: "Log In"
+  formType: "Log In"
 
 })
 
