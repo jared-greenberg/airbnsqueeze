@@ -112,13 +112,16 @@ class SessionForm extends React.Component{
                   onChange={this.changeField("password")}
                   placeholder="Password"
                   />
-                  <label htmlFor="password">Password</label>
+                  <label htmlor="password">Password</label>
                   <a id="password-show" href="#" onClick={this.togglePassword}>Show</a>
               </div>
               <input type="submit" value={this.props.formType}/>
               {this.demoButton()}
             </form>
-        </section>
+            <p>{this.props.oppText} 
+              <a href="#" onClick={this.props.switchModal}>{this.props.oppType}</a>
+            </p>
+          </section>
         </>
     )
   }
