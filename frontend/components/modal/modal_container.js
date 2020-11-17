@@ -3,8 +3,7 @@ import { closeModal } from '../../actions/modal_actions';
 import Modal from './modal';
 
 const mapStateToProps = state => {
- return { modalType: state.ui.modal,
-          currentUser: state.session.id}
+ return { modalType: state.ui.modal}
 }
 
 const mapDispatchToProps = dispatch => ({

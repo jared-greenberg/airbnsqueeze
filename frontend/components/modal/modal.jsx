@@ -2,7 +2,7 @@ import React from 'react';
 import LogInContainer from '../sessions/log_in_container';
 import SignUpContainer from '../sessions/sign_up_container';
 
-export default ({modalType, currentUser, closeModal}) => {
+export default ({modalType, closeModal}) => {
   debugger
   if (!modalType || currentUser) { return null };
 
