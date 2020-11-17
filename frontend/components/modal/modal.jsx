@@ -10,6 +10,7 @@ export default ({modalType, closeModal}) => {
     <div id="modal-background" onClick={closeModal}>
       <div id="modal-contents" onClick={(e) => e.stopPropagation()}>
         {modalType === "login" ? <LogInContainer /> : <SignUpContainer />}
+        <a id="modal-x" href="#" onClick={closeModal}>{'\u00D7'}</a>
       </div>
     </div>
   )

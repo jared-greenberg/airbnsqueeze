@@ -17,6 +17,13 @@
    border-radius: 20px;
    width: 550px;
    height: 475px;
+   overflow: hidden
+ }
+
+  #modal-x {
+    position: absolute;
+    top: 25px;
+    left: 25px;
  }
 
  .session-form {
@@ -27,13 +34,31 @@
  }
 
  .session-title{
-
+  text-align: center;
+  border-bottom: #f0f0f0 1px solid;
+  position: relative;
  }
 
+ .form-wrapper {
+   overflow: scroll;
+   height: 90%;
+ }
 
- .session-form input[type="text"]{
-   font-size: 10px;
+ .session-form input{
+   font-size: 16px;
    height: 55px;
    padding: 8px 4px;
    width: 95%;
+   border: 1px solid #d7d7d7;
+   border-radius: 8px;
  }
+
+ .session-form label{
+   position: relative; 
+ }
+
+ .session-form input[type='submit'] {
+   background: #044241;
+   color: white;
+ }
+

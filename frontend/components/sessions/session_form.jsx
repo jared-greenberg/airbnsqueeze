@@ -64,30 +64,34 @@ class SessionForm extends React.Component{
   render() {
    
     return (
-        <form className="session-form" onSubmit={this.handleSubmit}>
+        <>
           <section className="session-title">
-            <h2>{this.props.formType}</h2>
+              <h2>{this.props.formType}</h2>
           </section>
-          {this.signUpExtras()}
-          <label htmlFor="email">Email</label>
-          <input 
-            type="text"
-            id="email"
-            value={this.state.email}
-            onChange={this.changeField("email")}
-            placeHolder="Email"
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={this.state.password}
-            onChange={this.changeField("password")}
-            placeHolder="Password"
-          />
-          <input type="submit" value={this.props.formType}/>
-          {this.demoButton()}
-        </form>
+          <section className="form-wrapper">
+            <form className="session-form" onSubmit={this.handleSubmit}>
+              {this.signUpExtras()}
+              <label htmlFor="email">Email</label>
+              <input 
+                type="text"
+                id="email"
+                value={this.state.email}
+                onChange={this.changeField("email")}
+                placeHolder="Email"
+              />
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                value={this.state.password}
+                onChange={this.changeField("password")}
+                placeHolder="Password"
+              />
+              <input type="submit" value={this.props.formType}/>
+              {this.demoButton()}
+            </form>
+        </section>
+        </>
     )
   }
 }
