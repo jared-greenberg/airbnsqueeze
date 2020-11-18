@@ -11,7 +11,7 @@ class LoggedInDrop extends React.Component{
   render(){
 
     return (
-      <ul>
+      <ul className="drop-menu">
         <li>
           <a href="#">Trips</a>
         </li>

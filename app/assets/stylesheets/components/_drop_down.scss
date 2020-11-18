@@ -1,0 +1,26 @@
+.nav-drop-down {
+  position: relative;
+}
+
+.drop-menu {
+  position: absolute;
+  right: 0;
+  border: 1px solid #ebebeb;;
+  border-radius: 10px;
+  padding: 8px 0;
+  background: #ffffff;
+
+  > li {
+    width: 250px;
+
+    > a {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+
+    :hover{
+      background: #ebebeb;
+    }
+  }
+}

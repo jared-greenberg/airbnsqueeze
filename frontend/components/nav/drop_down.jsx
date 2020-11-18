@@ -6,7 +6,7 @@ import {openModal} from '../../actions/modal_actions';
 import {logOut} from '../../actions/session_actions';
 
 
-class NavBar extends React.Component {
+class DropDown extends React.Component {
 
   constructor(props){
     super(props);
@@ -16,6 +16,7 @@ class NavBar extends React.Component {
 
 
   toggleMenu(e) {
+    console.log(e.currentTarget);
     e.stopPropagation();
     this.setState({menu: !this.state.menu}, () => {
       if (this.state.menu) {
@@ -36,12 +37,12 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <nav>
-        <section className="nav-drop-down" onClick={this.toggleMenu}>
+      <section className="right-nav">
+        <div className="nav-drop-down" onClick={this.toggleMenu}>
           <button onClick={this.toggleMenu}><i className="fas fa-bars"></i></button>
           {this.dropDown()}
-        </section>
-      </nav>
+        </div>
+      </section>
     )
   }
     
@@ -57,6 +58,6 @@ const mapDispatchToProps = dispatch => ({
 })
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar)
+export default connect(mapStateToProps, mapDispatchToProps)(DropDown)
 
 

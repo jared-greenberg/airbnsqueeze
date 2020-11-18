@@ -2,8 +2,8 @@ import React from 'react';
 
 export default ({openModal}) => {
   return (
-    <ul>
-      <li >
+    <ul className="drop-menu">
+      <li>
         <a href="#" onClick={() => openModal("login")}>Log in</a>
       </li>
       <li>
