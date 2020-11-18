@@ -12,9 +12,13 @@ class LoggedInDrop extends React.Component{
 
     return (
       <ul>
-        <li>Trips</li>
-        <li onClick={this.signOutAction.bind(this)}>Log Out</li>
-       </ul>
+        <li>
+          <a href="#">Trips</a>
+        </li>
+        <li>
+          <a href="#" onClick={this.signOutAction.bind(this)}>Log Out</a>
+        </li>
+      </ul>
     )
   }
 }

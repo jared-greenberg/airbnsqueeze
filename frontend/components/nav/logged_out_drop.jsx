@@ -1,10 +1,15 @@
 import React from 'react';
 
-export default ({openModal, toggleMenu}) => {
+export default ({openModal}) => {
   return (
-    <ul onBlur={toggleMenu}>
-      <li onClick={()=>openModal("login")}>Log In</li>
-      <li onClick={()=>openModal("signup")}>Sign Up</li>
+    <ul>
+      <li >
+        <a href="#" onClick={() => openModal("login")}>Log in</a>
+      </li>
+      <li>
+        <a href="#" onClick={() => openModal("signup")}>Sign up</a>
+
+      </li>
     </ul>
   )
 }

@@ -3,8 +3,8 @@ import { logIn } from '../../actions/session_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import LogInForm from './log_in_form';
 
-const mapStatetoProps = state => ({
-  user: {
+const mapStatetoProps = state => {
+  return {user: {
     email: "",
     password: ""
   },
@@ -14,9 +14,9 @@ const mapStatetoProps = state => ({
   } ,
   formType: "Log in",
   oppText: "Don't have an account?",
-  oppType: "Sign up"
-
-})
+  oppType: "Sign up",
+  errors: state.errors.session
+}}
 
 const mapDispatchtoProps = dispatch => ({
   closeModal: () => dispatch(closeModal()),

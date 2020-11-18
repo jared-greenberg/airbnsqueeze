@@ -6,6 +6,7 @@ class SignUpForm extends React.Component{
     this.state = {...props.user, passwordType: "password"};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.togglePassword = this.togglePassword.bind(this);
+    this.errors = this.errors.bind(this);
   }
 
 
@@ -31,6 +32,12 @@ class SignUpForm extends React.Component{
     this.setState({passwordType: toggle})
   }
 
+  errors() {
+    return this.props.errors.map((err, idx) => (
+      <li key={idx}>{err}</li>
+    ))
+  }
+
   render() {
 
     return (
@@ -38,7 +45,9 @@ class SignUpForm extends React.Component{
         <h3 className="form-title">{this.props.formType}</h3>
         <div className="form-wrapper">
         <form className="session-form" onSubmit={this.handleSubmit}>
-
+            <ul>
+              {this.errors()}
+            </ul>
           <section className="grouped-inputs">
             <input type="text" value={this.props.first_name} onChange={this.changeField("first_name")} placeholder="First name"/>
             <input type="text" value={this.props.last_name} onChange={this.changeField("last_name")} placeholder="Last name"/>
