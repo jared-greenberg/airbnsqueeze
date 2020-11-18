@@ -1,5 +1,5 @@
 class ListingAmenity < ApplicationRecord 
-  validates: :amenity_id, uniqueness: {scope: :listing_id}
+  validates :amenity_id, uniqueness: {scope: :listing_id}
 
   belongs_to :listing,
     foreign_key: :listing_id,

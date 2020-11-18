@@ -1,6 +1,6 @@
 class Amenity < ApplicationRecord
 
-  validates: :name, :icon_path, presence: true
+  validates :name, :icon_path, presence: true
 
   has_many :listing_pairings,
     foreign_key: :amenity_id,

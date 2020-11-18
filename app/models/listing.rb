@@ -9,7 +9,7 @@ class Listing < ApplicationRecord
 
   has_many :amenity_pairings,
     foreign_key: :listing_id,
-    class_name: :ListingAmenity,
+    class_name: :ListingAmenity
   
   has_many :amenities,
     through: :amenity_pairings,
