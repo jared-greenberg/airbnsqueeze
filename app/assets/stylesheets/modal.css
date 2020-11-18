@@ -5,7 +5,7 @@
    right: 0;
    left: 0;
    background: rgba(0, 0, 0, 0.3);
-   z-index: 2;
+   z-index: 20;
  }
 
  #modal-contents {
@@ -17,98 +17,118 @@
    border-radius: 20px;
    width: 550px;
    height: 475px;
-   overflow: hidden
+   overflow: auto;
  }
 
   #modal-x {
     position: absolute;
-    top: 25px;
+    top: 10px;
     left: 25px;
+    font-size: 20px;
  }
 
- .session-form {
-   padding: 25px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
- }
-
- .session-title{
-  text-align: center;
-  border-bottom: #f0f0f0 1px solid;
-  position: relative;
-  height: 15%;
+.session-form{
   display: flex;
-  justify-content: center;
-  align-items: center;;
- }
+  flex-direction: column;
+  align-items: center;
+  overflow: auto
+}
 
- .session-title > h2 {
-   font-weight: 600;
- }
+.session-form input {
+  width: 100%;
+  border: 1px solid  #bbb;
+  height: 50px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding-left: 10px;
+  font-weight: 100;
+  font: inherit;
+}
 
-
- .form-wrapper {
-   overflow-y: scroll;
-   height: 80%;
- }
-
- .input-wrapper {
-   width: 100%;
-   position: relative;
- }
-
- .input-wrapper > label {
-   position: absolute;
-   top: 25px;
-   left: 10px;
-   transition-duration: 250ms;
-   background: #fefefe;
-  }
-
- .session-form input{
-   font-size: 16px;
-   height: 55px;
-   padding: 8px 4px;
-   border: 1px solid #d7d7d7;
-   border-radius: 8px;
-   width: 100%;
-   padding-left: 10px;
- }
-
-/* .session-form input:focus + label {
-  transform: translate(0px, -22px);
-  font-size: 12px;
-} */
-
-.session-form input:valid + label{
-  display: none;
+.session-form > section{
+  width: 90%;
 }
 
 
- .session-form input[type='submit'], button {
-   background: #044241;
-   color: white;
- }
+.grouped-inputs{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid  #bbb;
+  margin-top: 25px;
+  position: relative;
+}
+
+.grouped-inputs > input{
+  border: none;
+  height: 46px;
+  background: transparent;
+}
+
+.grouped-inputs > input:first-child{
+  border-bottom: 1px solid #bbb;
+  border-radius: 0px;
+}
+
+.lower-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.lower-inputs input {
+  margin-top: 15px;
+}
+
+.session-form p:last-child{
+  align-self: flex-start
+}
+
+.session-form input[type=submit], .session-form button{
+  width: 90%;
+  margin-top: 15px;
+  background: #044241;
+  border: none;
+  color: #fff; 
+}
+
+#demo-button{
+  height: 50px;
+  border-radius: 5px
+}
+
+.form-title{
+  font-weight: 600;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ebebeb;
+  width: 100%;
+  text-align: center;
+  position: sticky;
+  z-index: 2;
+}
+
+.opposite-modal-option {
+  margin-top: 15px;
+  margin-left: 5%;
+}
+
+.opposite-modal-option > a {
+  margin-left: 15px;
+  font-size: 16px;
+  text-decoration: underline;
+}
 
  #password-show {
-   position: absolute;
-   text-decoration: underline;
-   right: 0;
-   top: 25%;
- }
+  position: absolute;
+  text-decoration: underline;
+  font-size: 12px;
+  right: 30px;
+  bottom: 15px;
+}
 
- #opposite {
-    align-self: flex-start;
-  }
-
-  #opposite > a {
-    padding-left: 8px;
-    text-decoration: underline;
-    font-weight: 400;
-  }
-
-  #demo-button {
-    
-  }
-
+.form-wrapper {
+  overflow: auto;
+}

@@ -1,4 +1,4 @@
-html, body, form, label, input, section, h1, h2, h3, p, a {
+html, body, form, label, section, h1, h2, h3, p, a {
   border: 0;
   padding: 0;
   outline: 0;
@@ -28,4 +28,8 @@ img {
 
 button, a, input[type="submit"] {
   cursor: pointer;
+}
+
+input {
+  outline: none;
 }
