@@ -9,7 +9,6 @@ class Api::SessionsController < ApplicationController
       log_in!(@user)
       redirect_to api_user_url(@user)
     else
-      debugger
       render json: ['The email or password you entered is incorrect. Try again'],
         status: 422
     end

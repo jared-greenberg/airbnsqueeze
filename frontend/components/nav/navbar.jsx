@@ -12,26 +12,35 @@ class NavBar extends React.Component {
     super(props);
     this.state = {menu: false}
     this.toggleMenu = this.toggleMenu.bind(this);
-    this.dropDown = this.dropDown.bind(this);
   }
 
+
   toggleMenu(e) {
-    e.preventDefault();
-    this.setState({menu: !this.state.menu})
+    e.stopPropagation();
+    this.setState({menu: !this.state.menu}, () => {
+      if (this.state.menu) {
+        document.addEventListener("click", this.toggleMenu)
+      }
+      else {
+        document.removeEventListener("click", this.toggleMenu)
+      }
+    })
   }
 
   dropDown(){
     if (!this.state.menu) { return null }
-    else if (this.props.currentUser) { return <LoggedInDrop toggleMenu={this.toggleMenu} logOut={this.props.logOut}/>}
-    else { return <LoggedOutDrop toggleMenu={this.toggleMenu} openModal={this.props.openModal} />}
+    else if (this.props.currentUser) { return <LoggedInDrop logOut={this.props.logOut}/>}
+    else { return <LoggedOutDrop openModal={this.props.openModal} />}
   }
 
 
   render() {
     return (
       <nav>
-        <button onClick={this.toggleMenu}>Menu</button>
-        {this.dropDown()}
+        <section className="nav-drop-down" onClick={this.toggleMenu}>
+          <button onClick={this.toggleMenu}><i className="fas fa-bars"></i></button>
+          {this.dropDown()}
+        </section>
       </nav>
     )
   }
