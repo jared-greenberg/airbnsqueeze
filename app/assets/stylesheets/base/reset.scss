@@ -26,6 +26,8 @@ img {
   height: auto;
 }
 
+button:focus {outline:0;}
+
 button, a, input[type="submit"] {
   cursor: pointer;
 }

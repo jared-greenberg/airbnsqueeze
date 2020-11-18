@@ -16,6 +16,7 @@
 .drop-menu {
   position: absolute;
   right: 0;
+  top: 60px;
   border: 1px solid #ebebeb;;
   border-radius: 10px;
   padding: 8px 0;
@@ -27,7 +28,9 @@
     > a {
       display: block;
       width: 100%;
-      text-align: center;
+      color: #4f4f4f;
+      padding-left: 25px;
+      box-sizing: border-box;
     }
 
     :hover{

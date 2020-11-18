@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import ModalContainer from '../components/modal/modal_container';
 import NavBar from './nav/nav_bar';
-// import Splash from '.'
+import Splash from './splash/splash'
 
 const App = () => (
   <>
@@ -10,7 +10,7 @@ const App = () => (
     <NavBar />
 
     <Switch>
-      {/* <Route exact path="/" component={Splash} /> */}
+      <Route exact path="/" component={Splash} />
     </Switch>
   </>
 )
