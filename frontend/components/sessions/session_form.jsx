@@ -1,5 +1,4 @@
 import React from 'react';
-import { closeModal } from '../../actions/modal_actions';
 
 class SessionForm extends React.Component{
   constructor(props){
@@ -38,7 +37,7 @@ class SessionForm extends React.Component{
   }
 
   signUpExtras(){
-    if (this.props.formType === 'Log In') { return null }
+    if (this.props.formType === 'Log in') { return null }
     return (
       <>
         <div className="input-wrapper">
@@ -75,9 +74,9 @@ class SessionForm extends React.Component{
   }
 
   demoButton(){
-    if (this.props.formType === 'Sign Up') { return null }
+    if (this.props.formType === 'Sign up') { return null }
     return (
-      <button onClick={this.handleDemo}>Demo Login</button>
+      <button id="demo-button" onClick={this.handleDemo}>Demo Login</button>
     )
   }
 
