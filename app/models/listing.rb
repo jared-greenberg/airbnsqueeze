@@ -15,4 +15,7 @@ class Listing < ApplicationRecord
     through: :amenity_pairings,
     source: :amenity
 
+  has_many_attached :photo
+
 end
+
