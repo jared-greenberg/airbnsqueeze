@@ -7,3 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 demoUser = User.create({email: 'demo@gmail.com', first_name: 'Demo User', last_name: 'Smith', birthday: '1995-01-01', password: 'abcd1234'})
+
+sampleListing = Listing.create({owner_id: 1, address: "17 Cadmus Ct.", city: "West Orange, NJ", latitude:40.818495, longitude: -74.271448, 
+                title: "My Home", description: "Tiny house by a lake", capacity: 2, price: 50.00 })
