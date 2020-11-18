@@ -39,7 +39,10 @@ class DropDown extends React.Component {
     return (
       <section className="right-nav">
         <div className="nav-drop-down" onClick={this.toggleMenu}>
-          <button onClick={this.toggleMenu}><i className="fas fa-bars"></i></button>
+          <button id="menu-button" onClick={this.toggleMenu}>
+            <i className="fas fa-bars"></i>
+            <i className="fas fa-user-circle fa-2x"></i>
+          </button>
           {this.dropDown()}
         </div>
       </section>

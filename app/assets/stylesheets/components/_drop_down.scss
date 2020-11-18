@@ -2,6 +2,17 @@
   position: relative;
 }
 
+#menu-button {
+  border: 1px solid #ebebeb;
+  border-radius: 20px;
+  background: #fff;
+  width: 80px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 .drop-menu {
   position: absolute;
   right: 0;
