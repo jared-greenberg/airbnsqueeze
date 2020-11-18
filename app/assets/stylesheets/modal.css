@@ -43,6 +43,10 @@
   align-items: center;;
  }
 
+ .session-title > h2 {
+   font-weight: 600;
+ }
+
 
  .form-wrapper {
    overflow-y: scroll;
@@ -93,4 +97,14 @@
    right: 0;
    top: 25%;
  }
+
+ #opposite {
+    align-self: flex-start;
+  }
+
+  #opposite > a {
+    padding-left: 8px;
+    text-decoration: underline;
+    font-weight: 400;
+  }
 

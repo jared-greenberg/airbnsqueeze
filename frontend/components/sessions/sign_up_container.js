@@ -11,9 +11,9 @@ const mapStatetoProps = state => ({
     email: "",
     password: ""
   },
-  formType: "Sign Up",
+  formType: "Sign up",
   oppText: "Already have an account?",
-  oppType: "Log In"
+  oppType: "Log in"
 
 })
 

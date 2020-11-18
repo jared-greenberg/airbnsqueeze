@@ -26,7 +26,9 @@ class SessionForm extends React.Component{
       email: "demo@gmail.com",
       password: "abcd1234"
     }
-    this.props.action(demoUser);
+    this.props.action(demoUser).then(
+      this.props.closeModal()
+    );
   }
 
   changeField(field){
@@ -117,10 +119,10 @@ class SessionForm extends React.Component{
               </div>
               <input type="submit" value={this.props.formType}/>
               {this.demoButton()}
-            </form>
-            <p>{this.props.oppText} 
+              <p id="opposite">{this.props.oppText}
               <a href="#" onClick={this.props.switchModal}>{this.props.oppType}</a>
-            </p>
+               </p>
+            </form>
           </section>
         </>
     )
