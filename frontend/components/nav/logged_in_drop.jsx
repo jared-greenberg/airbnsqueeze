@@ -11,7 +11,7 @@ class LoggedInDrop extends React.Component{
     return (
       <ul className="drop-menu">
         <li>
-          <a href="#">Trips</a>
+          <a>Trips</a>
         </li>
         <li>
           <a onClick={this.signOutAction.bind(this)}>Log Out</a>

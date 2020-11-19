@@ -11,7 +11,6 @@ class ListingIndex extends React.Component {
    
 
     render() {
-      debugger
       const listingIndexItems = this.props.listings.map(listing => (
         <ListingIndexItem key={listing.id} listing={listing} history={this.props.history} />
       ))
