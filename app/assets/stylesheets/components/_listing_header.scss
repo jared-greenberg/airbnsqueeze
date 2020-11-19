@@ -1,0 +1,56 @@
+.img-container {
+  border-radius: 20px;
+  overflow: hidden;
+  height: 500px;
+  width: 100%;
+  margin: 20px auto 40px auto;
+}
+
+.big-image{
+  width: 50%;
+  height: 100%;
+  display: inline-block;
+  >img {
+    height: 100%;
+  }
+}
+
+.second-column, .third-column {
+  display: inline-block;
+  height: 100%;
+  width: 24%;
+  > img {
+    height: 50%;
+    object-fit: cover;
+    margin-bottom: 9px;
+    margin-left: 9px;
+  }
+}
+
+.second-column{
+  margin-right: 10px;
+}
+
+.listing-header {
+    padding-left: px;
+    width: 1100px;
+    margin: 0 auto;
+
+    h1 {
+      font-size: 36px;
+      font-weight: 600;
+    }
+
+    h2 {
+      font-size: 30px;
+      font-weight: 400;
+    }
+  
+}
+
+.sub-header {
+  span {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+}

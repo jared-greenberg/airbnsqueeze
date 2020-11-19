@@ -49,8 +49,10 @@ class LogInForm extends React.Component {
           {this.errors()}
         </ul>
         <section className="grouped-inputs">
-          <input type="text" value={this.props.email} onChange={this.changeField("email")} placeholder="Email" />
-            <input type={this.state.passwordType} value={this.props.password} onChange={this.changeField("password")} placeholder="Password"/>
+          <input type="text" value={this.props.email} 
+            onChange={this.changeField("email")} placeholder="Email" />
+          <input type={this.state.passwordType} value={this.props.password} 
+            onChange={this.changeField("password")} placeholder="Password"/>
           <a id="password-show" href="#" onClick={this.togglePassword}>Show</a>
         </section>
 

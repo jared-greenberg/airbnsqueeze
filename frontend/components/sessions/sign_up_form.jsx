@@ -49,14 +49,20 @@ class SignUpForm extends React.Component{
               {this.errors()}
             </ul>
           <section className="grouped-inputs">
-            <input type="text" value={this.props.first_name} onChange={this.changeField("first_name")} placeholder="First name"/>
-            <input type="text" value={this.props.last_name} onChange={this.changeField("last_name")} placeholder="Last name"/>
+            <input type="text" value={this.props.first_name} 
+              onChange={this.changeField("first_name")} placeholder="First name"/>
+            <input type="text" value={this.props.last_name} 
+              onChange={this.changeField("last_name")} placeholder="Last name"/>
           </section>
 
           <section className="lower-inputs">
-            <input type="date" value={this.props.birthday} onChange={this.changeField("birthday")} />
-            <input type="text" value={this.props.email} onChange={this.changeField("email")} placeholder="Email" />
-            <input type={this.state.passwordType} value={this.props.password} onChange={this.changeField("password")} placeholder="Password"/>
+            <input type="date" value={this.props.birthday} 
+              onChange={this.changeField("birthday")} />
+            <input type="text" value={this.props.email} 
+              onChange={this.changeField("email")} placeholder="Email" />
+            <input type={this.state.passwordType} value={this.props.password} 
+              onChange={this.changeField("password")} placeholder="Password"/>
+        
             <a id="password-show" href="#" onClick={this.togglePassword}>Show</a>
           </section>
 
