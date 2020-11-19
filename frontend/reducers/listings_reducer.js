@@ -1,10 +1,12 @@
-import {RECEIVE_LISTING} from '../actions/listing_actions';
+import {RECEIVE_LISTING, RECEIVE_LISTINGS} from '../actions/listing_actions';
 
 export default (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_LISTING:
       return {...state, ...action.payload.listing }
+    case RECEIVE_LISTINGS:
+      return {...action.listings, ...state}
     default:
       return state;
   }
