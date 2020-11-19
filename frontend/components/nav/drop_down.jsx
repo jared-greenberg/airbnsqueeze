@@ -57,9 +57,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   openModal: (modalType) => dispatch(openModal(modalType)),
-  logOut: () => {
-    debugger
-    dispatch(logOut())}
+  logOut: () => dispatch(logOut())
 })
 
 

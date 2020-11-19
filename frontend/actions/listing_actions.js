@@ -8,9 +8,9 @@ export const receiveListing = payload => ({
   payload
 })
 
-export const receiveListings = listings => ({
+export const receiveListings = payload => ({
   type: RECEIVE_LISTINGS,
-  listings
+  payload
 })
 
 export const fetchListing = listingId => dispatch => {
