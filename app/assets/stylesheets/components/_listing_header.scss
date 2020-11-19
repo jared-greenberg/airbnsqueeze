@@ -4,6 +4,13 @@
   height: 500px;
   width: 100%;
   margin: 20px auto 40px auto;
+
+
+
+  img:hover {
+    filter: brightness(80%);
+    transition: 1s;
+  }
 }
 
 .big-image{
@@ -12,6 +19,7 @@
   display: inline-block;
   >img {
     height: 100%;
+    object-fit: cover;
   }
 }
 

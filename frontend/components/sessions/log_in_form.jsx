@@ -53,7 +53,9 @@ class LogInForm extends React.Component {
             onChange={this.changeField("email")} placeholder="Email" />
           <input type={this.state.passwordType} value={this.props.password} 
             onChange={this.changeField("password")} placeholder="Password"/>
-          <a id="password-show" href="#" onClick={this.togglePassword}>Show</a>
+          <a id="password-show" href="#" onClick={this.togglePassword}>
+              {this.state.passwordType === "password" ? "Show" : "Hide"}
+          </a>
         </section>
 
 
@@ -63,7 +65,7 @@ class LogInForm extends React.Component {
           <p className="opposite-modal-option">{this.props.oppText}
           <a onClick={this.props.switchModal}>{this.props.oppType}</a>
         </p>
-
+ 
       </form>
       </>
     )

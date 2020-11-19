@@ -63,7 +63,9 @@ class SignUpForm extends React.Component{
             <input type={this.state.passwordType} value={this.props.password} 
               onChange={this.changeField("password")} placeholder="Password"/>
         
-            <a id="password-show" href="#" onClick={this.togglePassword}>Show</a>
+            <a id="password-show" href="#" onClick={this.togglePassword}>
+              {this.state.passwordType === "password" ? "Show" : "Hide"}
+            </a>
           </section>
 
           

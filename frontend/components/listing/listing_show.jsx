@@ -27,7 +27,7 @@ class ListingShow extends React.Component {
         </div>
         <section className="img-container">
           <div className="big-image">
-            <img src="https://www.homestolove.co.nz/wp-content/uploads/2019/01/TinyHomeWaiheke_Next_Jan2019_13.jpg" alt=""/>
+              <img src="https://cdn.vox-cdn.com/thumbor/ScgaAKfXjX1yS8VDz8otR1knML4=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/64879883/acastro_170731_1777_0006_v1.0.jpg"/>
           </div>
           <div className="second-column">
               <img src="https://cdn.gobankingrates.com/wp-content/uploads/2019/05/The-Clover-tiny-home-by-Modern-Tiny-Living-03.jpg" alt=""/>

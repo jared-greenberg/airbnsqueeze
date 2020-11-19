@@ -1,10 +1,4 @@
-.splash-nav{
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 80px;
-  color: #fff;
-}
+
 
 #splash-img{
   position: absolute;
@@ -15,10 +9,16 @@
   object-fit: cover;
 }
 
-#logo {
-  font-weight: 700;
-  font-size: 24px;
+.splash-nav{
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px; 
+  color: #fff;
+
 }
+
 
 .center-nav {
   width: 20%;
