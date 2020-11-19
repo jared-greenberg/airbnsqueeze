@@ -11,6 +11,10 @@ export default () => {
           <li><a>Linked In</a></li>
         </ul>
       </section>
+      <button id="search-button">
+        Start your search
+        <div id="search-badge"><i class="fas fa-search"></i></div>
+      </button>
       <DropDown />
     </nav>
   )
