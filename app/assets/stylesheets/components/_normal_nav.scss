@@ -1,5 +1,6 @@
 #search-button {
   border-radius: 25px;
+  border: 1px solid #ebebeb;
   font-size: 18px;
   font-weight: 400;
   width: 325px;
@@ -8,9 +9,11 @@
   justify-content: space-between;
   align-items: center;
   padding-left: 15px;
+  background: #fff;
+
 
   :hover {
-    
+
   }
 }
 
@@ -19,7 +22,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  color: white;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
