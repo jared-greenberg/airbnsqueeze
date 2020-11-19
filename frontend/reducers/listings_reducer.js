@@ -4,8 +4,7 @@ export default (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_LISTING:
-      debugger
-      return {...state, [action.listing.id]: action.listing}
+      return {...state, ...action.payload.listing }
     default:
       return state;
   }

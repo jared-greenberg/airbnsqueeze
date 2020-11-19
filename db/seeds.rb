@@ -10,3 +10,15 @@ demoUser = User.create({email: 'demo@gmail.com', first_name: 'Demo User', last_n
 
 sampleListing = Listing.create({owner_id: 1, address: "17 Cadmus Ct.", city: "West Orange, NJ", latitude:40.818495, longitude: -74.271448, 
                 title: "My Home", description: "Tiny house by a lake", capacity: 2, price: 50.00 })
+
+
+# Amenity Icons
+ac = Amenity.create({name: "Air conditioning", icon_path: "fas fa-snowflake"})
+heat = Amenity.create({name: "Heating", icon_path: "fas fa-temperature-high"})
+wifi = Amenity.create({name: "Wifi", icon_path: "fas fa-wifi"})
+toilet = Amenity.create({name: "Composting toilet", icon_path: "fas fa-toilet"})
+solar = Amenity.create({name: "Solar power", icon_path: "fas fa-sun"})
+shower = Amenity.create({name: "Outdoor shower", icon_path: "fas fa-shower"})
+kitchen = Amenity.create({name: "Small kitchen", icon_path: "fas fa-utensils"})
+pets = Amenity.create({name: "Pets allowed", icon_path: "fas fa-paw"})
+

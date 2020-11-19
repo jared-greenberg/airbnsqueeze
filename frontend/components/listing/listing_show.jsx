@@ -1,9 +1,9 @@
 import React from 'react';
+import Amenities from './amenities';
 
 class ListingShow extends React.Component {
 
   componentDidMount() {
-    debugger
     this.props.fetchListing(this.props.match.params.listingId);
   }
 
@@ -40,7 +40,7 @@ class ListingShow extends React.Component {
         <h2>Tiny House hosted by (Host name)</h2>
         <h3>{listing.capacity} guests</h3>
       </section>
-      <Amenities />
+      <Amenities amenities={this.props.amenities} listing={listing}/>
       {/* <Reviews /> */}
     </>
     )
@@ -48,4 +48,4 @@ class ListingShow extends React.Component {
   }
 }
 
-export default ListingHeader;
+export default ListingShow;

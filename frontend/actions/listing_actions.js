@@ -2,9 +2,9 @@ import * as ListingsApiUtils from '../util/listings_api_util';
 
 export const RECEIVE_LISTING = 'RECEIVE_LISTING';
 
-export const receiveListing = listing => ({
+export const receiveListing = payload => ({
   type: RECEIVE_LISTING,
-  listing
+  payload
 })
 
 export const fetchListing = listingId => dispatch => {

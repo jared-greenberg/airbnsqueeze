@@ -13,7 +13,7 @@ export default () => {
       </section>
       <button id="search-button">
         Start your search
-        <div id="search-badge"><i class="fas fa-search"></i></div>
+        <div id="search-badge"><i className="fas fa-search"></i></div>
       </button>
       <DropDown />
     </nav>
