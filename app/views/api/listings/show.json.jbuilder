@@ -5,13 +5,8 @@ json.listing do
     json.amenities @listing.amenities.map(&:id)
   end
 end
-json.amenities do 
-  @listing.amenities.each do |amenity| 
-    json.set! amenity.id do 
-      json.extract! amenity, :id, :name, :icon_path
-    end
-  end
-end
+
+json.partial! '/api/listings/amenities', amenities: @listing.amenities
 
 json.photos do
   @listing.photos.map {|photo| url_for(photo)}

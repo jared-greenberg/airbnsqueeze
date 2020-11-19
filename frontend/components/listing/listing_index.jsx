@@ -11,9 +11,10 @@ class ListingIndex extends React.Component {
    
 
     render() {
-      const listingIndexItems = this.props.listings.map(listing => (
-        <ListingIndexItem key={listing.id} listing={listing} history={this.props.history} />
-      ))
+      const listingIndexItems = this.props.listings.map(listing => {
+        return <ListingIndexItem key={listing.id} listing={listing} 
+                  history={this.props.history} amenities={this.props.amenities} />
+    })
 
       return (
        <main className="listing-index-main">

@@ -6,10 +6,19 @@ class ListingIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.amenityList = this.amenityList.bind(this);
   }
 
   handleClick(){
     this.props.history.push(`/listings/${this.props.listing.id}`)
+  }
+
+  amenityList(){
+    const {listing, amenities} = this.props;
+    debugger
+    return amenities.filter(a => listing.amenities.slice(0,3).includes(a.id))
+                    .map(a => a.name)
+                    .join(' \u00B7 ');
   }
 
 
@@ -31,7 +40,7 @@ class ListingIndexItem extends React.Component {
       
           <section className="index-text-middle">
             <p>{listing.capacity} guests</p>
-            <p>Amenities List</p>
+            <p>{this.amenityList()}</p>
           </section>
       
           <section className="index-text-bottom">

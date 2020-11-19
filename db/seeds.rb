@@ -27,4 +27,3 @@ solar = Amenity.create({name: "Solar power", icon_path: "fas fa-sun"})
 shower = Amenity.create({name: "Outdoor shower", icon_path: "fas fa-shower"})
 kitchen = Amenity.create({name: "Small kitchen", icon_path: "fas fa-utensils"})
 pets = Amenity.create({name: "Pets allowed", icon_path: "fas fa-paw"})
-
