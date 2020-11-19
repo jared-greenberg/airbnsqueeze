@@ -22,6 +22,7 @@ class ListingShow extends React.Component {
         <h1>{listing.title}</h1>
         <div className="sub-header">
           <span>(Rating)</span>
+          <span>{'\u00B7'}</span>
           <span>{listing.city}</span>
         </div>
         <section className="img-container">
@@ -39,8 +40,8 @@ class ListingShow extends React.Component {
         </section>
         <h2>Tiny House hosted by (Host name)</h2>
         <h3>{listing.capacity} guests</h3>
+        <Amenities amenities={this.props.amenities} listing={listing}/>
       </section>
-      <Amenities amenities={this.props.amenities} listing={listing}/>
       {/* <Reviews /> */}
     </>
     )

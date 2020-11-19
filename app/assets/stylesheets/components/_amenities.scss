@@ -1,0 +1,32 @@
+.amenities {
+  margin-top: 25px;
+  width: 60%;
+  height: 350px;
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+
+  h2 {
+    margin-top: 25px;
+  };
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 250px;
+    margin-top: 20px;
+  }
+}
+
+.amenity-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  margin-bottom: 25px;
+  font-weight: 100;
+  font-size: 20px;
+  > i {
+    margin-right: 15px;
+  }
+}
