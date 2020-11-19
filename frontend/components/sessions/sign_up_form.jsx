@@ -70,7 +70,7 @@ class SignUpForm extends React.Component{
           <input type="submit" value={this.props.formType}/>
           
           <p className="opposite-modal-option">{this.props.oppText}  
-            <a href="#" onClick={this.props.switchModal}>{this.props.oppType}</a>
+            <a onClick={this.props.switchModal}>{this.props.oppType}</a>
           </p>
 
         </form>

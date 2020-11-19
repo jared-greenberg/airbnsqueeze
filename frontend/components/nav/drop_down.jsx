@@ -3,7 +3,7 @@ import LoggedInDrop from './logged_in_drop';
 import LoggedOutDrop from './logged_out_drop';
 import { connect } from 'react-redux';
 import {openModal} from '../../actions/modal_actions';
-import {logOut} from '../../actions/session_actions';
+import { logOut } from '../../actions/session_actions';
 
 
 class DropDown extends React.Component {
@@ -16,7 +16,7 @@ class DropDown extends React.Component {
 
 
   toggleMenu(e) {
-    console.log(e.currentTarget);
+    e.preventDefault();
     e.stopPropagation();
     this.setState({menu: !this.state.menu}, () => {
       if (this.state.menu) {
@@ -57,7 +57,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   openModal: (modalType) => dispatch(openModal(modalType)),
-  logOut: () => dispatch(logOut())
+  logOut: () => {
+    debugger
+    dispatch(logOut())}
 })
 
 

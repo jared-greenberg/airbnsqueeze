@@ -61,7 +61,7 @@ class LogInForm extends React.Component {
         <button id="demo-button" onClick={this.handleSubmit}>Demo Login</button>
 
           <p className="opposite-modal-option">{this.props.oppText}
-          <a href="#" onClick={this.props.switchModal}>{this.props.oppType}</a>
+          <a onClick={this.props.switchModal}>{this.props.oppType}</a>
         </p>
 
       </form>
