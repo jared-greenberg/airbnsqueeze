@@ -1,5 +1,6 @@
 import React from 'react';
 import Amenities from './amenities';
+import ListingShowMap from '../map/listing_show_map';
 
 class ListingShow extends React.Component {
 
@@ -41,6 +42,7 @@ class ListingShow extends React.Component {
         <h2>Tiny House hosted by (Host name)</h2>
         <h3>{listing.capacity} guests</h3>
         <Amenities amenities={this.props.amenities} listing={listing}/>
+        <ListingShowMap latitude={listing.latitude} longitude={listing.longitude}/>
       </section>
       {/* <Reviews /> */}
     </>
