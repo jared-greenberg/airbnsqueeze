@@ -17,7 +17,9 @@ class ListingShow extends React.Component {
 
   render() {
     const {listing} = this.props;
+
     if (!listing) return null;
+    
     return (
     <>
       <NavBar />
@@ -41,7 +43,9 @@ class ListingShow extends React.Component {
               <img className="other-images" src="https://i.pinimg.com/564x/3e/ac/17/3eac17c5212441466eb063471ba27e59.jpg" alt=""/>
             </div>
         </section>
-        <h2>Tiny House hosted by {this.props.owner.first_name}</h2>
+        { this.props.owner ? (
+        <h2>Tiny House hosted by {this.props.owner.first_name}</h2>) : null
+        }
         <h3>{listing.capacity} guests</h3>
         <Amenities amenities={this.props.amenities} listing={listing}/>
         <ListingShowMap latitude={listing.latitude} longitude={listing.longitude}/>

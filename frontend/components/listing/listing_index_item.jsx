@@ -15,7 +15,6 @@ class ListingIndexItem extends React.Component {
 
   amenityList(){
     const {listing, amenities} = this.props;
-    debugger
     return amenities.filter(a => listing.amenities.slice(0,3).includes(a.id))
                     .map(a => a.name)
                     .join(' \u00B7 ');

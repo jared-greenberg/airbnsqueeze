@@ -5,12 +5,12 @@ import {amenitySelector} from '../../util/selectors';
 
 
 const mapStatetoProps = (state, ownProps) => {
-  debugger
   const listing = state.entities.listings[ownProps.match.params.listingId]
+  const owner = !!listing ? state.entities.users[listing.ownerId] : {}
   return {
     listing,
     amenities: amenitySelector(state, listing),
-    owner: listing ? state.entities.users[listing.ownerId] : {}
+    owner
   }
 }
 
