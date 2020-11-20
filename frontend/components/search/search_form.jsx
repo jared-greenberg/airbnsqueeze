@@ -19,7 +19,7 @@ class SearchForm extends React.Component {
 
   render () {
     return (
-    <form onSubmit={this.handleSubmit}>
+    <form id="search-form" onSubmit={this.handleSubmit}>
       <div className="location-field">
         <label htmlFor="location">Location</label>
         <input type="text" value={this.state.location}
@@ -27,6 +27,8 @@ class SearchForm extends React.Component {
         onChange = {this.updateField("location")}/>
       </div>
       <div className="calendars">
+          <label id="checkin">Check in</label>  
+          <label id="checkout">Check out</label>
           <DateRangePicker
             startDate={this.state.startDate} // momentPropTypes.momentObj or null,
             startDateId="search_start" // PropTypes.string.isRequired,
@@ -40,14 +42,16 @@ class SearchForm extends React.Component {
             startDateAriaLabel="Check In"
             endDateAriaLabel="Check Out"
             displayFormat="MMM D"
+            noBorder={true}
           />
       </div>
-      <div className="guests">
-        <button id="search-button">
-          Search
-        <div id="search-badge"><i className="fas fa-search"></i></div>
-        </button>
-      </div>
+        <div className="guests">
+            <p id="guest-label">Guests</p>
+            <h3>Add guests</h3>
+        </div>
+        <div id="search-bar-button"><i className="fas fa-search"></i></div>
+        
+      
     </form>
     )
   }

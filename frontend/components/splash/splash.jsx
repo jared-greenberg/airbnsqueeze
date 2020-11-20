@@ -1,6 +1,7 @@
 import React from 'react';
 import SplashNavBar from '../nav/splash_nav_bar';
-import NavBar from '../nav/nav_bar';
+import SearchFormContainer from '../search/search_form_container';
+
 import { Link } from 'react-router-dom';
 
 export default () => {
@@ -8,6 +9,7 @@ export default () => {
     <>
       <SplashNavBar />
       <img id="splash-img" src={window.splashImg}/>
+      <SearchFormContainer />
       <section className="slogan">
         <h1>Go Tiny</h1>
         <div className="link-wrapper">
