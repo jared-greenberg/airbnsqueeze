@@ -8,7 +8,7 @@ export default ({amenities}) => {
       <ul>  
         {amenities.map (amenity => (
           <li className="amenity-item" key={amenity.id}>
-            <i className={amenity.icon_path}></i>
+            <i className={amenity.iconPath}></i>
             <p>{amenity.name}</p>
           </li>
         ))}
