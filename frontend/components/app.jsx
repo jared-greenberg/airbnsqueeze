@@ -10,7 +10,7 @@ const App = (props) => (
   <>
       <ModalContainer />
   
-      <Route path="/:a(.+)" component={NavBar}/>
+      {/* <Route path="/:a(.+)" component={NavBar}/> */}
       
       <Switch>
         <Route exact path="/" component={Splash} />

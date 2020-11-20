@@ -1,6 +1,7 @@
 import React from 'react';
 import Amenities from './amenities';
 import ListingShowMap from '../map/listing_show_map';
+import NavBar from '../nav/nav_bar'
 
 class ListingShow extends React.Component {
 
@@ -19,6 +20,7 @@ class ListingShow extends React.Component {
     if (!listing) return null;
     return (
     <>
+      <NavBar />
       <section className="listing-header">
         <h1>{listing.title}</h1>
         <div className="sub-header">
