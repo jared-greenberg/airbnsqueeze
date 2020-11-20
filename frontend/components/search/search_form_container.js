@@ -4,12 +4,13 @@ import { fetchListings } from '../../actions/listing_actions';
 import SearchForm from './search_form';
 
 
-// const mapStatetoProps = state => ({
-//   state: state.ui.query
-// })
+const mapStatetoProps = state => ({
+  // query: state.ui.query
+  query: {location: ""}
+})
 
 const mapDispatchtoProps = dispatch => ({
   fetchListings: () => dispatch(fetchListings())
 })
 
-export default withRouter(connect(null, mapDispatchtoProps)(SearchForm))
+export default withRouter(connect(mapStatetoProps, mapDispatchtoProps)(SearchForm))
