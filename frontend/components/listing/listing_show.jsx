@@ -1,6 +1,6 @@
 import React from 'react';
 import Amenities from './amenities';
-import ListingShowMap from '../map/listing_show_map';
+import MapDisplay from '../map/map_display';
 import NavBar from '../nav/nav_bar'
 
 class ListingShow extends React.Component {
@@ -48,7 +48,8 @@ class ListingShow extends React.Component {
         }
         <h3>{listing.capacity} guests</h3>
         <Amenities amenities={this.props.amenities} listing={listing}/>
-        <ListingShowMap latitude={listing.latitude} longitude={listing.longitude}/>
+        <MapDisplay latitude={listing.latitude} longitude={listing.longitude}
+        type= {this.props.type}/>
       </section>
       {/* <Reviews /> */}
     </>

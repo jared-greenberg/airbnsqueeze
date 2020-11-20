@@ -1,14 +1,14 @@
 import React from 'react';
 
 
-class ListingShowMap extends React.Component {
-
+class MapDisplay extends React.Component {
 
 
   componentDidMount() {
+    debugger
     const mapOptions = {
       center: { lat: this.props.latitude, lng: this.props.longitude },
-      zoom: 15
+      zoom: 14
     };
     const map = this.refs.map;
     this.map = new google.maps.Map(map, mapOptions);
@@ -21,14 +21,14 @@ class ListingShowMap extends React.Component {
 
   render() {
       return (
-        <div>
-          <h2>Location</h2>
-          <div id="map-container" ref="map">
-            Map
-        </div>
-        </div>
+        
+          <div id={`${this.props.type}-map-wrapper`}>
+            <div id="map-container" ref="map">
+              Map
+            </div>
+          </div>
       )
     }
 }
 
-export default ListingShowMap;
+export default MapDisplay;

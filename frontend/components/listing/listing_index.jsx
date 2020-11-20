@@ -1,6 +1,7 @@
 import React from 'react';
 import ListingIndexItem from './listing_index_item';
 import NavBar from '../nav/nav_bar'
+import MapDisplay from '../map/map_display';
 
 class ListingIndex extends React.Component {
 
@@ -28,9 +29,11 @@ class ListingIndex extends React.Component {
               </ul>
             </section>
             <section className="index-map">
-
+              <MapDisplay latitude={40.837956} longitude={-74.437431}
+                type={this.props.type} />
             </section>
         </main>
+          
       </>
       )
       

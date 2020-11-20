@@ -1,4 +1,5 @@
 import React from 'react';
+import { DateRangePicker, DateRangePickerComponent } from '@syncfusion/ej2-react-calendars';
 
 class SearchForm extends React.Component {
 
@@ -26,11 +27,11 @@ class SearchForm extends React.Component {
         onChange = {this.updateField("location")}/>
       </div>
       <div className="calendars">
-
+        <DateRangePickerComponent id="daterangepicker"placeholder="Add dates" />
       </div>
       <div className="guests">
         <button id="search-button">
-          Start your search
+          Search
         <div id="search-badge"><i className="fas fa-search"></i></div>
         </button>
       </div>

@@ -10,7 +10,8 @@ const mapStatetoProps = (state, ownProps) => {
   return {
     listing,
     amenities: amenitySelector(state, listing),
-    owner
+    owner,
+    type: "show"
   }
 }
 
