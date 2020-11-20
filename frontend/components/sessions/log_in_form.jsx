@@ -53,7 +53,7 @@ class LogInForm extends React.Component {
             onChange={this.changeField("email")} placeholder="Email" />
           <input type={this.state.passwordType} value={this.props.password} 
             onChange={this.changeField("password")} placeholder="Password"/>
-          <a id="password-show" href="#" onClick={this.togglePassword}>
+          <a id="password-show" onClick={this.togglePassword}>
               {this.state.passwordType === "password" ? "Show" : "Hide"}
           </a>
         </section>

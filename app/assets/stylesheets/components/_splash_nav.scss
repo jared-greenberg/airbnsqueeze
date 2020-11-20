@@ -58,3 +58,40 @@
     border-bottom: 2px solid #fff; 
 }
 
+.slogan > h1{ 
+    font-weight: 700;
+    color: #fff;
+    font-size: 115px;
+    padding: 150px 25px 0 100px;
+    width: 120px;
+    line-height: 1em;
+}
+
+
+.link-wrapper{
+  width: 180px;
+  height: 40px;
+  margin-left: 115px;
+  margin-top: 25px;
+}
+
+.splash-index-link{
+  background: #fff;
+  padding-top: 5px;
+  text-align: center;
+  border-radius: 10px;
+  color: black;
+  font-weight: 400px;
+  display: block;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+
+.splash-index-link:hover{
+   background: #ebebeb;
+}
+  
+
+
