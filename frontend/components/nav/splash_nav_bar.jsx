@@ -7,8 +7,8 @@ export default () => {
       <h1 id="logo">airbnsqueeze</h1>
       <section className="center-nav">
         <ul>
-          <li><a>Git Hub</a></li>
-          <li><a>Linked In</a></li>
+          <li><a id="center-link-1">Git Hub</a></li>
+          <li><a id="center-link-2">Linked In</a></li>
         </ul>
       </section>
 

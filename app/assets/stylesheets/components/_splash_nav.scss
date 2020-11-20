@@ -31,8 +31,30 @@
       display: block;
       height: 100%;
       font-weight: 400;
+      position: relative;
     }
   }
 }
 
+
+
+#center-link-1:hover:after {
+    content: ""; 
+    display: block; 
+    position: absolute;
+    left: 15px;
+    width: 15px;
+    padding-top: 12px;
+    border-bottom: 2px solid #fff; 
+}
+
+#center-link-2:hover:after {
+    content: ""; 
+    display: block; 
+    position: absolute;
+    left: 25px;
+    width: 15px;
+    padding-top: 12px;
+    border-bottom: 2px solid #fff; 
+}
 
