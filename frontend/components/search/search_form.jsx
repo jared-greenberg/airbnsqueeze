@@ -1,4 +1,5 @@
 import React from 'react';
+import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
 
 class SearchForm extends React.Component {
