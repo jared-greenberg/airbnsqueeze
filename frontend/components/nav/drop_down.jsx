@@ -2,15 +2,15 @@ import React from 'react';
 import LoggedInDrop from './logged_in_drop';
 import LoggedOutDrop from './logged_out_drop';
 import { connect } from 'react-redux';
-import {openModal} from '../../actions/modal_actions';
+import { openModal } from '../../actions/modal_actions';
 import { logOut } from '../../actions/session_actions';
 
 
 class DropDown extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {menu: false}
+    this.state = { menu: false }
     this.toggleMenu = this.toggleMenu.bind(this);
   }
 
@@ -18,7 +18,7 @@ class DropDown extends React.Component {
   toggleMenu(e) {
     e.preventDefault();
     e.stopPropagation();
-    this.setState({menu: !this.state.menu}, () => {
+    this.setState({ menu: !this.state.menu }, () => {
       if (this.state.menu) {
         document.addEventListener("click", this.toggleMenu)
       }
@@ -28,10 +28,10 @@ class DropDown extends React.Component {
     })
   }
 
-  dropDown(){
+  dropDown() {
     if (!this.state.menu) { return null }
-    else if (this.props.currentUser) { return <LoggedInDrop logOut={this.props.logOut}/>}
-    else { return <LoggedOutDrop openModal={this.props.openModal} />}
+    else if (this.props.currentUser) { return <LoggedInDrop logOut={this.props.logOut} /> }
+    else { return <LoggedOutDrop openModal={this.props.openModal} /> }
   }
 
 
@@ -48,7 +48,7 @@ class DropDown extends React.Component {
       </section>
     )
   }
-    
+
 }
 
 const mapStateToProps = state => ({
@@ -62,5 +62,4 @@ const mapDispatchToProps = dispatch => ({
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(DropDown)
-
 

@@ -34,7 +34,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 12;
 }
 
 
@@ -45,7 +45,9 @@
   align-items: center;
   height: 100px; 
   background: #fff;
-  box-shadow: -1px 10px 15px -8px rgba(235,235,235,0.76);
+  position: relative;
+  box-shadow: 1px 3px 12px 7px rgba(190,190,190,0.3);
+  z-index: 12;
 }
 
 #logo {
@@ -53,3 +55,4 @@
   font-size: 24px;
   margin-left: 20px;
 }
+

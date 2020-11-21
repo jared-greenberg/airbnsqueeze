@@ -32,7 +32,6 @@ class ListingShow extends React.Component {
     
     return (
     <>
-      <NavBar />
       <section className="listing-header">
         <h1>{listing.title}</h1>
         <div className="sub-header">

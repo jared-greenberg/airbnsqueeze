@@ -20,7 +20,6 @@ class ListingIndex extends React.Component {
 
       return (
       <>
-        <NavBar fixed={true} />
         <main className="listing-index-main">
             <section className="listing-index-container">
               <h1>{this.props.listings.length}  Tiny Home Stays </h1>

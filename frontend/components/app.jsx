@@ -9,15 +9,15 @@ import SearchFormContainer from './search/search_form_container';
 
 const App = (props) => (
   <>
-      <ModalContainer />
-  
-      
+     <ModalContainer />
+        <Route path="/:a(.+)" component={NavBar} />
       <Switch>
         <Route exact path="/" component={Splash} />
         <Route path="/listings/:listingId" component={ListingShowContainer}/>
         <Route path="/listings" component={ListingIndexContainer} />
         <Route path="/search" component={SearchFormContainer} />
       </Switch>
+
   </>
 )
 
