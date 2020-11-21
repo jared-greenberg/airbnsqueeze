@@ -1,21 +1,29 @@
 import React from 'react';
+import MarkerManager from './marker_manager';
 
 
 class MapDisplay extends React.Component {
 
 
   componentDidMount() {
+    debugger
     const mapOptions = {
-      center: { lat: this.props.latitude, lng: this.props.longitude },
-      zoom: 14
+      center: this.props.center,
+      zoom: 11
     };
     const map = this.refs.map;
     this.map = new google.maps.Map(map, mapOptions);
-    const marker = new google.maps.Marker({
-      position: mapOptions.center,
-      map: this.map
-    })
+    this.markerManager = new MarkerManager(this.map)
+    this.markerManager.updateMarkers(this.props.listings);
+    // this.marker = new google.maps.Marker({
+    //   position: mapOptions.center,
+    //   map: this.map
+    // })
+  }
 
+  componentDidUpdate(){
+    this.map.setCenter(this.props.center);
+    this.markerManager.updateMarkers(this.props.listings)
   }
 
   render() {

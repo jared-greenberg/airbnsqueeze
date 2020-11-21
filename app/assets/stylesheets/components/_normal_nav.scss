@@ -11,8 +11,8 @@
   align-items: center;
   padding-left: 15px;
   background: #fff;
-
 }
+
 
 #search-button:hover{
   box-shadow: 1px 3px 12px 7px rgba(190,190,190,0.3);
@@ -30,13 +30,13 @@
   justify-content: center;
 }
 
-.navWrapper {
+.fixed-nav {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 10;
-  box-sizing: border-box;
 }
+
 
 .normal-nav{
   padding: 0 20px;

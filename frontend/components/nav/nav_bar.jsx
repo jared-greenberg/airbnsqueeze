@@ -6,8 +6,8 @@ import SearchFormContainer from '../search/search_form_container';
 export default (props) => {
   const fixed = props.fixed ? "fixed-nav" : "";
   return (
-      <header className="navWrapper">
-        <nav className={`${fixed} normal-nav`}>
+      <header className={`${fixed}`}>
+        <nav className="normal-nav">
           <Link to="/"><h1 id="logo">airbnsqueeze</h1></Link>
           <button id="search-button">
             Start your search
@@ -15,7 +15,7 @@ export default (props) => {
           </button>
           <DropDown />
         </nav>
-          <SearchFormContainer />
+          {/* <SearchFormContainer /> */}
       </header>
   )
 }

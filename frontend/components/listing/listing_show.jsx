@@ -5,6 +5,11 @@ import NavBar from '../nav/nav_bar'
 
 class ListingShow extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.center = this.center.bind(this);
+  }
+
   componentDidMount() {
     this.props.fetchListing(this.props.match.params.listingId);
   }
@@ -13,6 +18,11 @@ class ListingShow extends React.Component {
     if (prevProps.match.params.listingId !== this.props.match.params.listingId) {
       this.props.fetchListing(this.props.match.params.listingId);
     }
+  }
+
+  center() {
+    const {listing} = this.props;
+    return {lat: listing.latitude, lng: listing.longitude}
   }
 
   render() {
@@ -48,8 +58,7 @@ class ListingShow extends React.Component {
         }
         <h3>{listing.capacity} guests</h3>
         <Amenities amenities={this.props.amenities} listing={listing}/>
-        <MapDisplay latitude={listing.latitude} longitude={listing.longitude}
-        type= {this.props.type}/>
+        <MapDisplay center={this.center()} listings={[listing]} type= {this.props.type}/>
       </section>
       {/* <Reviews /> */}
     </>
