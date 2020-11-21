@@ -6,11 +6,12 @@ class MapDisplay extends React.Component {
 
 
   componentDidMount() {
-    debugger
+    
     const mapOptions = {
       center: this.props.center,
-      zoom: 11
+      zoom: this.props.zoom || 12
     };
+
     const map = this.refs.map;
     this.map = new google.maps.Map(map, mapOptions);
     this.markerManager = new MarkerManager(this.map)

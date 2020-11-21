@@ -58,7 +58,8 @@ class ListingShow extends React.Component {
         }
         <h3>{listing.capacity} guests</h3>
         <Amenities amenities={this.props.amenities} listing={listing}/>
-        <MapDisplay center={this.center()} listings={[listing]} type= {this.props.type}/>
+        <MapDisplay center={this.center()} zoom={15}
+          listings={[listing]} type= {this.props.type}/>
       </section>
       {/* <Reviews /> */}
     </>

@@ -29,7 +29,8 @@ class ListingIndex extends React.Component {
               </ul>
             </section>
             <section className="index-map">
-              <MapDisplay latitude={40.837956} longitude={-74.437431}
+              <MapDisplay center={{ lat: 40.790379, lng: -74.256916}}
+                listings = {this.props.listings}
                 type={this.props.type} />
             </section>
         </main>

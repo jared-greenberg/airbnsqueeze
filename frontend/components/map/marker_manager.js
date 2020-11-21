@@ -34,7 +34,7 @@ class MarkerManager {
       position: coords,
       map: this.map
     })
-    this.markers.[listing.id] = marker;
+    this.markers[listing.id] = marker;
   }
 
 }
