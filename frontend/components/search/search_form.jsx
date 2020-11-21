@@ -5,8 +5,9 @@ class SearchForm extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = this.props.query;    
+    this.state = {...this.props.query}
     this.updateField = this.updateField.bind(this);
+    this.changeGuests = this.changeGuests.bind(this);
   }
 
   updateField(field){
@@ -15,9 +16,20 @@ class SearchForm extends React.Component {
     }
   }
 
+  changeGuests(val){
+    if (this.state.guests === 3 && val === 1) {
+      alert("These homes are too tiny. You might want to try the real Airbnb!")
+      return
+    }
+    this.setState({guests: this.state.guests + val})
+  }
+
 
 
   render () {
+
+    const {guests} = this.props.query;
+
     return (
     <div class="search-form-wrapper">
       <form id="search-form" onSubmit={this.handleSubmit}>
@@ -47,10 +59,18 @@ class SearchForm extends React.Component {
         
           <div className="guests">
               <label id="guests-label">Guests</label>
-              <h3>Add guests</h3>
+              <h3>{guests > 0 ? `${guests} guests` : "Add guests"}</h3>
           </div>
       </form>
       <div id="search-bar-button"><i className="fas fa-search"></i></div>
+      <div className = "guest-drop">
+        <h2>Guests</h2>
+        <div className="changeNum">
+          <button onClick={this.changeGuests(-1)}>-</button>
+          <h3>{guests}</h3>
+          <button onClick={this.changeGuests(1)}>+</button>
+        </div>
+      </div>
     </div>
     )
   }

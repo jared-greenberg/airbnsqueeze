@@ -6,7 +6,8 @@ import SearchForm from './search_form';
 
 const mapStatetoProps = state => ({
   // query: state.ui.query
-  query: {location: ""}
+  query: {location: "",
+          numGuests: 0}
 })
 
 const mapDispatchtoProps = dispatch => ({
