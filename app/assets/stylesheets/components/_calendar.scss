@@ -1,3 +1,14 @@
+// center's calendar
+.DayPicker > div > div {
+  position: absolute;
+  left: -220px;
+  top: 20px;
+}
 
+.DateRangePickerInput_arrow {
+  content: ""; 
+}
 
-
+.DateInput_fangShape, .DateInput_fangStroke{
+  display: none;
+}
