@@ -6,7 +6,6 @@ class SearchForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {...this.props.query, guestDropOn: false}
-    debugger
     this.updateField = this.updateField.bind(this);
     this.changeGuests = this.changeGuests.bind(this);
     this.toggleDrop = this.toggleDrop.bind(this);
@@ -19,7 +18,6 @@ class SearchForm extends React.Component {
   }
 
   changeGuests(val){
-    debugger
     if (this.state.numGuests === 4 && val === 1) {
       alert("These homes are too tiny. You might want to try the real Airbnb!")
       return
@@ -51,7 +49,7 @@ class SearchForm extends React.Component {
 
     const {numGuests, guestDropOn} = this.state;
     const guestString = numGuests === 1 ? "guest" : "guests"
-    debugger
+   
     return (
     <div className="search-form-wrapper">
       <form id="search-form" onSubmit={this.handleSubmit}>

@@ -5,7 +5,6 @@ class MapDisplay extends React.Component {
 
 
   componentDidMount() {
-    debugger
     const mapOptions = {
       center: { lat: this.props.latitude, lng: this.props.longitude },
       zoom: 14
