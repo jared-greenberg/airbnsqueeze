@@ -4,11 +4,11 @@ import { fetchListings } from '../../actions/listing_actions';
 import SearchForm from './search_form';
 
 
-const mapStatetoProps = state => ({
-  // query: state.ui.query
+const mapStatetoProps = state => {
+  return {
   query: {location: "",
           numGuests: 0}
-})
+}}
 
 const mapDispatchtoProps = dispatch => ({
   fetchListings: () => dispatch(fetchListings())

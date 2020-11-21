@@ -5,9 +5,11 @@ class SearchForm extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {...this.props.query}
+    this.state = {...this.props.query, guestDropOn: false}
+    debugger
     this.updateField = this.updateField.bind(this);
     this.changeGuests = this.changeGuests.bind(this);
+    this.toggleDrop = this.toggleDrop.bind(this);
   }
 
   updateField(field){
@@ -17,21 +19,41 @@ class SearchForm extends React.Component {
   }
 
   changeGuests(val){
-    if (this.state.guests === 3 && val === 1) {
+    debugger
+    if (this.state.numGuests === 4 && val === 1) {
       alert("These homes are too tiny. You might want to try the real Airbnb!")
       return
     }
-    this.setState({guests: this.state.guests + val})
+    this.setState({numGuests: this.state.numGuests + val})
+  }
+
+  toggleDrop(e){
+    e.preventDefault();
+    e.stopPropagation();
+    if (this.state.guestDropOn && !e.target.classList.contains("drop")){
+      this.setState({guestDropOn: false}, () => {
+        document.removeEventListener("click", this.toggleDrop)
+      })
+    }
+    else if (this.state.guestDropOn) {
+      return
+    }
+    else {
+      this.setState({guestDropOn: true}, () => {
+        document.addEventListener("click", this.toggleDrop)
+      })
+    }
   }
 
 
 
   render () {
 
-    const {guests} = this.props.query;
-
+    const {numGuests, guestDropOn} = this.state;
+    const guestString = numGuests === 1 ? "guest" : "guests"
+    debugger
     return (
-    <div class="search-form-wrapper">
+    <div className="search-form-wrapper">
       <form id="search-form" onSubmit={this.handleSubmit}>
         <div className="location-field">
           <label htmlFor="location">Location</label>
@@ -57,20 +79,26 @@ class SearchForm extends React.Component {
             />
         </div>
         
-          <div className="guests">
+          <div className={`${guestDropOn ? "guest-menu-open" : ""} guests`} 
+              onClick={this.toggleDrop}>
               <label id="guests-label">Guests</label>
-              <h3>{guests > 0 ? `${guests} guests` : "Add guests"}</h3>
+              <h3>{numGuests > 0 ? `${numGuests} ${guestString}` : "Add guests"}</h3>
           </div>
       </form>
       <div id="search-bar-button"><i className="fas fa-search"></i></div>
-      <div className = "guest-drop">
-        <h2>Guests</h2>
-        <div className="changeNum">
-          <button onClick={this.changeGuests(-1)}>-</button>
-          <h3>{guests}</h3>
-          <button onClick={this.changeGuests(1)}>+</button>
+
+      { !guestDropOn ? null : (
+      <div className = "guest-drop drop">
+        <h2 className="drop">Guests</h2>
+        <div className="changeNum drop">
+          <button className="drop" disabled = {numGuests === 0}
+            onClick={() => this.changeGuests(-1)}>-</button>
+          <p className="drop">{numGuests}</p>
+          <button className="drop" onClick={() => this.changeGuests(1)}>+</button>
         </div>
       </div>
+      )}
+
     </div>
     )
   }
