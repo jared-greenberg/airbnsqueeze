@@ -20,7 +20,6 @@ class MapDisplay extends React.Component {
 
   render() {
       return (
-        
           <div id={`${this.props.type}-map-wrapper`}>
             <div id="map-container" ref="map">
               Map
