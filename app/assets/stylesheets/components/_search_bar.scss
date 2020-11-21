@@ -13,6 +13,17 @@
     font-size: 14px;
     font-weight: 600;
   }
+
+  input:focus, .guest-menu-open{
+  box-shadow: 1px 3px 12px 7px rgba(190,190,190,0.3);
+  border-radius: 35px;
+  border-bottom: none;
+  background: #fff;
+}
+
+input:focus:hover {
+  background: #fff;
+}
 }
 
 .location-field {
@@ -41,16 +52,7 @@
   }
 }
 
-input:focus, .guest-menu-open{
-  box-shadow: 1px 3px 12px 7px rgba(190,190,190,0.3);
-  border-radius: 35px;
-  border-bottom: none;
-  background: #fff;
-}
 
-input:focus:hover {
-  background: #fff;
-}
 
 
 
