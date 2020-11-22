@@ -1,13 +1,17 @@
 import React from 'react';
 import 'react-dates/initialize';
-import { DateRangePickerController } from 'react-dates';
-import moment from 'moment';
+import { DateRangePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
+import './calendar_custom.css'
 
 class SearchForm extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {...this.props.query, guestDropOn: false}
+    this.state = {...this.props.query,
+       guestDropOn: false,
+      
+      }
     this.updateField = this.updateField.bind(this);
     this.changeGuests = this.changeGuests.bind(this);
     this.toggleDrop = this.toggleDrop.bind(this);
@@ -33,6 +37,8 @@ class SearchForm extends React.Component {
     const query = this.state;
     delete query["guestDropOn"];
     debugger
+    query["startDate"] = query["startDate"]._d
+    query["endDate"] = query["startDate"]._d
     this.props.startQuery(query);
     this.props.fetchListings(query);
     if (this.props.location.pathname !== "/listings"){
@@ -85,7 +91,12 @@ class SearchForm extends React.Component {
               startDatePlaceholderText="Add dates"
               endDatePlaceholderText="Add dates"
               displayFormat="MMM D"
-              noBorder={true}
+              noBorder={false}
+              hideKeyboardShortcutsPanel={true}
+              withPortal
+              block
+              readOnly
+              daySize={50}
             />
         </div>
         
@@ -108,7 +119,7 @@ class SearchForm extends React.Component {
         </div>
       </div>
       )}
-
+        
     </div>
     )
   }

@@ -38,13 +38,14 @@ input:focus:hover {
   }
 
   > input{
-    width: 280px;
+    width: 289px;
     padding-left: 30px;
-    padding-top: 33px;
+    padding-top: 29px;
+    padding-bottom: 7px;
     height: 98%;
     border: none;
     border-radius: 35px;
-    margin-right: -15px;
+    margin-right: -22px;
     background: #fff;
     
     font-weight: 100;
@@ -68,6 +69,7 @@ input:focus:hover {
   align-items: center;
   justify-content: center; 
   position: absolute;
+  border: 0;
 
 
   > i {
@@ -84,7 +86,7 @@ input:focus:hover {
 #checkin-label {
   position: absolute;
   top: 3px;
-  left: 20px;
+  left: 11px;
   z-index: 5;
 
 }
@@ -92,7 +94,7 @@ input:focus:hover {
 #checkout-label{
   position: absolute;
   top: 3px;
-  left: 170px;
+  left: 164px;
   z-index: 5;
 }
 
@@ -115,12 +117,11 @@ input:focus:hover {
 
 .guests {
   position: relative;
-  width: 230px;
+  width: 229px;
   height: 100%;
   border-radius: 30px;
   display: flex;
-  padding-right: 25px;
-  padding-left: 15px;
+  padding: 0 25px 3px 15px;
   align-items: flex-end;
   
   #guests-label {
@@ -194,35 +195,35 @@ input:hover, .guests:hover {
   }
 }
 
-// #search-form:before{
-//   content: '';
-//   width: 0;
-//   height: 60%;
-//   position: absolute;
-//   border-left: 1px solid #ebebeb;
-//   top: 12px;
-//   left: 310px;
-//   z-index: 2;
-// }
+#search-form:before{
+  content: '';
+  width: 0;
+  height: 60%;
+  position: absolute;
+  border-left: 1px solid #ebebeb;
+  top: 12px;
+  left: 323px;
+  z-index: 1;
+}
 
-// #search-form:after{
-//   content: '';
-//   width: 0;
-//   height: 60%;
-//   position: absolute;
-//   border-left: 1px solid #ebebeb;
-//   top: 12px;
-//   left: 450px;
-// }
+#search-form:after{
+  content: '';
+  width: 0;
+  height: 60%;
+  position: absolute;
+  border-left: 1px solid #ebebeb;
+  top: 12px;
+  left: 478px;
+}
 
-// .search-form-wrapper:after{
-//   content: '';
-//   width: 0;
-//   height: 60%;
-//   position: absolute;
-//   border-left: 1px solid #ebebeb;
-//   top: 12px;
-//   right: 280px;
-// }
+.search-form-wrapper:after{
+  content: '';
+  width: 0;
+  height: 60%;
+  position: absolute;
+  border-left: 1px solid #ebebeb;
+  top: 12px;
+  right: 268px;
+}
 
 
