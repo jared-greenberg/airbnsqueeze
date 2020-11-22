@@ -6,7 +6,6 @@ class ListingIndex extends React.Component {
 
     
     componentDidMount() {
-      debugger
       this.props.fetchListings(this.props.query);
     }
 

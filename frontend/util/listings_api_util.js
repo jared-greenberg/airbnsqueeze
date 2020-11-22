@@ -7,7 +7,6 @@ export const fetchListing = listingId => {
 }
 
 export const fetchListings = (query) => {
-  debugger
   return $.ajax({
     method: 'GET',
     url: '/api/listings',

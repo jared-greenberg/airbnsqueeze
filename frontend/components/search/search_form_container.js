@@ -13,7 +13,6 @@ const mapStatetoProps = state => {
 
 const mapDispatchtoProps = dispatch => ({
   fetchListings: (query) => { 
-    debugger
     dispatch(fetchListings(query))},
   startQuery: (query) => dispatch(startQuery(query))
 })

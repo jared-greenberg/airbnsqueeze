@@ -1,6 +1,6 @@
 import React from 'react';
 import 'react-dates/initialize';
-import { DateRangePicker } from 'react-dates';
+import { DateRangePickerController } from 'react-dates';
 
 class SearchForm extends React.Component {
 
@@ -38,14 +38,13 @@ class SearchForm extends React.Component {
   }
 
   toggleDrop(e){
+    debugger
     e.preventDefault();
-
-    if (e.target.classList.contains("submit")){
-      this.handleSubmit(e);
-    }
-    else if (this.state.guestDropOn && !e.target.classList.contains("drop")){
+    e.stopPropagation();
+   
+    if (this.state.guestDropOn && !e.target.classList.contains("drop")){
       this.setState({guestDropOn: false}, () => {
-        document.removeEventListener("click", this.toggleDrop)
+        document.removeEventListener("mousedown", this.toggleDrop)
       })
     }
     else if (this.state.guestDropOn) {
@@ -53,7 +52,7 @@ class SearchForm extends React.Component {
     }
     else {
       this.setState({guestDropOn: true}, () => {
-        document.addEventListener("click", this.toggleDrop)
+        document.addEventListener("mousedown", this.toggleDrop)
       })
     }
   }
@@ -77,11 +76,11 @@ class SearchForm extends React.Component {
         <div className="calendars"> 
             <label id="checkin-label">Check in</label>
             <label id="checkout-label">Check out</label>
-            <DateRangePicker
+            {/* <DateRangePicker
               startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-              startDateId="search_start" // PropTypes.string.isRequired,
+              // startDateId="" // PropTypes.string.isRequired,
               endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-              endDateId="search_end" // PropTypes.string.isRequired,
+              // endDateId="" // PropTypes.string.isRequired,
               onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
               focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
               onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
@@ -89,7 +88,7 @@ class SearchForm extends React.Component {
               endDatePlaceholderText="Add dates"
               displayFormat="MMM D"
               noBorder={true}
-            />
+            /> */}
         </div>
         
           <div className={`${guestDropOn ? "guest-menu-open" : ""} guests`} 
