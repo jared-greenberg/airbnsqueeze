@@ -6,7 +6,7 @@ export default (state = {}, action) => {
     case RECEIVE_LISTING:
       return {...state, ...action.payload.listing }
     case RECEIVE_LISTINGS:
-      return {...action.payload.listings, ...state}
+      return action.payload.listings
     default:
       return state;
   }

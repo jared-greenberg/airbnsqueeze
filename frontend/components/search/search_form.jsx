@@ -10,6 +10,7 @@ class SearchForm extends React.Component {
     this.updateField = this.updateField.bind(this);
     this.changeGuests = this.changeGuests.bind(this);
     this.toggleDrop = this.toggleDrop.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   updateField(field){
@@ -24,6 +25,17 @@ class SearchForm extends React.Component {
       return
     }
     this.setState({numGuests: this.state.numGuests + val})
+  }
+
+  handleSubmit(e){
+    e.preventDefault()
+    e.stopPropagation()
+    const query = {...this.state};
+    delete query["guestDropOn"];
+    this.props.startQuery(query);
+    if (this.props.location.pathname !== '/listings'){
+      this.props.history.push('/listings');
+    }
   }
 
   toggleDrop(e){
@@ -83,8 +95,8 @@ class SearchForm extends React.Component {
               <label id="guests-label">Guests</label>
               <h3>{numGuests > 0 ? `${numGuests} ${guestString}` : "Add guests"}</h3>
           </div>
+        <button className="search-bar-button"><i className="fas fa-search"></i></button>
       </form>
-      <div id="search-bar-button"><i className="fas fa-search"></i></div>
 
       { !guestDropOn ? null : (
       <div className = "guest-drop drop">

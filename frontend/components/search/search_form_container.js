@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchListings } from '../../actions/listing_actions';
+import { startQuery } from '../../actions/query_actions';
 import SearchForm from './search_form';
 
 
@@ -11,7 +12,10 @@ const mapStatetoProps = state => {
 }}
 
 const mapDispatchtoProps = dispatch => ({
-  fetchListings: () => dispatch(fetchListings())
+  fetchListings: (query) => { 
+    debugger
+    dispatch(fetchListings(query))},
+  startQuery: (query) => dispatch(startQuery(query))
 })
 
 export default withRouter(connect(mapStatetoProps, mapDispatchtoProps)(SearchForm))

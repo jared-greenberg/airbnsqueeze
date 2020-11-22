@@ -4,12 +4,12 @@ import SearchFormContainer from '../search/search_form_container';
 
 import { Link } from 'react-router-dom';
 
-export default () => {
+export default (props) => {
   return (
     <>
       <SplashNavBar />
       <img id="splash-img" src={window.splashImg}/>
-      <SearchFormContainer />
+      <SearchFormContainer history={props.history} />
       <section className="slogan">
         <h1>Go Tiny</h1>
         <div className="link-wrapper">

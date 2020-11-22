@@ -1,13 +1,19 @@
 import React from 'react';
 import ListingIndexItem from './listing_index_item';
-import NavBar from '../nav/nav_bar'
 import MapDisplay from '../map/map_display';
 
 class ListingIndex extends React.Component {
 
     
     componentDidMount() {
-      this.props.fetchListings();
+      debugger
+      this.props.fetchListings(this.props.query);
+    }
+
+    componentDidUpdate(prevProps) {
+      if (prevProps.query !== this.props.query){
+        this.props.fetchListings(this.props.query);
+      }
     }
 
    

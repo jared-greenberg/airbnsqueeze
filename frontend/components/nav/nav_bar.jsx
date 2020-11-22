@@ -27,7 +27,6 @@ class NavBar extends React.Component {
   
  render() {
     const fixed = this.props.location.pathname === "/listings" ? "fixed-nav" : ""
-    debugger
     return (
       <header className={`${fixed}`}>
         <nav className="normal-nav">

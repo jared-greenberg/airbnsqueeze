@@ -5,11 +5,12 @@ import { fetchListings } from '../../actions/listing_actions'
 const mapStateToProps = state => ({
   listings: Object.values(state.entities.listings),
   amenities: Object.values(state.entities.amenities),
-  type: "index"
+  type: "index",
+  query: state.ui.query
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchListings: (listings) => dispatch((fetchListings()))
+  fetchListings: (query) => dispatch((fetchListings(query)))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListingIndex);

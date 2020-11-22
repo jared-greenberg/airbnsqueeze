@@ -57,7 +57,7 @@ input:focus:hover {
 
 
 
-#search-bar-button {
+.search-bar-button {
   background: #044241;
   border-radius: 50%;
   height: 45px;
@@ -75,9 +75,7 @@ input:focus:hover {
   }
 }
 
-#search-bar-button:hover {
-  cursor: pointer;
-}
+
 
 .calendars {
   position: relative;
@@ -150,7 +148,7 @@ input:hover, .guests:hover {
   width: 900px;
   margin: auto;
 
-  #search-bar-button{
+  .search-bar-button{
     position: absolute;
     right: 15px;
     top: 12px;
