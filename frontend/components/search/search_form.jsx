@@ -1,6 +1,6 @@
 import React from 'react';
 import 'react-dates/initialize';
-import { DateRangePickerController } from 'react-dates';
+import { DateRangePicker } from 'react-dates';
 
 class SearchForm extends React.Component {
 
@@ -28,31 +28,28 @@ class SearchForm extends React.Component {
   }
 
   handleSubmit(e){
-    e.preventDefault()
-    const query = {...this.state};
+    e.preventDefault();
+    const query = this.state;
     delete query["guestDropOn"];
+    debugger
     this.props.startQuery(query);
-    if (this.props.location.pathname !== '/listings'){
-      this.props.history.push('/listings');
+    this.props.fetchListings(query);
+    if (this.props.location.pathname !== "/listings"){
+      this.props.history.push('/listings')
     }
   }
 
   toggleDrop(e){
-    debugger
     e.preventDefault();
     e.stopPropagation();
-   
     if (this.state.guestDropOn && !e.target.classList.contains("drop")){
       this.setState({guestDropOn: false}, () => {
-        document.removeEventListener("mousedown", this.toggleDrop)
+        document.removeEventListener("click", this.toggleDrop)
       })
-    }
-    else if (this.state.guestDropOn) {
-      return
     }
     else {
       this.setState({guestDropOn: true}, () => {
-        document.addEventListener("mousedown", this.toggleDrop)
+        document.addEventListener("click", this.toggleDrop)
       })
     }
   }
@@ -66,7 +63,7 @@ class SearchForm extends React.Component {
    
     return (
     <div className="search-form-wrapper">
-      <form id="search-form">
+      <form id="search-form" onSubmit={this.handleSubmit}>
         <div className="location-field">
           <label htmlFor="location">Location</label>
           <input type="text" value={this.state.location}
@@ -76,11 +73,11 @@ class SearchForm extends React.Component {
         <div className="calendars"> 
             <label id="checkin-label">Check in</label>
             <label id="checkout-label">Check out</label>
-            {/* <DateRangePicker
+            <DateRangePicker
               startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-              // startDateId="" // PropTypes.string.isRequired,
+              startDateId="search_start" // PropTypes.string.isRequired,
               endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-              // endDateId="" // PropTypes.string.isRequired,
+              endDateId="search_end" // PropTypes.string.isRequired,
               onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
               focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
               onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
@@ -88,7 +85,7 @@ class SearchForm extends React.Component {
               endDatePlaceholderText="Add dates"
               displayFormat="MMM D"
               noBorder={true}
-            /> */}
+            />
         </div>
         
           <div className={`${guestDropOn ? "guest-menu-open" : ""} guests`} 
@@ -96,7 +93,7 @@ class SearchForm extends React.Component {
               <label id="guests-label">Guests</label>
               <h3>{numGuests > 0 ? `${numGuests} ${guestString}` : "Add guests"}</h3>
           </div>
-        <button className="search-bar-button submit"><i className="fas fa-search"></i></button>
+        <button id="search-bar-button"><i className="fas fa-search"></i></button>
       </form>
 
       { !guestDropOn ? null : (

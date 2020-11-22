@@ -11,6 +11,3 @@ export const clearQuery = () => ({
   type: CLEAR_QUERY
 })
 
-export const searchLocation = location => ({
-  
-})

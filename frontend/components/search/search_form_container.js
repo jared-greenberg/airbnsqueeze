@@ -11,10 +11,12 @@ const mapStatetoProps = state => {
           numGuests: 0}
 }}
 
-const mapDispatchtoProps = dispatch => ({
-  fetchListings: (query) => { 
-    dispatch(fetchListings(query))},
-  startQuery: (query) => dispatch(startQuery(query))
-})
+const mapDispatchtoProps = dispatch => {
+  debugger
+ return {
+  fetchListings: (query) => dispatch(fetchListings(query)),
+  startQuery: (query) => { debugger 
+    dispatch(startQuery(query))}
+}}
 
 export default withRouter(connect(mapStatetoProps, mapDispatchtoProps)(SearchForm))
