@@ -37,8 +37,8 @@ class SearchForm extends React.Component {
     const query = this.state;
     delete query["guestDropOn"];
     debugger
-    query["startDate"] = query["startDate"]._d
-    query["endDate"] = query["startDate"]._d
+    query["startDate"] = null;
+    query["endDate"] = null;
     this.props.startQuery(query);
     this.props.fetchListings(query);
     if (this.props.location.pathname !== "/listings"){
