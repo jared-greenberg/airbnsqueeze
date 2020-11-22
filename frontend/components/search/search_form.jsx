@@ -1,6 +1,7 @@
 import React from 'react';
 import 'react-dates/initialize';
-import { DateRangePicker } from 'react-dates';
+import { DateRangePickerController } from 'react-dates';
+import moment from 'moment';
 
 class SearchForm extends React.Component {
 

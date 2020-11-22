@@ -2,6 +2,13 @@ import React from 'react';
 import MarkerManager from './marker_manager';
 
 
+const locations = {
+  "Ithaca, NY": { lat: 42.440498, lng: -76.495697 },
+  "Santa Cruz, CA": { lat: 36.974117, lng: -122.030792 },
+  "Boulder, CO": { lat: 40.016869, lng: -105.279617 }
+}
+
+
 class MapDisplay extends React.Component {
 
 
