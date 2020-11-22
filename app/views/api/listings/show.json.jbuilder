@@ -1,7 +1,7 @@
 
 json.listing do
   json.set! @listing.id do
-    json.extract! @listing, :id, :title, :capacity, :price, :title, :city, :latitude, :longitude
+    json.extract! @listing, :id, :title, :capacity, :price, :title, :city, :latitude, :longitude, :description
     json.ownerId @listing.owner_id
     json.amenities @listing.amenities.map(&:id)
   end

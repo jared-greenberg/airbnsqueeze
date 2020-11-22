@@ -24,70 +24,59 @@ boulder_user_3 = User.create({email: Faker::Internet.safe_email, first_name: Fak
 boulder_user_4 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
 
 
+ithaca_descrip = "Cozy compact house that is perfect for a weekend get away. Close proximity to the stunning Ithaca Falls which is a must see!"
+santacruz_descrip = "Step outside the tiny and experience Santa Cruz's guaranteed beautiful weather. Within driving distance of Natural Bridges State Beach and downtown shopping and entertainment."
+boulder_descrip = "Enviromentally friendly tiny house with beautiful views of the Rockies. Love to Ski? Booking for the winter? Only 20 miles away from some of Boulder's most popular skiing resorts."
 
 
 ithaca_1 = Listing.create({owner_id: ithaca_user_1.id, address: Faker::Address.street_address, city: "Ithaca, NY", latitude: 42.423619, longitude: -76.503692,
-  title: "Zen House in Nature", description: "Cozy compact house that is perfect for a weekend get away. Close proximity to the stunning Ithaca Falls which is a must see.", 
-  capacity: 2, price: 75.00 })    
+  title: "Zen House in Nature", description: ithaca_descrip, capacity: 2, price: 75.00 })    
 
 ithaca_2 = Listing.create({owner_id: ithaca_user_1.id, address: Faker::Address.street_address, city: "Ithaca, NY", latitude: 42.437349, longitude: -76.526914,
-  title: "Modern Tiny with Outdoor Deck", description: "Cozy compact house that is perfect for a weekend get away. Close proximity to the stunning Ithaca Falls which is a must see. ", 
-  capacity: 3, price: 95.00 })    
+  title: "Modern Tiny with Outdoor Deck", description: ithaca_descrip, capacity: 3, price: 95.00 })    
 
 ithaca_3 = Listing.create({owner_id: ithaca_user_2.id, address: Faker::Address.street_address, city: "Ithaca, NY", latitude: 42.434277, longitude: -76.517257,
-  title: "Newly Decorated Tiny in the Country", description: "Cozy compact house that is perfect for a weekend get away. Close proximity to the stunning Ithaca Falls which is a must see. ", 
-  capacity: 4, price: 110.00 })    
+  title: "Newly Decorated Tiny in the Country", description: ithaca_descrip, capacity: 4, price: 110.00 })    
 
 ithaca_4 = Listing.create({owner_id: ithaca_user_3.id, address: Faker::Address.street_address, city: "Ithaca, NY", latitude: 42.435460, longitude: -76.485322,
-  title: "Squeaky Clean and Small", description: "Cozy compact house that is perfect for a weekend get away. Close proximity to the stunning Ithaca Falls which is a must see. ", 
-  capacity: 2, price: 79.00 })    
+  title: "Squeaky Clean and Small", description: ithaca_descrip, capacity: 2, price: 79.00 })    
 
 ithaca_5 = Listing.create({owner_id: ithaca_user_3.id, address: Faker::Address.street_address, city: "Ithaca, NY", latitude: 42.461543, longitude: -76.500834,
-  title: "Log Cabin Tiny", description: "Cozy compact house that is perfect for a weekend get away. Close proximity to the stunning Ithaca Falls which is a must see. ", 
-  capacity: 4, price: 84.00 })    
+  title: "Log Cabin Tiny", description: ithaca_descrip, capacity: 4, price: 84.00 })    
 
 
 
 santacruz_1 = Listing.create({owner_id: santacruz_user_1.id, address: Faker::Address.street_address, city: "Santa Cruz, CA", latitude: 36.974533, longitude: -122.060862,
-  title: "Beautiful Recycled Wood Tiny", description: "Step outside the tiny and experience Santa Cruz's guaranteed beautiful weather. Within driving distance of Natural Bridges State Beach and downtown shopping and entertainment. ",
-   capacity: 3, price: 120.00 })    
+  title: "Beautiful Recycled Wood Tiny", description: santacruz_descrip,
+capacity: 3, price: 120.00 })    
 
 santacruz_2 = Listing.create({owner_id: santacruz_user_2.id, address: Faker::Address.street_address, city: "Santa Cruz, CA", latitude: 36.985619, longitude: -122.047587,
-  title: "Little Beach Getaway", description: "Step outside the tiny and experience Santa Cruz's guaranteed beautiful weather. Within driving distance of Natural Bridges State Beach and downtown shopping and entertainment.", 
-  capacity: 2, price: 123.00})    
+  title: "Little Beach Getaway", description: santacruz_descrip, capacity: 2, price: 123.00})    
 
 santacruz_3 = Listing.create({owner_id: santacruz_user_3.id, address: Faker::Address.street_address, city: "Santa Cruz, CA", latitude: 36.991061, longitude: -122.011446,
-  title: "Elegant Tiny with Dark Wood Exterior", description: "Step outside the tiny and experience Santa Cruz's guaranteed beautiful weather. Within driving distance of Natural Bridges State Beach and downtown shopping and entertainment.", 
-  capacity: 4, price: 141.00 })    
+  title: "Elegant Tiny with Dark Wood Exterior", description: santacruz_descrip, capacity: 2, price: 113.00 })    
 
 santacruz_4 = Listing.create({owner_id: santacruz_user_4.id, address: Faker::Address.street_address, city: "Santa Cruz, CA", latitude: 36.982625, longitude: -121.984095,
-  title: "Mini Cabin in the Woods", description: "Step outside the tiny and experience Santa Cruz's guaranteed beautiful weather. Within driving distance of Natural Bridges State Beach and downtown shopping and entertainment.", 
-  capacity: 2, price: 107.00 })    
+  title: "Mini Cabin in the Woods", description: santacruz_descrip, capacity: 2, price: 107.00 })    
 
 santacruz_5 = Listing.create({owner_id: santacruz_user_5.id, address: Faker::Address.street_address, city: "Santa Cruz, CA", latitude: 36.971231, longitude: -122.027861,
-  title: "Family Fun with Unique Rock Climbing Wall", description: "Step outside the tiny and experience Santa Cruz's guaranteed beautiful weather. Within driving distance of Natural Bridges State Beach and downtown shopping and entertainment.", 
-  capacity: 4, price: 111.00})    
+  title: "Family Fun with Unique Rock Climbing Wall", description: santacruz_descrip, capacity: 4, price: 111.00})    
 
 
-boulder_1 = Listing.create({owner_id: boulder_user_1.id, address: Faker::Address.street_address, city: "Santa Cruz, CA", latitude: 36.974533, longitude: -122.060862,
-  title: "Tiny House with Beautiful Views", description: "Enviromentally friendly tiny house with beautiful views of the Rockies. Love to Ski? Booking for the winter? Only 20 miles away from some of Boulder's most popular skiing resorts.",
-   capacity: 3, price: 72.00 })    
+boulder_1 = Listing.create({owner_id: boulder_user_1.id, address: Faker::Address.street_address, city: "Boulder, CO", latitude: 40.018692, longitude: -105.285933,
+  title: "Tiny House with Beautiful Views", description: boulder_descrip, capacity: 3, price: 72.00 })    
 
-boulder_2 = Listing.create({owner_id: boulder_user_2.id, address: Faker::Address.street_address, city: "Santa Cruz, CA", latitude: 36.985619, longitude: -122.047587,
-  title: "Tiny for 2 with Lofted Bedroom", description: "Enviromentally friendly tiny house with beautiful views of the Rockies. Love to Ski? Booking for the winter? Only 20 miles away from some of Boulder's most popular skiing resorts.", 
-  capacity: 2, price: 98.00 })    
+boulder_2 = Listing.create({owner_id: boulder_user_2.id, address: Faker::Address.street_address, city: "Boulder, CO", latitude: 40.010678, longitude: -105.268874,
+  title: "Tiny for 2 with Lofted Bedroom", description: boulder_descrip, capacity: 2, price: 98.00 })    
 
-boulder_3 = Listing.create({owner_id: boulder_user_3.id, address: Faker::Address.street_address, city: "Santa Cruz, CA", latitude: 36.991061, longitude: -122.011446,
-  title: "Rustic and Tiny", description: "Enviromentally friendly tiny house with beautiful views of the Rockies. Love to Ski? Booking for the winter? Only 20 miles away from some of Boulder's most popular skiing resorts.", 
-  capacity: 3, price: 89.00 })    
+boulder_3 = Listing.create({owner_id: boulder_user_3.id, address: Faker::Address.street_address, city: "Boulder, CO", latitude: 40.018866, longitude: -105.292325,
+  title: "Rustic and Tiny", description: boulder_descrip, capacity: 3, price: 89.00 })    
 
-boulder_4 = Listing.create({owner_id: boulder_user_4.id, address: Faker::Address.street_address, city: "Santa Cruz, CA", latitude: 36.982625, longitude: -121.984095,
-  title: "A Very Literal Cottage", description: "Enviromentally friendly tiny house with beautiful views of the Rockies. Love to Ski? Booking for the winter? Only 20 miles away from some of Boulder's most popular skiing resorts.", 
-  capacity: 4, price: 101.00 })    
+boulder_4 = Listing.create({owner_id: boulder_user_4.id, address: Faker::Address.street_address, city: "Boulder, CO", latitude: 40.017554, longitude: -105.293731,
+  title: "A Very Literal Cottage", description: boulder_descrip, capacity: 4, price: 101.00 })    
 
-boulder_5 = Listing.create({owner_id: boulder_user_4.id, address: Faker::Address.street_address, city: "Santa Cruz, CA", latitude: 36.971231, longitude: -122.027861,
-  title: "European Style Miniature House", description: "Enviromentally friendly tiny house with beautiful views of the Rockies. Love to Ski? Booking for the winter? Only 20 miles away from some of Boulder's most popular skiing resorts.", 
-  capacity: 3, price: 74.00 })    
+boulder_5 = Listing.create({owner_id: boulder_user_4.id, address: Faker::Address.street_address, city: "Boulder, CO", latitude: 40.027045, longitude: -105.271324,
+  title: "European Style Miniature House", description: boulder_descrip, capacity: 3, price: 74.00 })    
 
 
 

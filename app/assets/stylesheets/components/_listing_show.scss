@@ -39,7 +39,7 @@
   margin-right: 10px;
 }
 
-.listing-header {
+.listing-show {
     padding-left: px;
     width: 1100px;
     margin: 0 auto;
@@ -54,11 +54,11 @@
       font-weight: 400;
     }
 
-    h3 {
+    h3, p {
       font-size: 20px;
       font-weight: 100;
+      line-height: 1em;
     }
-  
 }
 
 .sub-header {
@@ -67,3 +67,55 @@
     margin-right: 10px;
   }
 }
+
+.amenities {
+  margin-top: 25px;
+  width: 60%;
+  height: 350px;
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+
+  h2 {
+    margin-top: 25px;
+  };
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 250px;
+    margin-top: 20px;
+  }
+}
+
+.amenity-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  margin-bottom: 25px;
+  font-weight: 100;
+  font-size: 20px;
+  > i {
+    margin-right: 15px;
+  }
+}
+
+.listing-description{
+  margin-top: 25px;
+  width: 60%;
+  height: 250px;
+  border-top: 1px solid #ebebeb;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  
+  strong{
+    display: block;
+  }
+}
+
+
+
+
+

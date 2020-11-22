@@ -32,7 +32,7 @@ class ListingShow extends React.Component {
     
     return (
     <>
-      <section className="listing-header">
+      <section className="listing-show">
         <h1>{listing.title}</h1>
         <div className="sub-header">
           <span>(Rating)</span>
@@ -56,6 +56,11 @@ class ListingShow extends React.Component {
         <h2>Tiny House hosted by {this.props.owner.first_name}</h2>) : null
         }
         <h3>{listing.capacity} guests</h3>
+        <section className="listing-description">
+          <p>{listing.description}</p>
+          <p><strong>Note:</strong>You only need to bring the essentials. All of the tiny homes on Airbnsqueeze provide everything else you would need. Each
+            owner is required to email you a list of instructions on how to use water/energy resources if necessary.</p>
+        </section>
         <Amenities amenities={this.props.amenities} listing={listing}/>
         <MapDisplay center={this.center()} zoom={15}
           listings={[listing]} type= {this.props.type}/>

@@ -15,7 +15,7 @@ class MapDisplay extends React.Component {
   componentDidMount() {
     
     const mapOptions = {
-      center: locations["Santa Cruz, CA"],
+      center: locations["Boulder, CO"],
       zoom: this.props.zoom || 13
     };
 
@@ -30,7 +30,7 @@ class MapDisplay extends React.Component {
   }
 
   componentDidUpdate(){
-    this.map.setCenter(locations["Santa Cruz, CA"]);
+    this.map.setCenter(locations["Boulder, CO"]);
     this.markerManager.updateMarkers(this.props.listings)
   }
 
