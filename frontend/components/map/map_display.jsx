@@ -2,7 +2,7 @@ import React from 'react';
 import MarkerManager from './marker_manager';
 
 
-const locations = {
+const cities = {
   "Ithaca, NY": { lat: 42.440498, lng: -76.495697 },
   "Santa Cruz, CA": { lat: 36.974117, lng: -122.030792 },
   "Boulder, CO": { lat: 40.016869, lng: -105.279617 }
@@ -11,16 +11,30 @@ const locations = {
 
 class MapDisplay extends React.Component {
 
+  mapOptions() {
+    const options = { }
+    if (this.props.coords){
+      options.center = this.props.coords;
+      options.zoom = 15;
+    }
+    else if (this.props.query.location){
+      options.center = cities[this.props.query.location];
+      options.zoom = 13;
+    }
+    else {
+      options.center = { lat: 40.227746, lng: - 97.250879 }
+      options.zoom = 4.25
+
+    }
+    return options;
+  }
+
 
   componentDidMount() {
     
-    const mapOptions = {
-      center: locations[this.props.location],
-      zoom: this.props.zoom || 13
-    };
-
+  
     const map = this.refs.map;
-    this.map = new google.maps.Map(map, mapOptions);
+    this.map = new google.maps.Map(map, this.mapOptions());
     this.markerManager = new MarkerManager(this.map)
     this.markerManager.updateMarkers(this.props.listings);
     // this.marker = new google.maps.Marker({
@@ -30,7 +44,7 @@ class MapDisplay extends React.Component {
   }
 
   componentDidUpdate(){
-    this.map.setCenter(locations[this.props.location]);
+    this.map.setCenter(this.mapOptions().center);
     this.markerManager.updateMarkers(this.props.listings)
   }
 

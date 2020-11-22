@@ -1,10 +1,12 @@
 import React from 'react';
 import SplashNavBar from '../nav/splash_nav_bar';
 import SearchFormContainer from '../search/search_form_container';
+import {clearQuery} from '../../actions/query_actions';
 
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default (props) => {
+const Splash = (props) => {
   return (
     <>
       <SplashNavBar />
@@ -13,9 +15,15 @@ export default (props) => {
       <section className="slogan">
         <h1>Go Tiny</h1>
         <div className="link-wrapper">
-          <Link className="splash-index-link" to="/listings">Explore tiny stays</Link>
+          <Link className="splash-index-link" onClick={() => props.clearQuery()} to="/listings">Explore tiny stays</Link>
         </div>
       </section>
     </>
   )
 }
+
+const mapDispatchToProps = dispatch => ({
+  clearQuery: () => dispatch(clearQuery())
+})
+
+export default connect(null, mapDispatchToProps)(Splash)

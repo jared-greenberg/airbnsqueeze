@@ -19,7 +19,6 @@ class SearchForm extends React.Component {
   }
 
   updateField(field){
-    debugger
     return (e) => {
       this.setState({[field]: e.currentTarget.value})
     }
@@ -37,7 +36,6 @@ class SearchForm extends React.Component {
     e.preventDefault();
     const query = this.state;
     delete query["guestDropOn"];
-    debugger
     query["startDate"] = null;
     query["endDate"] = null;
     this.props.startQuery(query);

@@ -22,7 +22,7 @@ class ListingIndex extends React.Component {
         return <ListingIndexItem key={listing.id} listing={listing} 
                   history={this.props.history} amenities={this.props.amenities} />
     })
-
+      debugger
       return (
       <>
         <main className="listing-index-main">
@@ -33,7 +33,7 @@ class ListingIndex extends React.Component {
               </ul>
             </section>
             <section className="index-map">
-              <MapDisplay location={this.props.query.location}
+              <MapDisplay query={this.props.query}
                 listings = {this.props.listings}
                 type={this.props.type} />
             </section>

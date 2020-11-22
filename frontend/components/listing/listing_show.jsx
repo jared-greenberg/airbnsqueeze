@@ -63,8 +63,7 @@ class ListingShow extends React.Component {
             owner is required to email you a list of instructions on how to use water/energy resources if necessary.</p>
         </section>
         <Amenities amenities={this.props.amenities} listing={listing}/>
-        <MapDisplay center={this.center()} zoom={15}
-          listings={[listing]} type= {this.props.type}/>
+        <MapDisplay coords={this.center()} listings={[listing]} type={this.props.type}/>
       </section>
       {/* <Reviews /> */}
     </>
