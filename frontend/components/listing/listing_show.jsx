@@ -19,6 +19,7 @@ class ListingShow extends React.Component {
       this.props.fetchListing(this.props.match.params.listingId);
     }
   }
+  
 
   center() {
     const {listing} = this.props;

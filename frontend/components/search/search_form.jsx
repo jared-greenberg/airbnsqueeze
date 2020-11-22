@@ -19,6 +19,7 @@ class SearchForm extends React.Component {
   }
 
   updateField(field){
+    debugger
     return (e) => {
       this.setState({[field]: e.currentTarget.value})
     }
