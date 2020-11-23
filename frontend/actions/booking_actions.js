@@ -20,7 +20,7 @@ export const fetchBookings = userId => dispatch =>{
   )
 }
 
-export const deleteBookings = bookingId => dispatch => {
+export const deleteBooking = bookingId => dispatch => {
   return BookingsApiUtils.deleteBooking(bookingId).then(
     () => dispatch(removeBooking(bookingId))
   )

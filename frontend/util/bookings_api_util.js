@@ -18,6 +18,6 @@ export const deleteBooking = bookingId => {
 export const fetchBookings = userId => {
   return $.ajax({
     method: 'GET',
-    url: '/api/users/${userId}/bookings'
+    url: `/api/users/${userId}/bookings`
   })
 }
