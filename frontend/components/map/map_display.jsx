@@ -44,7 +44,9 @@ class MapDisplay extends React.Component {
   }
 
   componentDidUpdate(){
-    this.map.setCenter(this.mapOptions().center);
+    const {center, zoom} = this.mapOptions();
+    this.map.setCenter(center);
+    this.map.setZoom(zoom);
     this.markerManager.updateMarkers(this.props.listings)
   }
 

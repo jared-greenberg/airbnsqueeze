@@ -8,10 +8,12 @@ export const receiveListing = payload => ({
   payload
 })
 
-export const receiveListings = payload => ({
+export const receiveListings = payload => {
+  debugger
+  return {
   type: RECEIVE_LISTINGS,
   payload
-})
+}}
 
 export const fetchListing = listingId => dispatch => {
   return ListingsApiUtils.fetchListing(listingId).then(

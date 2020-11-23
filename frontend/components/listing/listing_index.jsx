@@ -22,7 +22,6 @@ class ListingIndex extends React.Component {
         return <ListingIndexItem key={listing.id} listing={listing} 
                   history={this.props.history} amenities={this.props.amenities} />
     })
-      debugger
       return (
       <>
         <main className="listing-index-main">
