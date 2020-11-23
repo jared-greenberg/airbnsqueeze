@@ -52,7 +52,7 @@ class BookingForm extends React.Component {
     if (this.state.focusedInput) {
       this.setState({showTotal: false})
     }
-    else if (this.state.startDate === null){
+    else if (this.state.startDate === null || this.state.endDate === null){
       return
     }
     else {
