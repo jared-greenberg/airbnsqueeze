@@ -19,7 +19,7 @@ class User < ApplicationRecord
   def valid_birthday    
     today = Date.today
     unless self.birthday <= Date.new(today.year - 18, today.month, today.day)
-      errors.add(:birthday, "invalid")
+      errors.add(:base, "To sign up, you need to be at least 18")
     end
   end
 

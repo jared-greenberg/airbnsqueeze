@@ -3,7 +3,6 @@ class Api::ListingsController < ApplicationController
   def index 
     # listings = region ? Listing.filter_by_region(region) : Listing.all
     listings = (location && location != "") ? Listing.where(city: location) : Listing.all
-    debugger
     if num_guests
       listings = listings.filter_by_guests(num_guests)
     end
