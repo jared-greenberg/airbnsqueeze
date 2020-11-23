@@ -78,61 +78,63 @@ class BookingForm extends React.Component {
     const nightString = nights === 1 ? "night" : "nights";
 
     return (
-      <form id="booking-form">
-        <h3><strong>${this.props.price}</strong> / night</h3>
-      
-        <section className="booking-inputs">
-          <div className="calendars">
-            <label id="checkin-label">Check in</label>
-            <label id="checkout-label">Check out</label>
-            <DateRangePicker
-              startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-              startDateId="search_start" // PropTypes.string.isRequired,
-              endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-              endDateId="search_end" // PropTypes.string.isRequired,
-              onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
-              focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-              onFocusChange={focusedInput =>{this.setState({ focusedInput }, this.updateCosts)}} // PropTypes.func.isRequired,
-              startDatePlaceholderText="Add dates"
-              endDatePlaceholderText="Add dates"
-              noBorder={false}
-              hideKeyboardShortcutsPanel={true}
-              anchorDirection="right"
-              block
-              readOnly
-              daySize={50}
-            />
-          </div>
-          <div className="guest-options" onClick={this.toggleDrop}>
-            <label id="guests-label">Guests</label>
-            <h3 className="num-guests">{`${numGuests} ${guestString}`}</h3>
-          </div>
-          </section>
-          {!guestDropOn ? null : (
-            <GuestDrop changeGuests={this.changeGuests} numGuests={numGuests} type="booking" />
-          )}
-
-        <input type="submit" value="Reserve"/>
-        <p>You won't be charged yet</p>
-        { !this.state.showTotal ? null : (
-          <div id="cost-info">
-              <div className= "price-bar-1">
-                  <div className="nightly-price">
-                  <p>{`$${this.props.price} \u00D7 ${nights} ${nightString}`} </p>
-                  <p>${this.state.subtotal.toFixed(2)}</p>
-                  </div>
-                  <div className="service-fee">
-                  <p>Service fee</p>
-                  <p>${this.state.service_fee.toFixed(2)}</p>
-                  </div>
+      <div id="booking-form-wrapper">
+        <form id="booking-form">
+          <h3><strong>${this.props.price}</strong> / night</h3>
+        
+          <section className="booking-inputs">
+            <div className="calendars">
+              <label id="checkin-label">Check in</label>
+              <label id="checkout-label">Check out</label>
+              <DateRangePicker
+                startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+                startDateId="search_start" // PropTypes.string.isRequired,
+                endDate={this.state.endDate} // momentPropTypes.momentObj or null,
+                endDateId="search_end" // PropTypes.string.isRequired,
+                onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
+                focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+                onFocusChange={focusedInput =>{this.setState({ focusedInput }, this.updateCosts)}} // PropTypes.func.isRequired,
+                startDatePlaceholderText="Add dates"
+                endDatePlaceholderText="Add dates"
+                noBorder={false}
+                hideKeyboardShortcutsPanel={true}
+                anchorDirection="right"
+                block
+                readOnly
+                daySize={50}
+              />
             </div>
-              <div className="total">
-                <strong>Total</strong>
-                <strong>${this.state.total_cost.toFixed(2)}</strong>
+            <div className="guest-options" onClick={this.toggleDrop}>
+              <label id="guests-label">Guests</label>
+              <h3 className="num-guests">{`${numGuests} ${guestString}`}</h3>
+            </div>
+            </section>
+            {!guestDropOn ? null : (
+              <GuestDrop changeGuests={this.changeGuests} numGuests={numGuests} type="booking" />
+            )}
+
+          <input type="submit" value="Reserve"/>
+          <p>You won't be charged yet</p>
+          { !this.state.showTotal ? null : (
+            <div id="cost-info">
+                <div className= "price-bar-1">
+                    <div className="nightly-price">
+                    <p>{`$${this.props.price} \u00D7 ${nights} ${nightString}`} </p>
+                    <p>${this.state.subtotal.toFixed(2)}</p>
+                    </div>
+                    <div className="service-fee">
+                    <p>Service fee</p>
+                    <p>${this.state.service_fee.toFixed(2)}</p>
+                    </div>
               </div>
-          </div>  
-        )}
-      </form>
+                <div className="total">
+                  <strong>Total</strong>
+                  <strong>${this.state.total_cost.toFixed(2)}</strong>
+                </div>
+            </div>  
+          )}
+        </form>
+      </div>
     )
   }
 }

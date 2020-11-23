@@ -1,12 +1,20 @@
-#booking-form{
- position: absolute;
- top: 650px;
- width: 26%;
- padding: 30px;
- right: 0;
+
+
+#booking-form-wrapper{
+  position: absolute;
+  width: 26%;
+  right: 0;
+  top: 650px;
+ padding: 30px; 
  border: 1px solid #ebebeb;
  border-radius: 20px;
  box-shadow: 1px 3px 12px 7px rgba(190,190,190,0.3);
+ height: 300px;
+}
+
+#booking-form {
+  position: sticky;
+  top: 1em;
 }
 
 #booking-form{
