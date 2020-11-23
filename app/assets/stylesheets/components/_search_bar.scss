@@ -158,7 +158,7 @@ input:hover, .guests:hover {
 
 
 
-.guest-drop {
+ .search-form-wrapper .guest-drop {
   position: absolute;
   background: #fff;
   height: 60px;
@@ -172,7 +172,7 @@ input:hover, .guests:hover {
   padding: 20px;
 }
 
-.changeNum{
+.search-form-wrapper .changeNum{
   display: flex;
   justify-content: space-evenly;
   width: 180px;

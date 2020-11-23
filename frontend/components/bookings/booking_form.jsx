@@ -73,12 +73,15 @@ class BookingForm extends React.Component {
 
   render(){
 
-    const { numGuests, guestDropOn } = this.state;
-    const guestString = numGuests === 1 ? "guest" : "guests"
+    const { numGuests, guestDropOn, nights } = this.state;
+    const guestString = numGuests === 1 ? "guest" : "guests";
+    const nightString = nights === 1 ? "night" : "nights";
 
     return (
       <form id="booking-form">
-        <section className="booking inputs">
+        <h3><strong>${this.props.price}</strong> / night</h3>
+      
+        <section className="booking-inputs">
           <div className="calendars">
             <label id="checkin-label">Check in</label>
             <label id="checkout-label">Check out</label>
@@ -100,29 +103,29 @@ class BookingForm extends React.Component {
               daySize={50}
             />
           </div>
-          <div onClick={this.toggleDrop}>
+          <div className="guest-options" onClick={this.toggleDrop}>
             <label id="guests-label">Guests</label>
-            <h3>{`${numGuests} ${guestString}`}</h3>
+            <h3 className="num-guests">{`${numGuests} ${guestString}`}</h3>
           </div>
+          </section>
           {!guestDropOn ? null : (
-            <GuestDrop changeGuests={this.changeGuests} numGuests={numGuests} />
+            <GuestDrop changeGuests={this.changeGuests} numGuests={numGuests} type="booking" />
           )}
-        </section>
 
         <input type="submit" value="Reserve"/>
         <p>You won't be charged yet</p>
         { !this.state.showTotal ? null : (
-          <div className="cost-info">
-              <div className="sub-totals">
-                <div className="nightly-price">
-                <p>{`$${this.props.price} \u00D7 `} </p>
-                <p>${this.state.subtotal.toFixed(2)}</p>
-                </div>
-                <div className="nightly-price">
-                <p>Service fee</p>
-                <p>${this.state.service_fee.toFixed(2)}</p>
-                </div>
-              </div>
+          <div id="cost-info">
+              <div className= "price-bar-1">
+                  <div className="nightly-price">
+                  <p>{`$${this.props.price} \u00D7 ${nights} ${nightString}`} </p>
+                  <p>${this.state.subtotal.toFixed(2)}</p>
+                  </div>
+                  <div className="service-fee">
+                  <p>Service fee</p>
+                  <p>${this.state.service_fee.toFixed(2)}</p>
+                  </div>
+            </div>
               <div className="total">
                 <strong>Total</strong>
                 <strong>${this.state.total_cost.toFixed(2)}</strong>

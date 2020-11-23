@@ -1,8 +1,22 @@
 .listing-show .DateInput_input{
-    border-radius: none;
+    font-size: 14px;  
+    padding: 22px 11px 0px;
   }
 
 
 .listing-show #search_start{
   border-right: 1px solid black;
+}
+
+.listing-show .DateRangePickerInput{
+  border-radius: 5px;
+}
+
+.listing-show .DateInput_input:hover{
+  background: #fff;
+
+}
+
+.listing-show .DateRangePicker{
+  width: 300px;
 }

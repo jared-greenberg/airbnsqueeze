@@ -1,11 +1,173 @@
 #booking-form{
  position: absolute;
  top: 650px;
- width: 28%;
+ width: 26%;
  padding: 30px;
  right: 0;
  border: 1px solid #ebebeb;
  border-radius: 20px;
  box-shadow: 1px 3px 12px 7px rgba(190,190,190,0.3);
 }
+
+#booking-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  > h2 {
+    align-self: flex-start;
+  }
+
+  #checkout-label, #checkin-label, #guests-label{
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  #checkin-label{
+    left: 10px;
+    top: 0;
+  }
+
+  #checkout-label{
+    left: 168px;
+    top: 0;
+  }
+
+  input[type="submit"] {
+    background-color: #044241; 
+    color: #fff;
+    width: 100%;
+    border-radius: 10px;
+    margin: 20px 0;
+    height: 40px;
+  }
+
+  .changeNum {
+    display: flex;
+    justify-content: space-evenly;
+    width: 120px;
+    align-items: center;
+  
+    > button {
+    border-radius: 50%;
+    background: #fff;
+    height: 30px;
+    width: 30px;
+    font-size: 16px;
+  }
+
+    > button:disabled {
+    border: 1px solid #ebebeb;
+  }
+
+    > p {
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+}
+
+
+
+
+.guest-drop{
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 1px 3px 12px 7px rgba(190,190,190,0.4);
+  border-radius: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 3px 5px;
+}
+
+  .guest-drop > h2 {
+    font-size: 18px;
+
+  }
+
+}
+
+.guest-options{
+   > #guests-label {
+    position: absolute;
+    left: 40px;
+  }
+
+  > .num-guests{
+    padding: 22px 0 7px 15px;
+    font-size: 14px;
+  }
+}
+
+
+
+.booking-inputs{
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+
+
+
+.calendars {
+  text-align: center;
+}
+
+.guest-options{
+  border-top: 1px solid black;
+}
+
+#cost-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 120px;
+  margin-top: 20px;
+  width: 100%;
+
+  p {
+    font-size: 16px;
+  }
+}
+
+.price-bar-1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  padding-bottom: 10px;
+}
+
+.nightly-price, .service-fee {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0, auto;
+}
+
+ .total{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  border-top: 1px solid black;
+  padding-top: 10px;
+}
+
+
+
+#booking-form >h3:first-child {
+  padding-bottom: 20px;
+  font-size: 22px;
+  width: 100%;
+}
+
+
+
+
+
+
+
 
