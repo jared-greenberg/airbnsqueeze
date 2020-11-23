@@ -62,7 +62,8 @@ class ListingShow extends React.Component {
           <p><strong>Note:</strong>You only need to bring the essentials. All of the tiny homes on Airbnsqueeze provide everything else you would need. Each
             owner is required to email you a list of instructions on how to use water/energy resources if necessary.</p>
         </section>
-        <BookingFormContainer match={this.props.match} history={this.props.history} price={listing.price}/>
+        <BookingFormContainer match={this.props.match} history={this.props.history} price={listing.price} 
+        capacity = {listing.capacity}/>
         <Amenities amenities={this.props.amenities} listing={listing}/>
         <MapDisplay coords={this.center()} listings={[listing]} type={this.props.type}/>
       </section>

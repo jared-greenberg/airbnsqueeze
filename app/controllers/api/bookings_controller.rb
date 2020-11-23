@@ -1,11 +1,14 @@
 class Api::BookingsController < ApplicationController
 
   def create
+    debugger
     @booking = Booking.new(booking_params)
+    @booking.listing_id = params[:listing_id]
     if @booking.save
-      render status: 200
+      render json: ['Booking was a success'], status: 200
     else
-      render json @booking.errors.full_message, status: 422
+      debugger
+      render json: @booking.errors.full_messages, status: 422
     end
   end
 
@@ -25,7 +28,7 @@ class Api::BookingsController < ApplicationController
   private 
   
   def booking_params
-    params.require(:booking).permit(:listing_id, :renter_id, :start_date, :end_date, :num_guests, :cost)
+    params.require(:booking).permit(:renter_id, :start_date, :end_date, :num_guests, :total_cost)
   end
 
 end

@@ -1,10 +1,9 @@
 import React from 'react';
-import createBooking from '../../util/bookings_api_util';
+import {createBooking} from '../../util/bookings_api_util';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import './booking_calendar_custom.css'
 import GuestDrop from './guest_drop';
-import moment from 'moment';
 
 
 class BookingForm extends React.Component {
@@ -28,9 +27,23 @@ class BookingForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const booking = this.state;
-    booking.startDate = null;
-    booking.endDate = null;
+    if (!this.props.currentUser) {
+      this.props.openModal("login");
+      return 
+    }
+    const listingId = this.props.match.params.listingId;
+    const booking = {
+      renter_id: this.props.currentUser,
+      start_date: this.state.startDate.format('YYYY-MM-DD'),
+      end_date: this.state.endDate.format('YYYY-MM-DD'),
+      total_cost: this.state.totalCost,
+      num_guests: this.state.numGuests
+    }
+    debugger
+    createBooking(listingId, booking).then( (response) =>{
+      alert(response)
+    })
+    
   }
 
   toggleDrop(e) {
@@ -58,13 +71,13 @@ class BookingForm extends React.Component {
     else {
       const nights = this.state.endDate.diff(this.state.startDate, 'days');
       const subtotal = (this.props.price * nights);
-      const service_fee = (this.props.price * nights * .12);
-      const total_cost = subtotal + service_fee;
+      const serviceFee = (this.props.price * nights * .12);
+      const totalCost = subtotal + serviceFee;
       this.setState({
         nights,
         subtotal, 
-        service_fee,
-        total_cost,
+        serviceFee,
+        totalCost,
         showTotal: true
       })
     }
@@ -79,7 +92,7 @@ class BookingForm extends React.Component {
 
     return (
       <div id="booking-form-wrapper">
-        <form id="booking-form">
+        <form id="booking-form" onSubmit={this.handleSubmit}>
           <h3><strong>${this.props.price}</strong> / night</h3>
         
           <section className="booking-inputs">
@@ -110,7 +123,7 @@ class BookingForm extends React.Component {
             </div>
             </section>
             {!guestDropOn ? null : (
-              <GuestDrop changeGuests={this.changeGuests} numGuests={numGuests} type="booking" />
+              <GuestDrop changeGuests={this.changeGuests} numGuests={numGuests} type="booking" capacity={this.props.capacity} />
             )}
 
           <input type="submit" value="Reserve"/>
@@ -124,12 +137,12 @@ class BookingForm extends React.Component {
                     </div>
                     <div className="service-fee">
                     <p>Service fee</p>
-                    <p>${this.state.service_fee.toFixed(2)}</p>
+                    <p>${this.state.serviceFee.toFixed(2)}</p>
                     </div>
               </div>
                 <div className="total">
                   <strong>Total</strong>
-                  <strong>${this.state.total_cost.toFixed(2)}</strong>
+                  <strong>${this.state.totalCost.toFixed(2)}</strong>
                 </div>
             </div>  
           )}

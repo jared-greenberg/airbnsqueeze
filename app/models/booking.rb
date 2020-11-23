@@ -1,6 +1,6 @@
 class Booking < ApplicationRecord
 
-  validates :start_date, :end_date, :num_guests, :cost, presence: true 
+  validates :start_date, :end_date, :num_guests, :total_cost, presence: true 
   validates :num_guests, numericality: {greater_than: 1}
   validate :overlapping?
 
