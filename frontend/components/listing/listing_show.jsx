@@ -1,7 +1,7 @@
 import React from 'react';
 import Amenities from './amenities';
 import MapDisplay from '../map/map_display';
-import NavBar from '../nav/nav_bar'
+import BookingFormContainer from '../bookings/booking_form_container';
 
 class ListingShow extends React.Component {
 
@@ -63,6 +63,7 @@ class ListingShow extends React.Component {
             owner is required to email you a list of instructions on how to use water/energy resources if necessary.</p>
         </section>
         <Amenities amenities={this.props.amenities} listing={listing}/>
+        <BookingFormContainer match={this.props.match} history={this.props.history} price={listing.price}/>
         <MapDisplay coords={this.center()} listings={[listing]} type={this.props.type}/>
       </section>
       {/* <Reviews /> */}

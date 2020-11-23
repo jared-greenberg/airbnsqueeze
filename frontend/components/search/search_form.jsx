@@ -3,7 +3,8 @@ import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import './calendar_custom.css'
-import GuestSelection from '../../bookings/guest_selection';
+import GuestDrop from '../bookings/guest_drop';
+
 
 class SearchForm extends React.Component {
 
@@ -109,7 +110,7 @@ class SearchForm extends React.Component {
       </form>
 
       { !guestDropOn ? null : (
-        <GuestSelection changeGuests={this.changeGuests} numGuests={this.state.numGuests}/>
+        <GuestDrop changeGuests={this.changeGuests} numGuests={this.state.numGuests}/>
       )}
         
     </div>
