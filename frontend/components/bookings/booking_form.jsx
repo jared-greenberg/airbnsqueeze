@@ -2,7 +2,7 @@ import React from 'react';
 import createBooking from '../../util/bookings_api_util';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
-import '../search/calendar_custom.css';
+import './booking_calendar_custom.css'
 import GuestDrop from './guest_drop';
 import moment from 'moment';
 
@@ -52,6 +52,9 @@ class BookingForm extends React.Component {
     if (this.state.focusedInput) {
       this.setState({showTotal: false})
     }
+    else if (this.state.startDate === null){
+      return
+    }
     else {
       const nights = this.state.endDate.diff(this.state.startDate, 'days');
       const subtotal = (this.props.price * nights);
@@ -69,9 +72,13 @@ class BookingForm extends React.Component {
 
 
   render(){
+
+    const { numGuests, guestDropOn } = this.state;
+    const guestString = numGuests === 1 ? "guest" : "guests"
+
     return (
       <form id="booking-form">
-        <div className="booking inputs">
+        <section className="booking inputs">
           <div className="calendars">
             <label id="checkin-label">Check in</label>
             <label id="checkout-label">Check out</label>
@@ -93,8 +100,14 @@ class BookingForm extends React.Component {
               daySize={50}
             />
           </div>
-          {/* <GuestSelection /> */}
-        </div>
+          <div onClick={this.toggleDrop}>
+            <label id="guests-label">Guests</label>
+            <h3>{`${numGuests} ${guestString}`}</h3>
+          </div>
+          {!guestDropOn ? null : (
+            <GuestDrop changeGuests={this.changeGuests} numGuests={numGuests} />
+          )}
+        </section>
 
         <input type="submit" value="Reserve"/>
         <p>You won't be charged yet</p>

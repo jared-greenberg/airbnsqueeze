@@ -1,0 +1,8 @@
+.listing-show .DateInput_input{
+    border-radius: none;
+  }
+
+
+.listing-show #search_start{
+  border-right: 1px solid black;
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
-import './calendar_custom.css'
+import './search_calendar_custom.css'
 import GuestDrop from '../bookings/guest_drop';
 
 

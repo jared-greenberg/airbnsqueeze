@@ -6,7 +6,7 @@ const mapStatetoProps = (state, ownProps) => ({
   booking: {
     startDate: null,
     endDate: null,
-    numGuests: 0,
+    numGuests: 1,
     totalCost: 0,
     renter_id: state.session.currentUser,
     listing_id: ownProps.match.params.listingId
