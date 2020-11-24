@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import {userPastBookings, userUpcomingBookings, bookingListInfo, bookingsListingInfo} from './util/selectors';
+import {userPastBookings, userUpcomingBookings, bookingsListingInfo} from './util/selectors';
 import {fetchBookings} from './actions/booking_actions';
 
 

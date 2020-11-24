@@ -39,7 +39,6 @@ class BookingForm extends React.Component {
       total_cost: this.state.totalCost,
       num_guests: this.state.numGuests
     }
-    debugger
     createBooking(listingId, booking).then( (response) =>{
       alert(response)
     })

@@ -1,13 +1,11 @@
 class Api::BookingsController < ApplicationController
 
   def create
-    debugger
     @booking = Booking.new(booking_params)
     @booking.listing_id = params[:listing_id]
     if @booking.save
       render json: ['Booking was a success'], status: 200
     else
-      debugger
       render json: @booking.errors.full_messages, status: 422
     end
   end

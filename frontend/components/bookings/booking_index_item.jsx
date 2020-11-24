@@ -20,6 +20,8 @@ class BookingIndexItem extends React.Component {
 
   render() {
     const {booking, listing, upcoming} = this.props;
+    console.log(this.props);
+    if (!booking || !listing) { return null }
     return (
       <li className="booking-item">
         <div className="booking-image">Image goes here</div>

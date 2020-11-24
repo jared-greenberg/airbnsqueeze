@@ -22,7 +22,7 @@ class BookingIndex extends React.Component{
     
     
     return this.props.pastBookings.map(booking => {
-      const listing = listings[booking.listing_id]
+      const listing = listings[booking.listingId]
       return <BookingIndexItem key={booking.id} booking={booking} listing={listing} upcoming={this.state.upcoming} />
     })
   }
@@ -39,9 +39,7 @@ class BookingIndex extends React.Component{
   upcomingList() {
     if (this.props.upcomingBookings.length === 0) { return this.nothing("upcoming") }
     return this.props.upcomingBookings.map(booking => {
-      const val = this.props;
-      debugger
-      const listing = this.props.listings[booking.listing_id]
+      const listing = this.props.listings[booking.listingId]
       return <BookingIndexItem key={booking.id} booking={booking} listing={listing} upcoming={this.state.upcoming} />
     })
   }
