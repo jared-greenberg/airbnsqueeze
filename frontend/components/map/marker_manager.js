@@ -30,6 +30,7 @@ class MarkerManager {
 
   createMarker(listing){
     const coords = {lat: listing.latitude, lng: listing.longitude}
+    if (!coords.lat || !coords.lng) { return }
     const marker = new google.maps.Marker({
       position: coords,
       map: this.map
