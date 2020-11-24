@@ -30,7 +30,7 @@ class DropDown extends React.Component {
 
   dropDown() {
     if (!this.state.menu) { return null }
-    else if (this.props.currentUser) { return <LoggedInDrop logOut={this.props.logOut} /> }
+    else if (this.props.currentUser) { return <LoggedInDrop currentUser={this.props.currentUser} logOut={this.props.logOut} /> }
     else { return <LoggedOutDrop openModal={this.props.openModal} /> }
   }
 

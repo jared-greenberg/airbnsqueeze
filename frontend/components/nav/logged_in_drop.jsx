@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class LoggedInDrop extends React.Component{
   signOutAction(e){
@@ -7,11 +7,11 @@ class LoggedInDrop extends React.Component{
   }
 
   render(){
-
+    const userId = this.props.currentUser;
     return (
       <ul className="drop-menu">
         <li>
-          <a>Trips</a>
+          <Link to={`/users/${userId}/bookings`}>Trips</Link>
         </li>
         <li>
           <a onClick={this.signOutAction.bind(this)}>Log Out</a>
@@ -22,3 +22,4 @@ class LoggedInDrop extends React.Component{
 }
 
 export default LoggedInDrop;
+
