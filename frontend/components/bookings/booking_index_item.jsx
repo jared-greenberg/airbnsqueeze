@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import moment from 'moment';
 
 
 class BookingIndexItem extends React.Component {
@@ -11,11 +12,15 @@ class BookingIndexItem extends React.Component {
 
   addLinks(){
     if (this.props.review) {
-      return <Link to="/">Edit Review</Link>
+      return <Link className="edit-review" to="/">Edit Review</Link>
     }
     else {
-      return <Link to="/">Add review</Link>
+      return <Link className="add-review" to="/">Add review</Link>
     }
+  }
+
+  formatDate(date){
+    return moment(date).format('ll')
   }
 
   render() {
@@ -26,13 +31,17 @@ class BookingIndexItem extends React.Component {
 
       <li className="booking-item">
         <div className="booking-image">Image goes here</div>
-        <div className="date-and-city">
-          <p>{new Date(booking.startDate).toDateString()} - {new Date(booking.endDate).toDateString()}</p>
-          <h2>{listing.city}</h2>
-          <h3>{listing.title}</h3>
-        </div>
+        <section className="booking-item-text">
+          <div className="date-and-city">
+            <p className="booking-dates">{this.formatDate(booking.startDate)} - {this.formatDate(booking.endDate)}</p>
+            <h2>{listing.city}</h2>
+          </div>
+        </section>
+        <div className="booking-links">
+          <Link className="booking-listing-link" to={`/listings/${listing.id}`}>{listing.title}</Link>
         {upcoming ? null : this.addLinks()}
-      </li>
+        </div>
+    </li>
     )
   }
 }

@@ -39,6 +39,60 @@
   overflow: hidden;
 }
 
+.booking-image {
+  height: 45%;
+  background: green;
+}
+
+.booking-item-text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 25%;
+  width: 100%;
+}
+
+
+.booking-dates{
+  font-size: 14px;
+}
+
+.date-and-city{
+  margin-top: 27px;
+  width: 80%;
+}
+
+.booking-links {
+  display: flex;
+  flex-direction: column;
+  height: 30%;
+  width: 100%;
+}
+
+.booking-listing-link {
+  height: 50%;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 10%;
+  padding-top: 15px;
+}
+
+ .add-review, .edit-review, .cancel-review{
+  height: 50%;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 15px;
+  text-align: center;
+  border-top: 1px solid black;
+}
+
+.booking-links > a:hover {
+  background: #ebebeb
+}
+
+
+
+
 
 
 
