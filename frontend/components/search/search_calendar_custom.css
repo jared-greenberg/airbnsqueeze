@@ -76,6 +76,10 @@
   border-radius: 30px;
 }
 
+#search-form .DateInput_input:hover {
+  background: #ebebeb; 
+}
+
 
 
 .DateInput_input__focused {
@@ -134,7 +138,7 @@
   right: 0
 }
 .DateRangePicker_picker__portal {
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0,0,0,0.1);
   position: fixed;
   top: 0;
   left: 0;
