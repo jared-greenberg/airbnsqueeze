@@ -24,9 +24,9 @@ export const userPastBookings = (bookings, userId) => {
 
 export const bookingsListingInfo = (state, bookings) => {
    const listingIds = bookings.map(booking => booking.listingId)
-   return Object.values(state.entities.listings).filter(listing =>(
-      listingIds.includes(listing.id)
-   ))
+   const listings = {};
+   listingIds.forEach(id => listings[id] = state.entities.listings[id] )
+   return listings;
 }
 
 

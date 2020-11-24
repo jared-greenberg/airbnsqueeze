@@ -1,5 +1,4 @@
 export const createBooking = (listingId, booking) => {
-
   return $.ajax({
     method: 'POST',
     url: `api/listings/${listingId}/bookings`,

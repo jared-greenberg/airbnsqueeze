@@ -1,15 +1,14 @@
 class Booking < ApplicationRecord
 
-  validates :start_date, :end_date, :num_guests, :total_cost, presence: true 
-  validates :num_guests, numericality: {greater_than: 1}
+  validates :start_date, :end_date, :num_guests, :total_cost, :num_guests, presence: true 
   validate :overlapping?
 
   belongs_to :listing,
     foreign_key: :listing_id,
-    class_name: :Listing
+    class_name: :Listing 
 
   belongs_to :renter,
-    foreign_key: :listing_id,
+    foreign_key: :renter_id,
     class_name: :User
 
   def overlapping?

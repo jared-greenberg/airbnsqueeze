@@ -6,8 +6,9 @@ export default (state = {}, action) => {
     case RECEIVE_BOOKINGS:
       return action.payload.bookings;
     case REMOVE_BOOKING:
-      const newState = {...state};
-      delete state[action.bookingId];
+      let newState = {...state};
+      // here is where I encounter the problem
+      delete newState[action.bookingId];
       return newState;
     default:
       return state; 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useDebugValue } from 'react';
 import {Link} from 'react-router-dom';
 import moment from 'moment';
 
@@ -7,7 +7,8 @@ class BookingIndexItem extends React.Component {
 
   constructor(props) {
     super(props);
-    this.addLinks.bind(this);
+    this.addLinks = this.addLinks.bind(this);
+    this.handleCancel = this.handleCancel.bind(this)
   }
 
   addLinks(){
@@ -19,13 +20,17 @@ class BookingIndexItem extends React.Component {
     }
   }
 
+
   formatDate(date){
     return moment(date).format('ll')
   }
 
+  handleCancel(bookingId){
+    this.props.deleteBooking(bookingId)
+  }
+
   render() {
     const {booking, listing, upcoming} = this.props;
-    console.log(this.props);
     if (!booking || !listing) { return null }
     return (
 
@@ -39,7 +44,8 @@ class BookingIndexItem extends React.Component {
         </section>
         <div className="booking-links">
           <Link className="booking-listing-link" to={`/listings/${listing.id}`}>{listing.title}</Link>
-        {upcoming ? null : this.addLinks()}
+        {upcoming ? <div className="cancel-booking" onClick={() => this.handleCancel(booking.id)}>Cancel booking</div> : 
+          this.addLinks()}
         </div>
     </li>
     )

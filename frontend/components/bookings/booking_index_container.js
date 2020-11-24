@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import { userUpcomingBookings, userPastBookings, bookingsListingInfo } from '../../util/selectors';
 import BookingIndex from './booking_index';
-import { fetchBookings } from '../../actions/booking_actions';
+import { fetchBookings, deleteBooking } from '../../actions/booking_actions';
 
 const mapStateToProps = (state, ownProps) => {
   // reviews too
@@ -25,7 +25,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchBookings: userId => dispatch(fetchBookings(userId)),
-  deleteBooking: bookingID => dispatch(deleteBooking(bookingID))
+  deleteBooking: bookingID => {
+    debugger
+    dispatch(deleteBooking(bookingID))}
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookingIndex)
