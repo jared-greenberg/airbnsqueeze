@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export const amenitySelector = (state, listing) => {
    if (!listing || !listing.amenities) {return []}
    
@@ -7,15 +9,16 @@ export const amenitySelector = (state, listing) => {
 }
 
 export const userUpcomingBookings = (bookings, userId) => {
+  
    return bookings.filter(booking => (
-            (booking.renterId === parseInt(userId)) && (new Date(booking.startDate) > Date.now())
-         )
+          (booking.renterId === parseInt(userId)) && (new Date(booking.startDate) > new Date(moment()))
+      )
    )
 }
 export const userPastBookings = (bookings, userId) => {
    return bookings.filter(booking => (
-      (booking.renterId === parseInt(userId)) && (new Date(booking.endDate) < Date.now())
-   )
+         (booking.renterId === parseInt(userId)) && (new Date(booking.startDate) <= new Date(moment()))
+      )
    )
 }
 

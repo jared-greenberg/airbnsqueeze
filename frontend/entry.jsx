@@ -4,6 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 import {userPastBookings, userUpcomingBookings, bookingsListingInfo} from './util/selectors';
 import {fetchBookings} from './actions/booking_actions';
+import moment from 'moment';
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -32,5 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.userUpcomingBookings = userUpcomingBookings;
   window.fetchBookings = fetchBookings;
   window.bookingListInfo = bookingsListingInfo;
+  window.moment = moment;
  
 })
