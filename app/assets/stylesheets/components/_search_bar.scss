@@ -58,7 +58,7 @@ input:focus:hover {
 
 
 
-#search-bar-button {
+.search-bar-button {
   background: #044241;
   border-radius: 50%;
   height: 45px;
@@ -131,6 +131,7 @@ input:focus:hover {
 
   > h3 {
     font-weight: 100;
+    font-size: 16px;
     padding-bottom: 2px;
     color: #8e8e8e;
   }
@@ -149,11 +150,15 @@ input:hover, .guests:hover {
   width: 900px;
   margin: auto;
 
-  #search-bar-button{
+  .search-bar-button{
     position: absolute;
     right: 15px;
     top: 12px;
   }
+}
+
+.search-bar-button:disabled{
+  background: #04424190;
 }
 
 

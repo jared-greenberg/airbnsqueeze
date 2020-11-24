@@ -50,7 +50,7 @@ class SearchForm extends React.Component {
   toggleDrop(e){
     e.preventDefault();
     e.stopPropagation();
-    if (this.state.guestDropOn && !e.target.classList.contains("drop")){
+   if (this.state.guestDropOn && !e.target.classList.contains("drop")){
       this.setState({guestDropOn: false}, () => {
         document.removeEventListener("click", this.toggleDrop)
       })
@@ -106,7 +106,7 @@ class SearchForm extends React.Component {
               <label id="guests-label">Guests</label>
               <h3>{numGuests > 0 ? `${numGuests} ${guestString}` : "Add guests"}</h3>
           </div>
-        <button id="search-bar-button"><i className="fas fa-search"></i></button>
+        <button className="search-bar-button" disabled={guestDropOn}><i className="fas fa-search"></i></button>
       </form>
 
       { !guestDropOn ? null : (
