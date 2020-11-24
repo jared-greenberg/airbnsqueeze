@@ -14,6 +14,14 @@ class Listing < ApplicationRecord
   has_many :amenities,
     through: :amenity_pairings,
     source: :amenity
+  
+  has_many :bookings,
+    foreign_key: :listing_id,
+    class_name: :Booking
+
+  has_many :reviews,
+    through: :bookings,
+    source: :reviews
 
   has_many_attached :photos
 

@@ -59,8 +59,8 @@ class ListingShow extends React.Component {
         <h3>{listing.capacity} guests</h3>
         <section className="listing-description">
           <p>{listing.description}</p>
-          <p><strong>Note:</strong>You only need to bring the essentials. All of the tiny homes on Airbnsqueeze provide everything else you would need. Each
-            owner is required to email you a list of instructions on how to use water/energy resources if necessary.</p>
+          <p><strong>Note:</strong>You only need to bring the essentials. All of the tiny homes on Airbnsqueeze are required to provide everything else. Each
+            owner will email you a list of instructions on how to use water/energy resources for your stay.</p>
         </section>
         <BookingFormContainer match={this.props.match} history={this.props.history} price={listing.price} 
         capacity = {listing.capacity}/>

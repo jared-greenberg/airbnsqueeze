@@ -17,3 +17,9 @@ json.photos do
   @listing.photos.map {|photo| url_for(photo)}
 end
 
+json.reviews do
+  @listing.reviews.each do |review|
+    json.partial! '/api/reviews/review', review: review
+  end
+end
+

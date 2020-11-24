@@ -11,6 +11,11 @@ class Booking < ApplicationRecord
     foreign_key: :renter_id,
     class_name: :User
 
+  has_many :reviews,
+    foreign_key: :booking_id,
+    class_name: :Review
+
+  
   def overlapping?
     same_place = self.class.where(listing_id: self.listing_id)
     return if same_place.count == 0
