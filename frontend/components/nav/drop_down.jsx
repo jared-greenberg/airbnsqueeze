@@ -14,6 +14,9 @@ class DropDown extends React.Component {
     this.toggleMenu = this.toggleMenu.bind(this);
   }
 
+  componentWillUnmount(){
+    document.removeEventListener("click", this.toggleMenu)
+  }
 
   toggleMenu(e) {
     e.preventDefault();

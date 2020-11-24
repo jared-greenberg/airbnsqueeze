@@ -37,15 +37,11 @@ class MapDisplay extends React.Component {
     this.map = new google.maps.Map(map, this.mapOptions());
     this.markerManager = new MarkerManager(this.map)
     this.markerManager.updateMarkers(this.props.listings);
-    // this.marker = new google.maps.Marker({
-    //   position: mapOptions.center,
-    //   map: this.map
-    // })
   }
 
   componentDidUpdate(){
     const {center, zoom} = this.mapOptions();
-    this.map.setCenter(center);
+    this.map.panTo(center);
     this.map.setZoom(zoom);
     this.markerManager.updateMarkers(this.props.listings)
   }
