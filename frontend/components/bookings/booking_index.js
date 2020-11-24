@@ -10,10 +10,13 @@ class BookingIndex extends React.Component{
     this.switchMode = this.switchMode.bind(this);
     this.upcomingList = this.upcomingList.bind(this);
     this.pastList = this.pastList.bind(this);
+    this.upcomingRef = React.createRef();
+    this.pastRef = React.createRef();
   }
 
   componentDidMount(){
-    this.props.fetchBookings(this.props.match.params.userId)
+    this.props.fetchBookings(this.props.match.params.userId);
+    this.upcomingRef.current.classList.add("selected-choice");
   }
 
   pastList(){
@@ -44,8 +47,18 @@ class BookingIndex extends React.Component{
     })
   }
 
-  switchMode(){
-    this.setState({upcoming: !this.state.upcoming})
+  switchMode(e){
+    if (e.currentTarget.classList.contains('selected-choice')) {return}
+    this.setState({upcoming: !this.state.upcoming}, () => {
+      if (this.state.upcoming) {
+        this.upcomingRef.current.classList.add('selected-choice')
+        this.pastRef.current.classList.remove('selected-choice')
+      }
+      else {
+        this.upcomingRef.current.classList.remove('selected-choice')
+        this.pastRef.current.classList.add('selected-choice')
+      }
+    })
   }
 
   render(){
@@ -56,12 +69,12 @@ class BookingIndex extends React.Component{
       <main id="booking-index">
         <h1>Trips</h1>
         <nav className="bookings-menu">
-          <h2 id="upcoming-choice" onClick={this.switchMode}>Upcoming</h2>
-          <h2 id="past-choice" onClick={this.switchMode}>Past</h2>
+          <h3 className="upcoming-choice" ref={this.upcomingRef} onClick={this.switchMode}>Upcoming</h3>
+          <h3 className="past-choice" ref={this.pastRef} onClick={this.switchMode}>Past</h3>
         </nav>
 
         <section className="bookings-display">
-          <ul>
+          <ul id="bookings-list">
             {this.state.upcoming ? this.upcomingList() : this.pastList()}
           </ul>
         </section>

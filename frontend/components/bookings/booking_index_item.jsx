@@ -23,10 +23,11 @@ class BookingIndexItem extends React.Component {
     console.log(this.props);
     if (!booking || !listing) { return null }
     return (
+
       <li className="booking-item">
         <div className="booking-image">Image goes here</div>
         <div className="date-and-city">
-          <h3>{new Date(booking.startDate).toDateString()} - {new Date(booking.endDate).toDateString()}</h3>
+          <p>{new Date(booking.startDate).toDateString()} - {new Date(booking.endDate).toDateString()}</p>
           <h2>{listing.city}</h2>
           <h3>{listing.title}</h3>
         </div>

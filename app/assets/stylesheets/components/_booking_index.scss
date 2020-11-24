@@ -1,0 +1,46 @@
+#booking-index {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.bookings-menu{
+  width: 100%;
+  border-bottom: 1px solid #ebebeb;
+  padding-top: 35px;
+}
+
+.upcoming-choice, .past-choice{
+  display: inline-block;
+  margin-right: 50px;
+  color: #aaa;
+  cursor: pointer;
+  padding-bottom: 15px;
+}
+
+.upcoming-choice.selected-choice, .past-choice.selected-choice {
+  cursor: default;
+  color: black;
+  border-bottom: black 1px solid;
+}
+
+#bookings-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 15px auto;
+}
+
+.booking-item{
+  margin: 20px 25px;
+  height: 420px;
+  width: 420px;
+  border-radius: 15px;
+  box-shadow: 1px 3px 12px 7px rgba(190,190,190,0.3);
+  overflow: hidden;
+}
+
+
+
+
+
+
