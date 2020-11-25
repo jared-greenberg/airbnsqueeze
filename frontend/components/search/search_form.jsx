@@ -20,6 +20,12 @@ class SearchForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidUpdate(prevProps){
+    if (prevProps.query !== this.props.query){
+      this.setState(this.props.query);
+    }
+  }
+
   updateField(field){
     return (e) => {
       this.setState({[field]: e.currentTarget.value})

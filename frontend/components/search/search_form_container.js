@@ -6,10 +6,18 @@ import SearchForm from './search_form';
 
 
 const mapStatetoProps = state => {
+  debugger
+  let query;
+  if (Object.keys(state.ui.query).length === 0){
+    query = {location: "", numGuests: 0}
+  }
+  else {
+    query = state.ui.query;
+  }
   return {
-  query: {location: "",
-          numGuests: 0}
-}}
+    query 
+  }
+}
 
 const mapDispatchtoProps = dispatch => {
  return {
