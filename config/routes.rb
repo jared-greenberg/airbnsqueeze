@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     
     resources :listings, only: [:index, :show] do
       resources :bookings, only: [:create]
-      resources :reviews, only: [:index]
     end
 
     resources :bookings, only: [:destroy]
@@ -20,3 +19,5 @@ Rails.application.routes.draw do
   
   root to: "static_pages#root"
 end
+
+review = {booking_id: 7, author_id: 1, body: "Nice place", rating: 5}
