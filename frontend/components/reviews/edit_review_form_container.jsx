@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
-import { updateReview, fetchReview } from '../../actions/review_actions';
+import { updateReview, fetchReview, deleteReview } from '../../actions/review_actions';
 import ReviewForm from './review_form';
 import React from 'react';
+import {closeModal} from '../../actions/modal_actions';
 
 class EditReviewForm extends React.Component {
   componentDidMount(){
@@ -10,28 +11,36 @@ class EditReviewForm extends React.Component {
 
   render(){
 
-    const {review, buttonText, action} = this.props;
-
-    return <ReviewForm action={action} buttonText = {buttonText} review={review}/>
+    const {review, type, action, booking, updateReview, closeModal, deleteReview} = this.props;
+    if (!review) return null;
+    return <ReviewForm action={action} 
+                      type = {type} 
+                      review={review}
+                      booking={booking}
+                      updateReview={updateReview}
+                      closeModal={closeModal}
+                      deleteReview={deleteReview}
+                      />
   }
 }
 
 const mapStatetoProps = (state) => {
-
-  const review = state.entities.reviews[window.reviewId] || {};
-  const booking = state.entities.booking[window.bookingId]
+  const review = state.entities.reviews[window.reviewId];
+  const booking = state.entities.bookings[window.bookingId]
 
   return {
     review,
-    buttonText: "Update",
+    type: "Update",
     booking
     // errors: state.errors.reviews
   }
 }
 
 const mapDispatchtoProps = dispatch => ({
-  action: review => dispatch(updateReview(review)),
-  fetchReview: reviewId => dispatch(fetchReview(reviewId))
+  updateReview: review => dispatch(updateReview(review)),
+  fetchReview: reviewId => dispatch(fetchReview(reviewId)),
+  deleteReview: reviewId => dispatch(deleteReview(reviewId)),
+  closeModal: () => dispatch(closeModal())
 })
 
 export default connect(mapStatetoProps, mapDispatchtoProps)(EditReviewForm)

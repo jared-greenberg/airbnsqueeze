@@ -26,7 +26,7 @@ class BookingIndex extends React.Component{
     return this.props.pastBookings.map(booking => {
       const listing = this.props.listings[booking.listingId]
       return <BookingIndexItem key={booking.id} booking={booking} 
-                openModal={this.props.openModal} listing={listing} upcoming={this.state.upcoming} />
+                openModal={this.props.openModal} reviewId={booking.reviewId} listing={listing} upcoming={this.state.upcoming} />
     })
   }
 

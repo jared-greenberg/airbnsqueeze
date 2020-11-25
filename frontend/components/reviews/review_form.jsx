@@ -7,16 +7,44 @@ class ReviewForm extends React.Component {
     this.state = this.props.review;
     this.radioButtons = this.radioButtons.bind(this);
     this.handleText = this.handleText.bind(this);
+    this.ratingText = this.ratingText.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+
+  
   }
 
-  componentDidMount(){
+  componentWillUnmount(){
     delete window["bookingId"];
     delete window["reviewId"];
   }
 
+  handleDelete(e){
+    e.preventDefault();
+    
+    this.props.deleteReview(this.state.id).then(this.props.closeModal)
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+    if (this.props.type === "Create") {
+      this.props.createReview(this.props.booking.id, this.state).then(this.props.closeModal)
+    }
+    else {
+      this.props.updateReview(this.state).then(this.props.closeModal)
+    }
+  }
+
+  
+
   handleText(e){
     this.setState({body: e.currentTarget.value})
   } 
+
+  ratingText(){
+    const options = ["", "Terrible", "Bad", "OK", "Good", "Great"];
+    return options[this.state.rating];
+  }
 
   setRating(num){
     this.setState({rating: num})
@@ -26,9 +54,9 @@ class ReviewForm extends React.Component {
     const {rating} = this.state;
     return [5, 4, 3, 2, 1].map(i => (
       <>
-      <input type="radio" key={i} id={`radio-${i}`} value={i} onChange={() => this.setRating(i)} checked={i === rating} 
+      <input type="radio" key={`radio-${i}`} id={`radio-${i}`} value={i} onChange={() => this.setRating(i)} checked={i === rating} 
         onClick={() => this.setRating(i)} />
-      <label htmlFor={`radio-${i}`}><i class="fas fa-star fa-2x"></i></label>
+      <label htmlFor={`radio-${i}`} key={`label-${i}`}><i className="fas fa-star fa-2x"></i></label>
       </>
       )
     )
@@ -36,9 +64,10 @@ class ReviewForm extends React.Component {
 
   render() {
       return (
-        <form className="review-form">
+        <form className="review-form" onSubmit={this.handleSubmit}>
           <section className="rating-section">
             <h2>How was your stay at {this.props.booking.hostName}'s place?</h2>
+              <h3 className="rating-text">{this.ratingText()}</h3>
             <div className="review-rating">{this.radioButtons()}</div>
           </section>
           <section className="body-section">
@@ -48,7 +77,9 @@ class ReviewForm extends React.Component {
               placeholder="Write a public review"></textarea>
             </section>
           <div className="review-button">
-            <button id="submit-review" disabled={this.state.body === ""}>Done</button>
+            {this.props.type === "Create" ? null :
+              <button id="delete-review" onClick={this.handleDelete}>Delete</button>}
+            <button id="submit-review" disabled={this.state.body === "" || this.state.rating === 0}>Done</button>
           </div>
         </form>
       )

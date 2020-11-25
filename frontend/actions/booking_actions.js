@@ -9,7 +9,6 @@ export const receiveBookings = payload => ({
 })
 
 export const removeBooking = bookingId => {
-  debugger
   return {
   type: REMOVE_BOOKING,
   bookingId
@@ -24,10 +23,8 @@ export const fetchBookings = userId => dispatch =>{
 }
 
 export const deleteBooking = bookingId => dispatch => {
-  debugger
   return BookingsApiUtils.deleteBooking(bookingId).then(
     () => {
-      debugger
       dispatch(removeBooking(bookingId))
     }
   )

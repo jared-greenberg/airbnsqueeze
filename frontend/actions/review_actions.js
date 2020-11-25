@@ -2,8 +2,6 @@ import * as ReviewsApiUtil from '../util/reviews_api_util';
 
 export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 export const REMOVE_REVIEW = 'REMOVE_REVIEW';
-export const RECEIVE_REVIEW_ERRORS = 'RECEIVE_REVIEW_ERROR';
-export const CLEAR_REVIEW_ERRORS = 'CLEAR_REVIEW_ERROR';
 
 export const receiveReview = review => ({
   type: RECEIVE_REVIEW,
@@ -15,20 +13,15 @@ export const removeReview = reviewId => ({
   reviewId
 })
 
-export const receiveReviewError = errors => ({
-  type: RECEIVE_REVIEW_ERRORS,
-  errors
-})
-
-export const createReview = (bookingId, review) => {
-  return ReviewsApiUtil.createReview(bookingId, review).catch(
-    err => dispatch(receiveReviewError(err.responseJSON))
+export const createReview = (bookingId, review) => dispatch=> {
+  return ReviewsApiUtil.createReview(bookingId, review).then(
+    review => dispatch(receiveReview(review))
   )
 }
 
 export const updateReview = review => dispatch =>{
-  return ReviewsApiUtil.updateReview(review).catch(
-    err => dispatch(receiveReviewError(err.responseJSON))
+  return ReviewsApiUtil.updateReview(review).then(
+    review => dispatch(receiveReview(review))
   )
 }
 
@@ -40,7 +33,7 @@ export const fetchReview = review => dispatch => {
 
 export const deleteReview = reviewId => dispatch => {
   return ReviewsApiUtil.deleteReview(reviewId).then(
-    () => dispatch(removeReview(reviewId))
+    (review) => dispatch(removeReview(review.id))
   )
 }
 

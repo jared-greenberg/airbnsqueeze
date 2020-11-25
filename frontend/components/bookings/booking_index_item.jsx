@@ -14,7 +14,7 @@ class BookingIndexItem extends React.Component {
   }
 
   addLinks() {
-    if (this.props.review) {
+    if (this.props.reviewId) {
       return <div className="edit-review" onClick={this.openEdit}>Edit Review</div>
     }
     else {
@@ -24,7 +24,7 @@ class BookingIndexItem extends React.Component {
 
   openEdit(){
     window.bookingId = this.props.booking.id;
-    window.reviewId = this.props.review.id;
+    window.reviewId = this.props.reviewId;
     this.props.openModal("editReview");
   }
 
