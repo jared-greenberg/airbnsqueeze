@@ -2,6 +2,7 @@ import {connect} from 'react-redux';
 import { userUpcomingBookings, userPastBookings, listingsFromBookings } from '../../util/selectors';
 import BookingIndex from './booking_index';
 import { fetchBookings, deleteBooking } from '../../actions/booking_actions';
+import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
   // reviews too
@@ -25,9 +26,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchBookings: userId => dispatch(fetchBookings(userId)),
-  deleteBooking: bookingID => {
-    debugger
-    dispatch(deleteBooking(bookingID))}
+  deleteBooking: bookingID => dispatch(deleteBooking(bookingID)),
+  openModal: modalType => dispatch(openModal(modalType))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookingIndex)

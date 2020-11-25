@@ -1,4 +1,4 @@
-import React, { useDebugValue } from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import moment from 'moment';
 
@@ -7,26 +7,46 @@ class BookingIndexItem extends React.Component {
 
   constructor(props) {
     super(props);
-    this.addLinks = this.addLinks.bind(this);
-    this.handleCancel = this.handleCancel.bind(this)
+    this.reviewLinks = this.reviewLinks.bind(this);
+    this.toggleCancel = this.toggleCancel.bind(this)
+    this.state = { cancelling: false }
   }
 
-  addLinks(){
+
+  reviewLinks(){
+    const {openModal} = this.props;
     if (this.props.review) {
-      return <Link className="edit-review" to="/">Edit Review</Link>
+      return <div className="edit-review" onClick={() => openModal("createReview")} >Edit Review</div>
     }
     else {
-      return <Link className="add-review" to="/">Add review</Link>
+      return <div className="add-review" onClick={() => openModal("editReview")} >Add review</div>
     }
   }
-
 
   formatDate(date){
     return moment(date).format('ll')
   }
 
-  handleCancel(bookingId){
-    this.props.deleteBooking(bookingId)
+  cancelLinks(){
+    const {deleteBooking, booking} = this.props;
+    if (this.state.cancelling){
+      return (
+        <div id="cancel-prompt"> 
+          <h3>Are you sure?</h3>
+          <div className="cancel-confirmation">
+            <button id="no-cancel" onClick={this.toggleCancel}>No</button>
+            <button id="yes-cancel" onClick={() => deleteBooking(booking.id)}>Yes</button>
+          </div>
+        </div>
+      )
+    }
+    else {
+      return <div className="cancel-booking" onClick={this.toggleCancel}>Cancel booking</div>
+    }
+  }
+
+  toggleCancel(){
+    this.setState({cancelling: !this.state.cancelling})
   }
 
   render() {
@@ -44,8 +64,7 @@ class BookingIndexItem extends React.Component {
         </section>
         <div className="booking-links">
           <Link className="booking-listing-link" to={`/listings/${listing.id}`}>{listing.title}</Link>
-        {upcoming ? <div className="cancel-booking" onClick={() => this.handleCancel(booking.id)}>Cancel booking</div> : 
-          this.addLinks()}
+          {!upcoming ? this.reviewLinks() : this.cancelLinks()}
         </div>
     </li>
     )

@@ -21,7 +21,7 @@ class Listing < ApplicationRecord
 
   has_many :reviews,
     through: :bookings,
-    source: :reviews
+    source: :review
 
   has_many_attached :photos
 
