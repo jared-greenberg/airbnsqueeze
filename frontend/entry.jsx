@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import {fetchReview} from './actions/review_actions';
-import {updateReview, deleteReview, createReview} from './util/reviews_api_util';
+import {fetchReview, deleteReview} from './actions/review_actions';
+import {updateReview, createReview} from './util/reviews_api_util';
 
 
 document.addEventListener("DOMContentLoaded", () => {
