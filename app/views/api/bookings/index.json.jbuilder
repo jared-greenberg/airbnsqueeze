@@ -6,6 +6,7 @@ json.bookings do
       json.endDate booking.end_date
       json.listingId booking.listing_id
       json.renterId booking.renter_id
+      json.hostName booking.host.first_name
       if booking.review
         json.reviewId booking.review.id
       end

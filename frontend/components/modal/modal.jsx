@@ -10,6 +10,7 @@ class Modal extends React.Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.modalComponent = this.modalComponent.bind(this);
+    this.reviewClass = this.reviewClass.bind(this);
   }
 
 
@@ -36,6 +37,15 @@ class Modal extends React.Component {
     }
   }
 
+  reviewClass(){
+    if (["login", "signup"].includes(this.props.modalType)){
+      return ""
+    }
+    else {
+      return "review-"
+    }
+  }
+
   render(){
 
     const {modalType, closeModal} = this.props;
@@ -44,7 +54,8 @@ class Modal extends React.Component {
     
     return (
       <div id="modal-background" onClick={this.handleClick}>
-        <div id="modal-contents" onClick={(e) => e.stopPropagation()}>
+        <div id={`${this.reviewClass()}modal-contents`}
+          onClick={(e) => e.stopPropagation()}>
           {this.modalComponent()}
           <a id="modal-x" onClick={closeModal}>{'\u00D7'}</a>
         </div>

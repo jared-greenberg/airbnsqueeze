@@ -6,12 +6,17 @@ class ReviewForm extends React.Component {
     super(props);
     this.state = this.props.review;
     this.radioButtons = this.radioButtons.bind(this);
+    this.handleText = this.handleText.bind(this);
   }
 
-  componentWillUnmount(){
+  componentDidMount(){
     delete window["bookingId"];
     delete window["reviewId"];
   }
+
+  handleText(e){
+    this.setState({body: e.currentTarget.value})
+  } 
 
   setRating(num){
     this.setState({rating: num})
@@ -19,22 +24,33 @@ class ReviewForm extends React.Component {
 
   radioButtons(){
     const {rating} = this.state;
-    return [1, 2, 3, 4, 5].map(i => (
-      <input type="radio" className={`radio-${i}`} checked={i === rating} 
+    return [5, 4, 3, 2, 1].map(i => (
+      <>
+      <input type="radio" key={i} id={`radio-${i}`} value={i} onChange={() => this.setRating(i)} checked={i === rating} 
         onClick={() => this.setRating(i)} />
+      <label htmlFor={`radio-${i}`}><i class="fas fa-star fa-2x"></i></label>
+      </>
       )
     )
   }
 
   render() {
       return (
-      <div className="review-form">
-        <h1>How was your stay at {} </h1>
-        <section className="review-rating">{this.radioButtons()}</section>
-        
-        <textarea value={this.state.body}></textarea>
-
-      </div>
+        <form className="review-form">
+          <section className="rating-section">
+            <h2>How was your stay at {this.props.booking.hostName}'s place?</h2>
+            <div className="review-rating">{this.radioButtons()}</div>
+          </section>
+          <section className="body-section">
+            <h2>Write a public review</h2>
+            <h4 className="review-instructions">Tell future travelers about what they can expect at {this.props.booking.hostName}'s' place.</h4>
+            <textarea id="review-body" value={this.state.body} onChange={this.handleText} 
+              placeholder="Write a public review"></textarea>
+            </section>
+          <div className="review-button">
+            <button id="submit-review" disabled={this.state.body === ""}>Done</button>
+          </div>
+        </form>
       )
   }
 }

@@ -19,10 +19,12 @@ class EditReviewForm extends React.Component {
 const mapStatetoProps = (state) => {
 
   const review = state.entities.reviews[window.reviewId] || {};
+  const booking = state.entities.booking[window.bookingId]
 
   return {
     review,
-    buttonText: "Update"
+    buttonText: "Update",
+    booking
     // errors: state.errors.reviews
   }
 }

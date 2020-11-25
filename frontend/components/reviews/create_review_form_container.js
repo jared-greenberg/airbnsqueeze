@@ -4,18 +4,19 @@ import ReviewForm from './review_form';
 
 
 const mapStatetoProps = (state) => {
-  debugger
 
+  const booking = state.entities.bookings[window.bookingId];
+  
   return {
-  review: {
-    body: "",
-    rating: 5,
-    user_id: state.session.id,
-    booking_id: window.bookingId
-  },
-
-  buttonText: "Create"
-  // errors: state.errors.reviews
+    review: {
+      body: "",
+      rating: 0,
+      user_id: state.session.id,
+      booking_id: window.bookingId
+    },
+    booking,
+    buttonText: "Create"
+    // errors: state.errors.reviews
 }}
 
 const mapDispatchtoProps = dispatch => ({

@@ -1,4 +1,4 @@
-html, body, form, label, div, section, ul, li, h1, h2, h3, p, a {
+html, body, form, label, div, section, ul, li, h1, h2, h3, h4, p, a {
   border: 0;
   padding: 0;
   outline: 0;
@@ -23,6 +23,10 @@ img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+textarea{
+  font-family: inherit;
 }
 
 button:focus {outline:0;}
