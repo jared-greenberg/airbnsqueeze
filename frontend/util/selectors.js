@@ -1,5 +1,6 @@
 import moment from 'moment';
 
+
 export const amenitySelector = (state, listing) => {
    if (!listing || !listing.amenities) {return []}
    
@@ -22,12 +23,17 @@ export const userPastBookings = (bookings, userId) => {
    )
 }
 
-export const bookingsListingInfo = (state, bookings) => {
+export const listingsFromBookings = (state, bookings) => {
    const listingIds = bookings.map(booking => booking.listingId)
    const listings = {};
    listingIds.forEach(id => listings[id] = state.entities.listings[id] )
    return listings;
 }
+
+// export const reviewByBookingId = (state, bookingId) => {
+//    reviews = Object.values(state.entities.reviews)
+//    return reviews.filter(review => review.bookingId === bookingId)
+// }
 
 
 

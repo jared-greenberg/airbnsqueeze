@@ -11,7 +11,7 @@ class Booking < ApplicationRecord
     foreign_key: :renter_id,
     class_name: :User
 
-  has_many :reviews,
+  has_one :review,
     foreign_key: :booking_id,
     class_name: :Review
 

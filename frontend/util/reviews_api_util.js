@@ -9,17 +9,17 @@ export const fetchReview = reviewId => {
 export const updateReview = review => {
   return $.ajax({
     method: 'PATCH',
-    url: `api/reviews/${review.id}`,
+    url: `api/bookings/${bookingId}/reviews/${review.id}`,
     data: {
       review
     }
   })
 }
 
-export const createReview = review => {
+export const createReview = (bookingId, review) => {
   return $.ajax({
     method: 'POST',
-    url: `api/reviews`,
+    url: `api/bookings/${bookingId}/reviews`,
     data: {
       review
     }

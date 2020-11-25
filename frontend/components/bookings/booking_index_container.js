@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import { userUpcomingBookings, userPastBookings, bookingsListingInfo } from '../../util/selectors';
+import { userUpcomingBookings, userPastBookings, listingsFromBookings } from '../../util/selectors';
 import BookingIndex from './booking_index';
 import { fetchBookings, deleteBooking } from '../../actions/booking_actions';
 
@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
   
   const upcomingBookings = userUpcomingBookings(bookings, userId);
   const pastBookings = userPastBookings(bookings, userId);
-  const listings = bookingsListingInfo(state, bookings);
+  const listings = listingsFromBookings(state, bookings);
   
   return {
     userId,

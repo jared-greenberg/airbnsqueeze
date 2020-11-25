@@ -1,2 +1,2 @@
-json.extract! review, :id, :body, :rating, :updated_at
+json.extract! review, :id, :body, :rating, :updatedAt, :bookingId, :authorId
 

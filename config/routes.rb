@@ -12,12 +12,13 @@ Rails.application.routes.draw do
       resources :bookings, only: [:create]
     end
 
-    resources :bookings, only: [:destroy]
+    resources :bookings, only: [:destroy] do
+      resources :reviews, only: [:create, :update]
+    end
 
-    resources :reviews, only: [:create, :show, :destroy, :update]
+    resources :reviews, only: [:show, :destroy]
   end
   
   root to: "static_pages#root"
 end
 
-review = {booking_id: 7, author_id: 1, body: "Nice place", rating: 5}
