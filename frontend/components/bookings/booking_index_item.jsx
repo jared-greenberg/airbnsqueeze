@@ -1,6 +1,6 @@
-import React, { useDebugValue } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 
 class BookingIndexItem extends React.Component {
@@ -9,15 +9,28 @@ class BookingIndexItem extends React.Component {
     super(props);
     this.addLinks = this.addLinks.bind(this);
     this.handleCancel = this.handleCancel.bind(this)
+    this.openEdit = this.openEdit.bind(this);
+    this.openCreate = this.openCreate.bind(this);
   }
 
   addLinks() {
     if (this.props.review) {
-      return <Link className="edit-review" to="/">Edit Review</Link>
+      return <div className="edit-review" onClick={this.openEdit}>Edit Review</div>
     }
     else {
-      return <Link className="add-review" to="/">Add review</Link>
+      return <div className="add-review" onClick={this.openCreate}>Add review</div>
     }
+  }
+
+  openEdit(){
+    window.bookingId = this.props.booking.id;
+    window.reviewId = this.props.review.id;
+    this.props.openModal("editReview");
+  }
+
+  openCreate(){
+    window.bookingId = this.props.booking.id;
+    this.props.openModal("createReview");
   }
 
 
