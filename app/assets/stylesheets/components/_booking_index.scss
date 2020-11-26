@@ -93,7 +93,9 @@
   align-items: center;
 }
 
-.booking-links > a:hover, .cancel-booking:hover {
+.booking-links > div:hover,
+.booking-links > a:hover,
+ .cancel-booking:hover {
   background: #ebebeb;
   cursor: pointer;
 }
