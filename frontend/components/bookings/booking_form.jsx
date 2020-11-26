@@ -39,9 +39,10 @@ class BookingForm extends React.Component {
       total_cost: this.state.totalCost,
       num_guests: this.state.numGuests
     }
-    createBooking(listingId, booking).then( (response) =>{
-      alert(response)
-    })
+    createBooking(listingId, booking).then( () => {
+        this.props.history.push(`/users/${this.props.currentUser}/bookings`)
+      }
+    )
     
   }
 
