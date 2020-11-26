@@ -7,7 +7,6 @@ export default (state = {}, action) => {
     case RECEIVE_LISTING:
       return {...state, ...action.payload.listing };
     case RECEIVE_LISTINGS:
-      debugger
       if (action.payload.listings === undefined) return {};
       return action.payload.listings;
     case RECEIVE_BOOKINGS:

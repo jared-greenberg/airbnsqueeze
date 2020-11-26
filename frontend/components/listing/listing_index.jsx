@@ -1,6 +1,7 @@
 import React from 'react';
 import ListingIndexItem from './listing_index_item';
 import MapDisplay from '../map/map_display';
+import {isEqual} from 'lodash';
 
 class ListingIndex extends React.Component {
 
@@ -10,7 +11,7 @@ class ListingIndex extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-      if (prevProps.query !== this.props.query){
+      if (!isEqual(prevProps.query, this.props.query)){
         this.props.fetchListings(this.props.query);
       }
     }

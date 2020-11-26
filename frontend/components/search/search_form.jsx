@@ -60,7 +60,7 @@ class SearchForm extends React.Component {
     query["startDate"] = null;
     query["endDate"] = null;
     this.props.startQuery(query);
-    this.props.fetchListings(query);
+    // this.props.fetchListings(query);
     if (this.props.location.pathname !== "/listings"){
       this.props.history.push('/listings')
     }
