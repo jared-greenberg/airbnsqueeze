@@ -1,4 +1,4 @@
-#submit-review{
+#submit-review, #delete-review{
   background: #044241;
   border-radius: 5px;
   height: 40px;
@@ -14,8 +14,8 @@
 
 .review-button{
   display: flex;
-  width: 85%;
-  justify-content: flex-end;
+  width: 88%;
+  justify-content: space-between;
   margin-top: 20px;
  
 }
