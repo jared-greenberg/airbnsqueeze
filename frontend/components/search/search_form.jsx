@@ -18,8 +18,10 @@ class SearchForm extends React.Component {
     this.changeGuests = this.changeGuests.bind(this);
     this.toggleDrop = this.toggleDrop.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.changePlaceholder = this.changePlaceholder.bind(this);
   }
 
+  
   componentDidUpdate(prevProps){
     if (prevProps.query !== this.props.query){
       this.setState(this.props.query);
@@ -31,6 +33,13 @@ class SearchForm extends React.Component {
       this.setState({[field]: e.currentTarget.value})
     }
   }
+
+  changePlaceholder(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.currentTarget.placeholder = '"Ithaca, NY" "Boulder, CO", "Santa Cruz, CA'
+  }
+
 
   changeGuests(val){
     if (this.state.numGuests === 4 && val === 1) {
@@ -81,7 +90,7 @@ class SearchForm extends React.Component {
         <div className="location-field">
           <label htmlFor="location">Location</label>
           <input type="text" value={this.state.location}
-          placeholder="Where are you going?"
+          placeholder="Where are you going?" onFocus={this.changePlaceholder}
           onChange = {this.updateField("location")}/>
         </div>
         <div className="calendars"> 
