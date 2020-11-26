@@ -7,7 +7,6 @@ import {closeModal} from '../../actions/modal_actions';
 const mapStatetoProps = (state) => {
 
   const booking = state.entities.bookings[window.bookingId];
-  debugger
   return {
     review: {
       body: "",

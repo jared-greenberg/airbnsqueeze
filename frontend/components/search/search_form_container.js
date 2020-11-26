@@ -6,7 +6,6 @@ import SearchForm from './search_form';
 
 
 const mapStatetoProps = state => {
-  debugger
   let query;
   if (Object.keys(state.ui.query).length === 0){
     query = {location: "", numGuests: 0}
@@ -22,7 +21,8 @@ const mapStatetoProps = state => {
 const mapDispatchtoProps = dispatch => {
  return {
   fetchListings: (query) => dispatch(fetchListings(query)),
-  startQuery: (query) => dispatch(startQuery(query))
+  startQuery: (query) => dispatch(startQuery(query)),
+  clearQuery: () => dispatch(clearQuery())
 }}
 
 export default withRouter(connect(mapStatetoProps, mapDispatchtoProps)(SearchForm))

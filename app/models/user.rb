@@ -2,9 +2,12 @@ require 'date'
 
 class User < ApplicationRecord 
   
-  validates :email, :session_token, presence: true, uniqueness: true
-  validates :password, length: {minimum: 8}, allow_nil: true
-  validates :first_name, :last_name, :password_digest, :birthday, presence: true
+  validates :email, :session_token, uniqueness: true
+  validates_length_of :password, minimum: 8, allow_nil: true, message: "Password is required (minimum 8 characters)."
+  validates_presence_of :first_name, message: "First name is required."
+  validates_presence_of :last_name, message: "Last name is required."
+  validates_presence_of :email, message: "Email is required."
+  validates_presence_of :birthday, message: "Select your birthday to continue."
   validate :valid_birthday, if: :birthday
 
   attr_reader :password
@@ -19,7 +22,7 @@ class User < ApplicationRecord
   def valid_birthday    
     today = Date.today
     unless self.birthday <= Date.new(today.year - 18, today.month, today.day)
-      errors.add(:base, "To sign up, you need to be at least 18")
+      errors.add(:base, "You must be 18 or older to use Airbnsqueeze. Other people won't see your birthday.")
     end
   end
 

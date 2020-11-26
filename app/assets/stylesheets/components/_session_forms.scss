@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 120%;
+  height: 130%;
+  padding-top: 10px;
 }
 
 .session-form input {
@@ -47,10 +48,11 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  margin: 4px 0 25px 0;
 }
 
 .lower-inputs input {
-  margin-top: 15px;
+  margin-top: 35px;
 }
 
 .session-form p:last-child{
@@ -70,7 +72,7 @@
   border-radius: 5px
 }
 
-.form-title{
+h3.form-title{
   font-weight: 600;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -99,9 +101,55 @@
 }
 
 .form-wrapper {
-  height: 87%;
+  height: 86.75%;
   width: 100%;
   position: absolute;
-  top: 60px;
+  top: 64px;
   overflow: auto; 
+  
 }
+
+.session-form div {
+  width: 100%;
+}
+
+.first-name-input > input, .last-name-input > input {
+   border: none;
+}
+
+.first-name-input {
+  border-bottom: 1px solid #bbb;
+}
+
+.first-name-input, .last-name-input {
+  background: transparent;
+}
+
+
+.session-form input[type="text"], .session-form input[type="date"]{
+  background: #fff;
+}
+
+.session-form input[type="text"]:focus, .session-form input[type="date"]:focus{
+  border: 1px solid black;
+}
+
+.rel-input, .first-name-input {
+  position: relative;
+}
+
+div.error-msg{
+  position: absolute;
+  top: 85px;
+  color: red;
+  font-size: 14px;
+}
+
+div.first_name-error{
+  top: -28px;
+}
+
+div.last_name-error{
+  top: 101px;
+}
+

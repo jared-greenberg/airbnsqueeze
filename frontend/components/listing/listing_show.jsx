@@ -2,6 +2,8 @@ import React from 'react';
 import Amenities from './amenities';
 import MapDisplay from '../map/map_display';
 import BookingFormContainer from '../bookings/booking_form_container';
+import ReviewIndex from '../reviews/review_index';
+
 
 class ListingShow extends React.Component {
 
@@ -12,6 +14,7 @@ class ListingShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchListing(this.props.match.params.listingId);
+    window.scrollTo(0,0);
   }
 
   componentDidUpdate(prevProps){
@@ -27,7 +30,7 @@ class ListingShow extends React.Component {
   }
 
   render() {
-    const {listing} = this.props;
+    const {listing, avgRating, reviews} = this.props;
 
     if (!listing) return null;
     
@@ -36,8 +39,14 @@ class ListingShow extends React.Component {
       <section className="listing-show">
         <h1>{listing.title}</h1>
         <div className="sub-header">
-          <span>(Rating)</span>
-          <span>{'\u00B7'}</span>
+          { avgRating > 0 ? (
+              <span>
+                <i className="fas fa-star"></i>
+                <strong>{avgRating}</strong> 
+                <span>({reviews.length})</span>    
+                {'\u00B7'}
+              </span>
+          ) : null }
           <span>{listing.city}</span>
         </div>
         <section className="img-container">
@@ -65,9 +74,9 @@ class ListingShow extends React.Component {
         <BookingFormContainer match={this.props.match} history={this.props.history} price={listing.price} 
         capacity = {listing.capacity}/>
         <Amenities amenities={this.props.amenities} listing={listing}/>
+        <ReviewIndex avgRating={this.props.avgRating} reviews={this.props.reviews}/>
         <MapDisplay coords={this.center()} listings={[listing]} type={this.props.type}/>
       </section>
-      {/* <Reviews /> */}
     </>
     )
     

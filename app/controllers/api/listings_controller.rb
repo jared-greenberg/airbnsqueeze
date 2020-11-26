@@ -6,7 +6,7 @@ class Api::ListingsController < ApplicationController
     if num_guests
       listings = listings.filter_by_guests(num_guests)
     end
-    @listings = listings.includes(:amenities)
+    @listings = listings.includes(:amenities).includes(:reviews)
     @amenities = Amenity.all
     render :index
   end

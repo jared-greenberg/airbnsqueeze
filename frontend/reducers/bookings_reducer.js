@@ -17,9 +17,7 @@ export default (state = {}, action) => {
       return nextState;
     case REMOVE_REVIEW:
       let copyState = {...state};
-      debugger
       const index = Object.values(copyState).filter(b => b.reviewId === action.reviewId)[0]["id"];
-      debugger
       copyState[index]["reviewId"] = null;
       return copyState;
     default:

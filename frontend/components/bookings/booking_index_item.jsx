@@ -56,7 +56,7 @@ class BookingIndexItem extends React.Component {
           </div>
         </section>
         <div className="booking-links">
-          <Link className="booking-listing-link" to={`/listings/${listing.id}`}>{listing.title}</Link>
+          <Link className="booking-listing-link" to={`/listings/${listing.id}`}>{listing.title}<i class="fas fa-chevron-right"></i></Link>
           {upcoming ? <div className="cancel-booking" onClick={() => this.handleCancel(booking.id)}>Cancel booking</div> :
             this.addLinks()}
         </div>

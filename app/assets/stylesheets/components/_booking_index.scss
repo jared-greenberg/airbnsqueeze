@@ -74,7 +74,8 @@
   width: 100%;
   box-sizing: border-box;
   padding-left: 10%;
-  padding-top: 15px;
+  padding-right: 10%;
+  
 }
 
  .add-review, .edit-review, .cancel-booking{
@@ -86,7 +87,13 @@
   border-top: 1px solid black;
 }
 
-.booking-links > div:hover, .cancel-booking:hover {
+.booking-listing-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.booking-links > a:hover, .cancel-booking:hover {
   background: #ebebeb;
   cursor: pointer;
 }

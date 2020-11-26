@@ -64,6 +64,15 @@
   span {
     font-size: 16px;
     margin-right: 10px;
+   
+    > i {
+       color: #044241;
+       margin-right: 5px;
+    }
+
+    > strong {
+      margin-right: 5px;
+    }
   }
 }
 
@@ -72,7 +81,7 @@
   width: 60%;
   height: 350px;
   border-top: 1px solid #ebebeb;
-  border-bottom: 1px solid #ebebeb;
+  ;
 
   h2 {
     margin-top: 25px;

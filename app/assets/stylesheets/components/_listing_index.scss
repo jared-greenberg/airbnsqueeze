@@ -56,6 +56,15 @@
 .index-text-bottom {
   display: flex;
   justify-content: space-between;
+
+  i {
+    color: #044241;
+    margin-right: 3px;
+  }
+
+  span {
+    margin-left: 5px;
+  }
 }
 
 .index-text-middle{
@@ -68,6 +77,7 @@
   flex-direction: column;
   justify-content: space-around;
 }
+
 
 
 

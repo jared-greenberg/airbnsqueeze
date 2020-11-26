@@ -2,6 +2,9 @@ import React from 'react';
 import DropDown from './drop_down';
 import { Link } from 'react-router-dom';
 import SearchFormContainer from '../search/search_form_container';
+import { connect } from 'react-redux';
+import {clearQuery} from '../../actions/query_actions';
+
 
 
 
@@ -30,7 +33,7 @@ class NavBar extends React.Component {
     return (
       <header className={`${fixed}`}>
         <nav className="normal-nav">
-          <Link to="/"><h1 id="logo">airbnsqueeze</h1></Link>
+          <Link to="/" onClick={this.props.clearQuery}><h1 id="logo">airbnsqueeze</h1></Link>
 
           {this.state.searching ? <div className="opened-search"><SearchFormContainer /></div> : (
             <button id="search-button" onClick={this.openSearch}>
@@ -46,4 +49,11 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+const mapStateToProps = state => ({
+  query: state.ui.query
+})
+const mapDispatchToProps = dispatch => ({
+  clearQuery: () => dispatch(clearQuery())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

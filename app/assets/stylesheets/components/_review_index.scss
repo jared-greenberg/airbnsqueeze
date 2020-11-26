@@ -1,0 +1,52 @@
+.listing-reviews {
+  width: 100%;
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+  padding-top: 15px;
+  max-height: 700px;
+}
+
+.reviews-section-header > i {
+  color:  #044241;
+}
+
+.review-list {
+  display: flex;
+  max-height: 700px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.review-item {  
+  width: 50%;
+  margin-bottom: 40px;
+}
+
+
+.review-heading {
+  display: flex;
+  align-items: center;
+   > i {
+     margin-right: 15px;
+   }
+}
+
+.reviewer-info {
+  > h4 {
+    font-weight: 100;
+    color: grey;
+    margin-top: -5px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -44,8 +44,11 @@ class ListingIndexItem extends React.Component {
           </section>
       
           <section className="index-text-bottom">
-            <p>Rating</p>
-            <p><strong>${listing.price}</strong> / night</p>
+            {!listing.numReviews || listing.numReviews === 0 ? <p></p>:
+              <p><i className="fas fa-star fa-lg"></i> <strong>{listing.avgRating.toFixed(2)}</strong>
+                  <span>({listing.numReviews})</span></p>
+            }
+              <p id="index-price"><strong>${listing.price}</strong> / night</p>
           </section>
       
         </div>

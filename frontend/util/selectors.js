@@ -30,11 +30,11 @@ export const listingsFromBookings = (state, bookings) => {
    return listings;
 }
 
-// export const reviewByBookingId = (state, bookingId) => {
-//    reviews = Object.values(state.entities.reviews)
-//    return reviews.filter(review => review.bookingId === bookingId)
-// }
+export const avgRatingByReviews = reviews => {
+   if (reviews.length === 0) return 0;
 
-
-
+   let sum = 0;
+   reviews.forEach(review => sum += review.rating);
+   return sum / reviews.length;
+}
 

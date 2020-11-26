@@ -35,5 +35,9 @@ class Listing < ApplicationRecord
     self.where(latitude: min_lat..max_lat).where(lng: min_lng..max_lng)
   end
 
+  def rating
+    self.reviews.average("rating")
+  end
+
 end
 
