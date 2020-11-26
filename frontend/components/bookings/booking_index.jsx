@@ -44,7 +44,8 @@ class BookingIndex extends React.Component{
     return this.props.upcomingBookings.map(booking => {
       const listing = this.props.listings[booking.listingId]
       return <BookingIndexItem key={booking.id} booking={booking} listing={listing}
-        deleteBooking={this.props.deleteBooking} upcoming={this.state.upcoming} />
+        deleteBooking={this.props.deleteBooking} openModal={this.props.openModal}
+        upcoming={this.state.upcoming} />
     })
   }
 

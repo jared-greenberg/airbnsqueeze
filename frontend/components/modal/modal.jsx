@@ -3,6 +3,7 @@ import LogInContainer from '../sessions/log_in_container';
 import SignUpContainer from '../sessions/sign_up_container';
 import EditReviewFormContainer from '../reviews/edit_review_form_container';
 import CreateReviewFormContainer from '../reviews/create_review_form_container';
+import CancelBooking from '../bookings/cancel_booking';
 
 class Modal extends React.Component {
 
@@ -32,6 +33,8 @@ class Modal extends React.Component {
         return <EditReviewFormContainer />
       case ("createReview"):
         return <CreateReviewFormContainer />
+      case ("cancelBooking"):
+        return <CancelBooking closeModal={this.props.closeModal} />
       default:
         return null;
     }
@@ -40,6 +43,9 @@ class Modal extends React.Component {
   reviewClass(){
     if (["login", "signup"].includes(this.props.modalType)){
       return ""
+    }
+    else if (this.props.modalType === "cancelBooking"){
+      return "cancelling-"
     }
     else {
       return "review-"

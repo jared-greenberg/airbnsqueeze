@@ -8,9 +8,9 @@ class BookingIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.addLinks = this.addLinks.bind(this);
-    this.handleCancel = this.handleCancel.bind(this)
     this.openEdit = this.openEdit.bind(this);
     this.openCreate = this.openCreate.bind(this);
+    this.tryToCancel = this.tryToCancel.bind(this);
   }
 
   addLinks() {
@@ -38,9 +38,12 @@ class BookingIndexItem extends React.Component {
     return moment(date).format('ll')
   }
 
-  handleCancel(bookingId) {
-    this.props.deleteBooking(bookingId)
+  tryToCancel(){
+    window.bookingId = this.props.booking.id;
+    this.props.openModal("cancelBooking");
   }
+
+  
 
   render() {
     const { booking, listing, upcoming } = this.props;
@@ -57,7 +60,7 @@ class BookingIndexItem extends React.Component {
         </section>
         <div className="booking-links">
           <Link className="booking-listing-link" to={`/listings/${listing.id}`}>{listing.title}<i className="fas fa-chevron-right"></i></Link>
-          {upcoming ? <div className="cancel-booking" onClick={() => this.handleCancel(booking.id)}>Cancel booking</div> :
+          {upcoming ? <div className="cancel-booking" onClick={this.tryToCancel}>Cancel booking</div> :
             this.addLinks()}
         </div>
       </li>
