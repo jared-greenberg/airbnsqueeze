@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
   if (bookings.length > 0) {bookings.sort((a,b) => new Date(a.startDate) - new Date(b.startDate))}
   
   const upcomingBookings = userUpcomingBookings(bookings, userId);
-  const pastBookings = userPastBookings(bookings, userId);
+  const pastBookings = userPastBookings(bookings, userId).reverse();
   const listings = listingsFromBookings(state, bookings);
   
   return {

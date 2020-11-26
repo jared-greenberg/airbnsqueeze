@@ -1,7 +1,7 @@
 import React from 'react';
 import SplashNavBar from '../nav/splash_nav_bar';
 import SearchFormContainer from '../search/search_form_container';
-import {clearQuery} from '../../actions/query_actions';
+import {startQuery, clearQuery} from '../../actions/query_actions';
 
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -18,6 +18,7 @@ class Splash extends React.Component{
     this.props.clearQuery();
     const query = {location}
     this.props.startQuery(query);
+    this.props.history.push("/listings")
   }
 
   startSearch(){
@@ -41,21 +42,21 @@ class Splash extends React.Component{
           </section>
         </div>
         <section className="location-links">
-          <div className="ithaca-link" onClick={() => searchBy("Ithaca, NY")}>
+          <div className="ithaca-link" onClick={() => this.searchBy("Ithaca, NY")}>
             <img id="ithaca" src={window.ithaca}/>
             <div className="link-text">
               <h3>Ithaca</h3>
               <p>New York</p>
             </div>
           </div>
-          <div className="boulder-link" onClick={() => searchBy("Boulder, CO")}>
+          <div className="boulder-link" onClick={() => this.searchBy("Boulder, CO")}>
             <img id="boulder" src={window.boulder}/>
             <div className="link-text">
               <h3>Boulder</h3>
               <p>Colorado</p>
             </div>
           </div>
-          <div className="santacruz-link" onClick={() => searchBy("Santa Cruz, CA")}>
+          <div className="santacruz-link" onClick={() => this.searchBy("Santa Cruz, CA")}>
             <img id="santacruz" src={window.santaCruz}/>
             <div className="link-text">
               <h3>Santa Cruz</h3>
