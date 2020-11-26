@@ -3,6 +3,7 @@ import { updateReview, fetchReview, deleteReview } from '../../actions/review_ac
 import ReviewForm from './review_form';
 import React from 'react';
 import {closeModal} from '../../actions/modal_actions';
+import {withRouter} from 'react-router-dom';
 
 class EditReviewForm extends React.Component {
   componentDidMount(){
@@ -11,7 +12,7 @@ class EditReviewForm extends React.Component {
 
   render(){
 
-    const {review, type, action, booking, updateReview, closeModal, deleteReview} = this.props;
+    const {review, type, action, booking, history, updateReview, closeModal, deleteReview} = this.props;
     if (!review) return null;
     return <ReviewForm action={action} 
                       type = {type} 
@@ -20,6 +21,7 @@ class EditReviewForm extends React.Component {
                       updateReview={updateReview}
                       closeModal={closeModal}
                       deleteReview={deleteReview}
+                      history={history}
                       />
   }
 }
@@ -43,6 +45,6 @@ const mapDispatchtoProps = dispatch => ({
   closeModal: () => dispatch(closeModal())
 })
 
-export default connect(mapStatetoProps, mapDispatchtoProps)(EditReviewForm)
+export default withRouter(connect(mapStatetoProps, mapDispatchtoProps)(EditReviewForm))
 
 

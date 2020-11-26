@@ -29,12 +29,16 @@ class ReviewForm extends React.Component {
     if (this.props.type === "Create") {
       this.props.createReview(this.props.booking.id, this.state).then(() => {
         this.props.closeModal();
+        this.props.history.push(`/listings/${this.props.booking.listingId}`);
       })
     }
     else {
-      this.props.updateReview(this.state).then(this.props.closeModal)
+      this.props.updateReview(this.state).then(() => {
+        this.props.closeModal();
+        this.props.history.push(`/listings/${this.props.booking.listingId}`)
+      })
     }
-    this.props.history.push(`/listings/${this.props.booking.listingId}`)
+   
   }
 
   
