@@ -6,6 +6,7 @@ export default (state = {}, action) =>  {
     case RECEIVE_LISTING:
       return {...state, ...action.payload.amenities}
     case RECEIVE_LISTINGS:
+      if (action.payload.amenities === undefined) return state;
       return {...state, ...action.payload.amenities}
     default:
       return state;

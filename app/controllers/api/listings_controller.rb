@@ -1,8 +1,20 @@
 class Api::ListingsController < ApplicationController 
+
+  CITIES = ["Ithaca, NY", "Boulder, CO", "Santa Cruz, CA"]
   
   def index 
     # listings = region ? Listing.filter_by_region(region) : Listing.all
-    listings = (location && location != "") ? Listing.where(city: location) : Listing.all
+    # listings = (location && self.class.CITIES.include?(location)) ? Listing.where(city: location) : Listing.all
+  
+    if location == ""
+      listings = Listing.all
+    elsif CITIES.include?(location)
+      listings = Listing.where(city: location)
+    else
+      render json: {}
+      return
+    end
+
     if num_guests
       listings = listings.filter_by_guests(num_guests)
     end

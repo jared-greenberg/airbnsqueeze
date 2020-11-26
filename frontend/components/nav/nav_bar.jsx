@@ -15,6 +15,7 @@ class NavBar extends React.Component {
     super(props);
     this.state = {searching: false}
     this.openSearch = this.openSearch.bind(this);
+    this.buttonText = this.buttonText.bind(this);
   }
 
   componentDidUpdate(prevProps){
@@ -27,6 +28,17 @@ class NavBar extends React.Component {
     e.preventDefault();
     this.setState({searching: true});
  }
+
+ // TODO switch dates from undefined to null
+ buttonText(){
+    const {query} = this.props;
+    if (query.location === "" && query.startDate === null && query.endDate === null && query.numGuests === 0){
+      return "Start you search";
+    }
+    else {
+      return "Continue your search...";
+    }
+ }
   
  render() {
     const fixed = this.props.location.pathname === "/listings" ? "fixed-nav" : ""
@@ -37,7 +49,7 @@ class NavBar extends React.Component {
 
           {this.state.searching ? <div className="opened-search"><SearchFormContainer /></div> : (
             <button id="search-button" onClick={this.openSearch}>
-              Start your search
+              {this.buttonText()}
               <div id="search-badge"><i className="fas fa-search"></i></div>
             </button>
           )

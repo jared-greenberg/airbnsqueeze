@@ -14,7 +14,6 @@ export const close = () => ({
 })
 
 export const closeModal = () => dispatch => {
-  debugger
   dispatch(close());
   dispatch(clearSessionErrors());
   // dispatch(clearReviewErrors())

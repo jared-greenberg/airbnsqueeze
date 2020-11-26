@@ -8,7 +8,7 @@ import SearchForm from './search_form';
 const mapStatetoProps = state => {
   let query;
   if (Object.keys(state.ui.query).length === 0){
-    query = {location: "", numGuests: 0}
+    query = {location: "", numGuests: 0, startDate: null, endDate: null}
   }
   else {
     query = state.ui.query;
