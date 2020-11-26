@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 130%;
+  height: 140%;
   padding-top: 10px;
 }
 
@@ -69,7 +69,13 @@
 
 #demo-button{
   height: 50px;
-  border-radius: 5px
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#login-button{
+  margin-top: 45px;
+  font-size: 18px;
 }
 
 h3.form-title{
@@ -101,12 +107,12 @@ h3.form-title{
 }
 
 .form-wrapper {
-  height: 86.75%;
+  height: 87%;
   width: 100%;
   position: absolute;
-  top: 64px;
-  overflow: auto; 
-  
+  top: 65px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .session-form div {
@@ -126,12 +132,21 @@ h3.form-title{
 }
 
 
-.session-form input[type="text"], .session-form input[type="date"]{
+.session-form input[type="text"],
+.session-form input[type="password"],
+.session-form input[type="date"]{
   background: #fff;
 }
 
-.session-form input[type="text"]:focus, .session-form input[type="date"]:focus{
+.session-form input[type="text"]:focus, 
+.session-form input[type="password"]:focus,
+.session-form input[type="date"]:focus,
+#log-in-input:focus, #log-in-password-input:focus{
   border: 1px solid black;
+}
+
+.session-form input[type="password"]:hover {
+  background: #fff
 }
 
 .rel-input, .first-name-input {
@@ -152,4 +167,31 @@ div.first_name-error{
 div.last_name-error{
   top: 101px;
 }
+
+div.log_in-error{
+  top: 101px;
+}
+
+log-in-group {
+  margin-bottom: 40px;
+  position: relative
+}
+
+.log-in-email {
+  border-bottom: 1px solid #bbb;
+}
+
+p.disclaimer{
+  width: 100%;
+  color: gray;
+  margin-left: 10%;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+#log-in-input, #log-in-password-input {
+  border: none;
+}
+
+
 

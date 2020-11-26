@@ -34,10 +34,14 @@ class LogInForm extends React.Component {
     this.setState({ passwordType: toggle })
   }
 
-  errors(){
-    return this.props.errors.map((err, idx) => (
-      <li key={idx}>{err}</li>
-    ))
+  errors(type) {
+    const { errors } = this.props;
+    if (!errors[type]) return null;
+    return (
+      <div className={`${type}-error error-msg`}>
+        <i className="fas fa-exclamation-circle fa-sm"></i> <span>{errors[type]}</span>
+      </div>
+    )
   }
 
   render() {
@@ -45,27 +49,29 @@ class LogInForm extends React.Component {
       <>
         <h3 className="form-title">{this.props.formType}</h3>
         <form className="session-form" onSubmit={this.handleSubmit}>
-        <ul>
-          {this.errors()}
-        </ul>
-        <section className="grouped-inputs">
-          <input type="text" value={this.props.email} 
-            onChange={this.changeField("email")} placeholder="Email" />
-          <input type={this.state.passwordType} value={this.props.password} 
-            onChange={this.changeField("password")} placeholder="Password"/>
-          <a id="password-show" onClick={this.togglePassword}>
-              {this.state.passwordType === "password" ? "Show" : "Hide"}
-          </a>
-        </section>
+          <section className="log-in-group grouped-inputs">
+            <div className="log-in-email email-input">
+            <input id="log-in-input" type="text" value={this.props.email} 
+              onChange={this.changeField("email")} placeholder="Email" />
+            </div>
+            <div type="password-input">
+            <input id="log-in-password-input" type={this.state.passwordType} value={this.props.password} 
+              onChange={this.changeField("password")} placeholder="Password"/>
+            </div>
+            <a id="password-show" onClick={this.togglePassword}>
+                {this.state.passwordType === "password" ? "Show" : "Hide"}
+            </a>
+            {this.errors("log_in")}
+          </section>
 
 
-        <input type="submit" value={this.props.formType} />
-        <button id="demo-button" onClick={this.handleSubmit}>Demo Login</button>
+          <input id="login-button" type="submit" value={this.props.formType} />
+          <button id="demo-button" onClick={this.handleSubmit}>Demo Login</button>
 
-          <p className="opposite-modal-option">{this.props.oppText}
-          <a onClick={this.props.switchModal}>{this.props.oppType}</a>
-        </p>
- 
+            <p className="opposite-modal-option">{this.props.oppText}
+            <a onClick={this.props.switchModal}>{this.props.oppType}</a>
+          </p>
+  
       </form>
       </>
     )

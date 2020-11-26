@@ -61,7 +61,7 @@ class SignUpForm extends React.Component{
               {this.errors("last_name")}
           </section>
             {this.props.errors["first_name"] || this.props.errors["last_name"] ? null :
-            <p>Make sure it matches the name on your government ID</p>}
+            <p className="disclaimer">Make sure it matches the name on your government ID</p>}
 
           <section className="lower-inputs">
             <div className="birthday-input rel-input">
