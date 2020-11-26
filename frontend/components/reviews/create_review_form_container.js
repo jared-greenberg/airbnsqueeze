@@ -2,6 +2,7 @@ import {connect} from 'react-redux';
 import {createReview} from '../../actions/review_actions';
 import ReviewForm from './review_form';
 import {closeModal} from '../../actions/modal_actions';
+import {withRouter} from 'react-router-dom';
 
 
 const mapStatetoProps = (state) => {
@@ -23,5 +24,5 @@ const mapDispatchtoProps = dispatch => ({
   closeModal: () => dispatch(closeModal())
 })
 
-export default connect(mapStatetoProps, mapDispatchtoProps)(ReviewForm)
+export default withRouter(connect(mapStatetoProps, mapDispatchtoProps)(ReviewForm))
 

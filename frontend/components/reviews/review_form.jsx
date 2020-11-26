@@ -1,4 +1,5 @@
 import React from 'react';
+import {Redirect} from 'react-router-dom';
 
 class ReviewForm extends React.Component {
   
@@ -10,8 +11,6 @@ class ReviewForm extends React.Component {
     this.ratingText = this.ratingText.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-
-  
   }
 
   componentWillUnmount(){
@@ -28,11 +27,14 @@ class ReviewForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     if (this.props.type === "Create") {
-      this.props.createReview(this.props.booking.id, this.state).then(this.props.closeModal)
+      this.props.createReview(this.props.booking.id, this.state).then(() => {
+        this.props.closeModal();
+      })
     }
     else {
       this.props.updateReview(this.state).then(this.props.closeModal)
     }
+    this.props.history.push(`/listings/${this.props.booking.listingId}`)
   }
 
   
