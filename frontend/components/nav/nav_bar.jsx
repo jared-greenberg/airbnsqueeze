@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import SearchFormContainer from '../search/search_form_container';
 import { connect } from 'react-redux';
 import {clearQuery} from '../../actions/query_actions';
+import {isEqual} from 'lodash';
 
 
 
@@ -32,7 +33,7 @@ class NavBar extends React.Component {
  // TODO switch dates from undefined to null
  buttonText(){
     const {query} = this.props;
-    if (query.location === "" && query.startDate === null && query.endDate === null && query.numGuests === 0){
+    if ((query.location === "" && query.startDate === null && query.endDate === null && query.numGuests === 0) || (isEqual(query, {}))){
       return "Start you search";
     }
     else {
@@ -45,7 +46,7 @@ class NavBar extends React.Component {
     return (
       <header className={`${fixed}`}>
         <nav className="normal-nav">
-          <Link to="/" onClick={this.props.clearQuery}><h1 id="logo">airbnsqueeze</h1></Link>
+          <Link to="/" onClick={this.props.clearQuery}><h1 id="nav-logo">airbnsqueeze</h1></Link>
 
           {this.state.searching ? <div className="opened-search"><SearchFormContainer /></div> : (
             <button id="search-button" onClick={this.openSearch}>

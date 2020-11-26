@@ -5,11 +5,11 @@ class Api::ListingsController < ApplicationController
   def index 
     # listings = region ? Listing.filter_by_region(region) : Listing.all
     # listings = (location && self.class.CITIES.include?(location)) ? Listing.where(city: location) : Listing.all
-  
-    if location == ""
-      listings = Listing.all
+    
+    if location == "" || !location
+      listings = Listing.all.includes(:reviews).includes(:amenities)
     elsif CITIES.include?(location)
-      listings = Listing.where(city: location)
+      listings = Listing.where(city: location).includes(:reviews).includes(:amenities)
     else
       render json: {}
       return
