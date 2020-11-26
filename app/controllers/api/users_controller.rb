@@ -6,7 +6,6 @@ class Api::UsersController < ApplicationController
       log_in!(@user)
       render :show
     else
-      debugger
       render json: @user.errors.as_json, status: 422
     end
   end
