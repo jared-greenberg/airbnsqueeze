@@ -2,6 +2,7 @@ import React from 'react';
 import ListingIndexItem from './listing_index_item';
 import MapDisplay from '../map/map_display';
 import {isEqual} from 'lodash';
+import Link from 'react-router-dom';
 
 class ListingIndex extends React.Component {
 
@@ -16,6 +17,12 @@ class ListingIndex extends React.Component {
       }
     }
 
+    locationLinks(){
+      return ["Ithaca, NY", "Boulder, CO", "Santa Cruz, CA"].map((loc, i) => (
+        <li className="notfound-link" key={i} onClick={() => this.props.startQuery({location: loc})}>{loc}</li>
+      ))
+    }
+
    
 
     render() {
@@ -24,11 +31,18 @@ class ListingIndex extends React.Component {
                   history={this.props.history} amenities={this.props.amenities}
                    />
     })
+      const numListings = this.props.listings.length
       return (
       <>
         <main className="listing-index-main">
             <section className="listing-index-container">
-              <h1>{this.props.listings.length}  Tiny Home Stays </h1>
+              <h1>{numListings}  Tiny Home Stays </h1>
+              {numListings !== 0 ? null : (
+                <ul>
+                  <h3>Why dont you try . . .</h3>
+                  {this.locationLinks.call(this)}
+                </ul>
+              )}
               <ul>
                 {listingIndexItems}
               </ul>

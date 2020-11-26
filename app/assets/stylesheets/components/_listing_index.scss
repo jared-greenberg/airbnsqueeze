@@ -78,6 +78,18 @@
   justify-content: space-around;
 }
 
+.notfound-link:hover{
+  cursor: pointer
+}
+
+.notfound-link{
+  text-decoration: underline;
+}
+
+section.listing-index-container > ul > h3{
+  margin-bottom: 15px;
+}
+
 
 
 

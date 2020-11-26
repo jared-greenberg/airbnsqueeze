@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import ListingIndex from './listing_index';
 import { fetchListings } from '../../actions/listing_actions'
+import {startQuery} from '../../actions/query_actions';
 
 const mapStateToProps = state => ({
   listings: Object.values(state.entities.listings),
@@ -10,7 +11,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchListings: (query) => dispatch((fetchListings(query)))
+  fetchListings: (query) => dispatch((fetchListings(query))),
+  startQuery: (query) => dispatch(startQuery(query))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListingIndex);
