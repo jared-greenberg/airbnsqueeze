@@ -9,18 +9,19 @@
   padding-top: 35px;
 }
 
+
+.upcoming-choice.selected-choice, .past-choice.selected-choice {
+  cursor: default;
+  color: black;
+  border-bottom: black 1px solid;
+}
+
 .upcoming-choice, .past-choice{
   display: inline-block;
   margin-right: 50px;
   color: #aaa;
   cursor: pointer;
   padding-bottom: 15px;
-}
-
-.upcoming-choice.selected-choice, .past-choice.selected-choice {
-  cursor: default;
-  color: black;
-  border-bottom: black 1px solid;
 }
 
 #bookings-list {

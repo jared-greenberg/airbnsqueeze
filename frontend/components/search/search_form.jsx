@@ -37,7 +37,11 @@ class SearchForm extends React.Component {
   changePlaceholder(e) {
     e.preventDefault();
     e.stopPropagation();
-    e.currentTarget.placeholder = '"Ithaca, NY" "Boulder, CO", "Santa Cruz, CA'
+    if (e.currentTarget.placeholder === "Where are you going?"){
+      e.currentTarget.placeholder = '"Ithaca, NY" "Boulder, CO", "Santa Cruz, CA'
+    } else{
+      e.currentTarget.placeholder = "Where are you going?";
+    }
   }
 
 
@@ -91,7 +95,7 @@ class SearchForm extends React.Component {
           <label htmlFor="location">Location</label>
           <input type="text" value={this.state.location}
           placeholder="Where are you going?" onFocus={this.changePlaceholder}
-          onChange = {this.updateField("location")}/>
+          onBlur={this.changePlaceholder} onChange = {this.updateField("location")}/>
         </div>
         <div className="calendars"> 
             <label id="checkin-label">Check in</label>
