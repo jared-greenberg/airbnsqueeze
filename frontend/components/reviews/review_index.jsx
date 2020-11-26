@@ -1,5 +1,6 @@
 import moment from "moment";
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const formatDate = date => {
   const dateString = moment(date).format('LL');
@@ -7,7 +8,7 @@ const formatDate = date => {
   return arr[0] + " " + arr[2]
 }
 
-export default ({reviews, avgRating}) => {
+export default ({reviews, avgRating, currentUser}) => {
   
   const reviewItems = reviews.map(review => {
     return (
@@ -18,7 +19,9 @@ export default ({reviews, avgRating}) => {
             <h3>{review.authorName}</h3>
             <h4>{formatDate(review.updatedAt)}</h4>
           </div>
-          <p className="user-message"></p>
+          {currentUser !== review.authorId ? null : (
+            <p class="user-message">(You can make changes to your review on your <Link to={`/users/${currentUser}/bookings`}>Trips</Link> page)</p>
+          )}
         </div>
         <p>{review.body}</p>
       </li>

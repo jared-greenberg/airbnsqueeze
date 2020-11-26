@@ -74,7 +74,7 @@ class ListingShow extends React.Component {
         <BookingFormContainer match={this.props.match} history={this.props.history} price={listing.price} 
         capacity = {listing.capacity}/>
         <Amenities amenities={this.props.amenities} listing={listing}/>
-        <ReviewIndex avgRating={this.props.avgRating} reviews={this.props.reviews}/>
+        <ReviewIndex avgRating={this.props.avgRating} reviews={this.props.reviews} currentUser={this.props.currentUser}/>
         <MapDisplay coords={this.center()} listings={[listing]} type={this.props.type}/>
       </section>
     </>

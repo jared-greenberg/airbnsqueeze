@@ -16,7 +16,8 @@ const mapStatetoProps = (state, ownProps) => {
     owner,
     type: "show",
     reviews,
-    avgRating
+    avgRating,
+    currentUser: state.session.id
   
   }
 }

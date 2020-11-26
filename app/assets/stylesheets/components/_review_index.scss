@@ -40,8 +40,16 @@
 
 }
 
-
-
+.user-message{
+  color: #bbb;
+  font-size: 14px;
+  align-self: flex-start;
+  padding-top: 3px;
+  margin-left: 20px;
+  > a {
+    text-decoration: underline;
+  }
+}
 
 
 
