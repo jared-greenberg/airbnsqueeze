@@ -10,7 +10,6 @@ export const amenitySelector = (state, listing) => {
 }
 
 export const userUpcomingBookings = (bookings, userId) => {
-  
    return bookings.filter(booking => (
           (booking.renterId === parseInt(userId)) && (new Date(booking.startDate) > new Date(moment()))
       )

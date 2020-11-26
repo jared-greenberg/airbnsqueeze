@@ -17,7 +17,7 @@ class MapDisplay extends React.Component {
       options.center = this.props.coords;
       options.zoom = 15;
     }
-    else if (this.props.query.location){
+    else if (Object.keys(cities).includes(this.props.query.location)){
       options.center = cities[this.props.query.location];
       options.zoom = 13;
     }

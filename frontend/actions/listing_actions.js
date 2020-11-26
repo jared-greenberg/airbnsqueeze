@@ -21,7 +21,10 @@ export const fetchListing = listingId => dispatch => {
 
 export const fetchListings = (query) => dispatch => {
   return ListingsApiUtils.fetchListings(query).then(
-    listings => dispatch(receiveListings(listings))
+    listings => {
+      debugger
+      dispatch(receiveListings(listings))
+    }
   )
 
 }
