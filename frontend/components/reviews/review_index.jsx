@@ -9,7 +9,6 @@ const formatDate = date => {
 }
 
 export default ({reviews, avgRating, currentUser}) => {
-  
   const reviewItems = reviews.map(review => {
     return (
       <li key={review.id} className="review-item">

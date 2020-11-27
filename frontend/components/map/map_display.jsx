@@ -1,5 +1,6 @@
 import React from 'react';
 import MarkerManager from './marker_manager';
+import MarkerClusterer from '@googlemaps/markerclustererplus';
 
 
 const cities = {
@@ -29,6 +30,9 @@ class MapDisplay extends React.Component {
     return options;
   }
 
+  markerClickHandler(id){
+    this.props.history.push(`/listings/${id}`)
+  }
 
   componentDidMount() {
     
@@ -36,14 +40,18 @@ class MapDisplay extends React.Component {
     const map = this.refs.map;
     this.map = new google.maps.Map(map, this.mapOptions());
     this.markerManager = new MarkerManager(this.map)
-    this.markerManager.updateMarkers(this.props.listings);
+    this.markerManager.updateMarkers(this.props.listings, this.markerClickHandler.bind(this));
   }
 
   componentDidUpdate(){
     const {center, zoom} = this.mapOptions();
     this.map.panTo(center);
     this.map.setZoom(zoom);
-    this.markerManager.updateMarkers(this.props.listings)
+    this.markerManager.updateMarkers(this.props.listings, this.markerClickHandler.bind(this))
+    new MarkerClusterer(this.map, this.markerManager.markers, {
+      imagePath: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
+      maxZoom: 12,
+    });
   }
 
   render() {

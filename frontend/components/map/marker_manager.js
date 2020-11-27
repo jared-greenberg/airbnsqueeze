@@ -5,11 +5,11 @@ class MarkerManager {
     this.markers = {};
   }
 
-  updateMarkers(listings) {
+  updateMarkers(listings, markerClickHandler) {
     
     listings.forEach(listing => {
       if (!this.markers[listing.id]){
-        this.createMarker(listing);
+        this.createMarker(listing, markerClickHandler);
       }
     })
 
@@ -28,7 +28,7 @@ class MarkerManager {
     delete this.markers[markerId]
   }
 
-  createMarker(listing){
+  createMarker(listing, markerClickHandler){
     const coords = {lat: listing.latitude, lng: listing.longitude}
     if (!coords.lat || !coords.lng) { return }
     const marker = new google.maps.Marker({
@@ -36,6 +36,10 @@ class MarkerManager {
       map: this.map
     })
     this.markers[listing.id] = marker;
+    debugger
+    marker.addListener("click", () => {
+      markerClickHandler(listing.id)
+    })
   }
 
 }
