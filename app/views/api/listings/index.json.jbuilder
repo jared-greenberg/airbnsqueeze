@@ -1,6 +1,5 @@
 json.listings do
   @listings.each do |listing|
-    debugger
     json.set! listing.id do
       json.extract! listing, :id, :title, :city, :capacity, :price, :latitude, :longitude
       json.avgRating listing.reviews.average("rating").to_f
