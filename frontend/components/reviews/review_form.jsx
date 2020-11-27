@@ -83,7 +83,7 @@ class ReviewForm extends React.Component {
             </section>
           <div className="review-button">
             {this.props.type === "Create" ? null :
-              <button id="delete-review" onClick={this.handleDelete}>Delete</button>}
+              <button id="delete-review" onClick={this.handleDelete}>Delete Review</button>}
             <button id="submit-review" disabled={this.state.body === "" || this.state.rating === 0}>Done</button>
           </div>
         </form>

@@ -1,4 +1,5 @@
-#modal-background {
+#modal-background, #review-modal-background,
+#cancelling-modal-background {
    position: fixed;
    top: 0;
    bottom: 0;
@@ -9,7 +10,11 @@
    overflow-y: hidden;
  }
 
- #modal-contents, #review-modal-contents {
+ #cancelling-modal-background{
+   background: none;
+ }
+
+ #modal-contents, #review-modal-contents, #cancelling-modal-contents{
    position: absolute;
    top: 50%;
    left: 50%;
@@ -28,6 +33,12 @@
    height: 600px;
  }
 
+ #cancelling-modal-contents {
+   width: 320px; 
+   height: 150px;
+   box-shadow: 1px 3px 12px 7px rgba(190,190,190,0.3);
+
+ }
 
   #modal-x {
     position: absolute;

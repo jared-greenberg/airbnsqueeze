@@ -11,12 +11,12 @@ class Modal extends React.Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.modalComponent = this.modalComponent.bind(this);
-    this.reviewClass = this.reviewClass.bind(this);
+    this.identifier = this.identifier.bind(this);
   }
 
 
   handleClick() {
-    if (this.props.modalType === "login" || this.props.modalType === "signup"){
+    if (this.props.modalType !== "cancelBooking"){
       this.props.closeModal();
     }
     return
@@ -40,7 +40,7 @@ class Modal extends React.Component {
     }
   }
 
-  reviewClass(){
+  identifier(){
     if (["login", "signup"].includes(this.props.modalType)){
       return ""
     }
@@ -59,8 +59,8 @@ class Modal extends React.Component {
     if (!modalType) return null;
     
     return (
-      <div id="modal-background" onClick={this.handleClick}>
-        <div id={`${this.reviewClass()}modal-contents`}
+      <div id={`${this.identifier()}modal-background`} onClick={this.handleClick}>
+        <div id={`${this.identifier()}modal-contents`}
           onClick={(e) => e.stopPropagation()}>
           {this.modalComponent()}
           <a id="modal-x" onClick={closeModal}>{'\u00D7'}</a>

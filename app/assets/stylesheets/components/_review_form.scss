@@ -1,11 +1,18 @@
 #submit-review, #delete-review{
   background: #044241;
   border-radius: 5px;
-  height: 40px;
-  width: 80px;
   color: white;
   font-size: 18px;
   border: none;
+}
+
+#submit-review{
+  height: 40px;
+  width: 80px;
+}
+#delete-review{
+  height: 40px;
+  width: 130px;
 }
 
 #submit-review:disabled {
@@ -17,7 +24,6 @@
   width: 88%;
   justify-content: space-between;
   margin-top: 20px;
- 
 }
 
 .review-form{

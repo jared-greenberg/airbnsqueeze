@@ -20,8 +20,10 @@ class CancelBooking extends React.Component {
     return ( 
       <div className="try-to-cancel" ref={this.cancelRef}>
         <h3>Are you sure?</h3>
-        <button onClick={this.props.closeModal}>No</button>
-        <button onClick={this.handleDelete}>Yes</button>
+        <div className="cancel-buttons">
+          <button onClick={this.props.closeModal}>No</button>
+          <button onClick={this.handleDelete}>Yes</button>
+        </div>
       </div>
     )
   }
