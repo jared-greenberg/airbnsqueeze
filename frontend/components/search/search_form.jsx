@@ -53,7 +53,7 @@ class SearchForm extends React.Component {
       setTimeout(() => {
         this.guestRef.current.textContent = 6;
         this.guestRef.current.classList.remove("red");
-      }, 3000)
+      }, 1000)
       return
     }
     this.setState({numGuests: this.state.numGuests + val})

@@ -32,6 +32,8 @@ boulder_descrip = "Enviromentally friendly tiny house with beautiful views of th
 ithaca_1 = Listing.create({owner_id: ithaca_user_1.id, address: Faker::Address.street_address, city: "Ithaca, NY", latitude: 42.423619, longitude: -76.503692,
   title: "Zen House in Nature", description: ithaca_descrip, capacity: 2, price: 75.00 })    
 
+
+
 ithaca_2 = Listing.create({owner_id: ithaca_user_1.id, address: Faker::Address.street_address, city: "Ithaca, NY", latitude: 42.437349, longitude: -76.526914,
   title: "Modern Tiny with Outdoor Deck", description: ithaca_descrip, capacity: 3, price: 95.00 })    
 
@@ -91,18 +93,10 @@ shower = Amenity.create({name: "Wet Room with shower", icon_path: "fas fa-shower
 kitchen = Amenity.create({name: "Small kitchen", icon_path: "fas fa-utensils"})
 pets = Amenity.create({name: "Pets allowed", icon_path: "fas fa-paw"})
 
-ListingAmenity.create({listing_id: 2, amenity_id: 4})
-ListingAmenity.create({listing_id: 2, amenity_id: 5})
-ListingAmenity.create({listing_id: 2, amenity_id: 6})
-ListingAmenity.create({listing_id: 2, amenity_id: 7})
-ListingAmenity.create({listing_id: 2, amenity_id: 8})
-ListingAmenity.create({listing_id: 3, amenity_id: 1})
-ListingAmenity.create({listing_id: 3, amenity_id: 4})
-ListingAmenity.create({listing_id: 3, amenity_id: 5})
-ListingAmenity.create({listing_id: 3, amenity_id: 7})
 
 (1..Listing.all.count).each do |l_id|
   num_amenities = rand(3..8);
-  chosen_amenities = (1..9).to_a.sample(num_amenities)
-  chosen_amenities.each { |a_id| ListingAmenity.create({listing_id: l_id, amenity_id: a_id})}
+  chosen_amenities = (1..8).to_a.sample(num_amenities)
+  chosen_amenities.each { |a_id| TaggedAmenity.create({listing_id: l_id, amenity_id: a_id})}
 end
+
