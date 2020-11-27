@@ -211,9 +211,55 @@ kitchen = Amenity.create({name: "Small kitchen", icon_path: "fas fa-utensils"})
 pets = Amenity.create({name: "Pets allowed", icon_path: "fas fa-paw"})
 
 
-(1..Listing.all.count).each do |l_id|
+
+ratings = [2, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5]
+reviews = [
+  "Very clean upon arrival. Host was easy to communicate with.",
+  "Booking was cancelled less than a week before the reservation.",
+  "We will definitely stay here again. Would highly recommend!",
+  "The house was not as immaculate as it was in the photos, but there are so many amazing things to do in the area.",
+  "We had some minor problems with the hot water, but the host came to fix it themselves.",
+  "It was so cute and fun. I am honestly thinking about downsizing to a tiny of my own.",
+  "It was nice, but I felt cramped the entire weekend.",
+  "We were surprised with how much we loved living small on our vacation.",
+  "What a unique place!",
+  "You must book this place.",
+  "Everything in the house is brand new. We were spoiled.",
+  "Way better than staying in a hotel.",
+  "Not our typical vacation, but it wasn't bad.",
+  "An interesting and very pleasant experience.",
+  "Fantastic!",
+  "Host was super helpful.",
+  "Checking in was so painless and easy.",
+  "The house was parked in the most beautiful location."
+]
+
+Listing.all.each do |listing|
   num_amenities = rand(3..8);
-  chosen_amenities = (1..8).to_a.sample(num_amenities)
-  chosen_amenities.each { |a_id| TaggedAmenity.create({listing_id: l_id, amenity_id: a_id})}
+  chosen_amenities = [*1..8].sample(num_amenities)
+  chosen_amenities.each { |a_id| TaggedAmenity.create({listing_id: listing.id, amenity_id: a_id})}
+
+  num_bookings = rand(0..6)
+  booking_reviews = reviews.sample(num_bookings)
+  num_bookings.times do |i|
+    renter = [*2...listing.owner_id, *(listing.owner_id+1)...User.count].sample
+    start = Faker::Date.between(from: '2016-01-01', to: '2020-11-27')
+   
+    b = Booking.create!({renter_id: renter, listing_id: listing.id, start_date: start, end_date: (start + 2), num_guests: listing.capacity, total_cost: (2 * listing.price * 1.12)})
+   
+    Review.create!({author_id: renter, booking_id: b.id, rating: ratings.sample, body: booking_reviews[i], created_at: b.end_date, updated_at: b.end_date})
+    
+  end
+  
 end
+
+# Past bookings for demo user
+6.times do
+  start = Faker::Date.between(from: '2016-01-01', to: '2020-11-27')
+  b = Booking.create!(renter_id: 1, listing_id: rand(1..Listing.count), start_date: start, end_date: start + 3, num_guests: 2, total_cost: 300 )
+  if rand(3) === 1
+      Review.create!({author_id: 1, booking_id: b.id, rating: ratings.sample, body: reviews.sample, created_at: b.end_date, updated_at: b.end_date})
+  end
+end
+
 

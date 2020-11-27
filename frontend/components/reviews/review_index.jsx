@@ -29,7 +29,7 @@ export default ({reviews, avgRating, currentUser}) => {
   })
 
   return (
-    <section className="listing-reviews">
+    <section id="listing-reviews">
       { reviews.length > 0 ? <h2 className="reviews-section-header"> <i className="fas fa-star fa-lg"></i> {`${avgRating} (${reviews.length} reviews)`}</h2> : 
         <h3>There are no reviews yet for this tiny.</h3> }
       <ul className="review-list">

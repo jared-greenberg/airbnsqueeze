@@ -1,5 +1,5 @@
-json.bookings do
-  @bookings.each do |booking|
+@bookings.each do |booking|
+  json.bookings do
     json.set! booking.id do
       json.id booking.id
       json.startDate booking.start_date
