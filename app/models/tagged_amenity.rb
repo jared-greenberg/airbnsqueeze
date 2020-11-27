@@ -1,4 +1,4 @@
-class ListingAmenity < ApplicationRecord 
+class TaggedAmenity < ApplicationRecord 
   validates :amenity_id, uniqueness: {scope: :listing_id}
 
   belongs_to :listing,

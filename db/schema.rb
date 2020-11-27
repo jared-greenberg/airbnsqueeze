@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_184254) do
+ActiveRecord::Schema.define(version: 2020_11_27_025104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,16 +56,6 @@ ActiveRecord::Schema.define(version: 2020_11_24_184254) do
     t.index ["renter_id"], name: "index_bookings_on_renter_id"
   end
 
-  create_table "listing_amenities", force: :cascade do |t|
-    t.integer "listing_id", null: false
-    t.integer "amenity_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["amenity_id"], name: "index_listing_amenities_on_amenity_id"
-    t.index ["listing_id", "amenity_id"], name: "index_listing_amenities_on_listing_id_and_amenity_id", unique: true
-    t.index ["listing_id"], name: "index_listing_amenities_on_listing_id"
-  end
-
   create_table "listings", force: :cascade do |t|
     t.integer "owner_id", null: false
     t.string "address", null: false
@@ -90,6 +80,16 @@ ActiveRecord::Schema.define(version: 2020_11_24_184254) do
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_reviews_on_author_id"
     t.index ["booking_id"], name: "index_reviews_on_booking_id", unique: true
+  end
+
+  create_table "tagged_amenities", force: :cascade do |t|
+    t.integer "listing_id", null: false
+    t.integer "amenity_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["amenity_id"], name: "index_tagged_amenities_on_amenity_id"
+    t.index ["listing_id", "amenity_id"], name: "index_tagged_amenities_on_listing_id_and_amenity_id", unique: true
+    t.index ["listing_id"], name: "index_tagged_amenities_on_listing_id"
   end
 
   create_table "users", force: :cascade do |t|

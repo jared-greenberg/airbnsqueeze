@@ -19,6 +19,7 @@ class SearchForm extends React.Component {
     this.toggleDrop = this.toggleDrop.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.changePlaceholder = this.changePlaceholder.bind(this);
+    this.guestRef = React.createRef();
   }
 
   
@@ -46,8 +47,13 @@ class SearchForm extends React.Component {
 
 
   changeGuests(val){
-    if (this.state.numGuests === 4 && val === 1) {
-      alert("These homes are too tiny. You might want to try the real Airbnb!")
+    if (this.state.numGuests === 6 && val === 1) {
+      this.guestRef.current.classList.add("red")
+      this.guestRef.current.textContent = "Too many for a tiny house!";
+      setTimeout(() => {
+        this.guestRef.current.textContent = 6;
+        this.guestRef.current.classList.remove("red");
+      }, 3000)
       return
     }
     this.setState({numGuests: this.state.numGuests + val})
@@ -123,7 +129,7 @@ class SearchForm extends React.Component {
           <div className={`${guestDropOn ? "guest-menu-open" : ""} guests`} 
               onClick={this.toggleDrop}>
               <label id="guests-label">Guests</label>
-              <h3>{numGuests > 0 ? `${numGuests} ${guestString}` : "Add guests"}</h3>
+              <h3 ref={this.guestRef}>{numGuests > 0 ? `${numGuests} ${guestString}` : "Add guests"}</h3>
           </div>
         <button className="search-bar-button" disabled={guestDropOn}><i className="fas fa-search"></i></button>
       </form>

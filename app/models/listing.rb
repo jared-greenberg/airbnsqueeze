@@ -7,12 +7,12 @@ class Listing < ApplicationRecord
     foreign_key: :owner_id,
     class_name: :User
 
-  has_many :amenity_pairings,
+  has_many :tagged_amenities,
     foreign_key: :listing_id,
-    class_name: :ListingAmenity
+    class_name: :TaggedAmenity
   
   has_many :amenities,
-    through: :amenity_pairings,
+    through: :tagged_amenities,
     source: :amenity
   
   has_many :bookings,

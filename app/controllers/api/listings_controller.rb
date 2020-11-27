@@ -7,7 +7,7 @@ class Api::ListingsController < ApplicationController
     # listings = (location && self.class.CITIES.include?(location)) ? Listing.where(city: location) : Listing.all
     
     if location == "" || !location
-      listings = Listing.all.includes(:reviews).includes(:amenities)
+      listings = Listing.includes(:reviews).includes(:amenities)
     elsif CITIES.include?(location)
       listings = Listing.where(city: location).includes(:reviews).includes(:amenities)
     else

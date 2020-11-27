@@ -4,7 +4,7 @@ class Amenity < ApplicationRecord
 
   has_many :listing_pairings,
     foreign_key: :amenity_id,
-    class_name: :ListingAmenity
+    class_name: :TaggedAmenity
 
   has_many :listings,
     through: :listing_pairings,
