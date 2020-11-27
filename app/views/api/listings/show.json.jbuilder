@@ -4,6 +4,7 @@ json.listing do
     json.extract! @listing, :id, :title, :capacity, :price, :title, :city, :latitude, :longitude, :description
     json.ownerId @listing.owner_id
     json.amenities @listing.amenities.map(&:id)
+    json.photoUrls @listing.photos.map{|photo| url_for(photo)}
   end
 end
 
@@ -13,10 +14,6 @@ end
 
 json.partial! '/api/listings/amenities', amenities: @listing.amenities
 
-json.photos do
-  @listing.photos.map {|photo| url_for(photo)}
-end
-
 json.reviews do
   @listing.reviews.each do |review|
     json.set! review.id do
@@ -24,4 +21,5 @@ json.reviews do
     end
   end
 end
+
 

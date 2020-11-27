@@ -29,8 +29,8 @@ class ListingIndexItem extends React.Component {
     return (
       <li onClick={this.handleClick} className="listing-item" >
         
-        <img src="https://cdn.vox-cdn.com/thumbor/ScgaAKfXjX1yS8VDz8otR1knML4=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/64879883/acastro_170731_1777_0006_v1.0.jpg" alt=""/>
-      
+        <img src={listing.photoUrls[0]} />
+
         <div className='index-text'>
       
           <section className="index-text-top">
