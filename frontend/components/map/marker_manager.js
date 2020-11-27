@@ -29,11 +29,13 @@ class MarkerManager {
   }
 
   createMarker(listing, markerClickHandler){
+    const icon = window.circle
     const coords = {lat: listing.latitude, lng: listing.longitude}
     if (!coords.lat || !coords.lng) { return }
     const marker = new google.maps.Marker({
       position: coords,
-      map: this.map
+      map: this.map,
+      icon
     })
     this.markers[listing.id] = marker;
     marker.addListener("click", () => {

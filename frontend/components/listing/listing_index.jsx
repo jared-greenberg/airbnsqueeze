@@ -19,7 +19,7 @@ class ListingIndex extends React.Component {
 
     locationLinks(){
       return ["Ithaca, NY", "Boulder, CO", "Santa Cruz, CA"].map((loc, i) => (
-        <li className="notfound-link" key={i} onClick={() => this.props.startQuery({location: loc})}>{loc}</li>
+        <li className="notfound-link" key={i} onClick={() => this.props.startQuery({location: loc, numGuests: 0})}>{loc}</li>
       ))
     }
 
@@ -28,7 +28,8 @@ class ListingIndex extends React.Component {
     render() {
       const listingIndexItems = this.props.listings.map(listing => {
         return <ListingIndexItem key={listing.id} listing={listing} 
-                  history={this.props.history} amenities={this.props.amenities}
+                  history={this.props.history} 
+                  amenities={this.props.amenities}
                    />
     })
       const numListings = this.props.listings.length

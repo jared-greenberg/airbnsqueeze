@@ -27,9 +27,11 @@ export default ({reviews, avgRating, currentUser}) => {
     )
   })
 
+  const reviewText = reviews.length === 1 ? "review" : "reviews"
+
   return (
     <section id="listing-reviews">
-      { reviews.length > 0 ? <h2 className="reviews-section-header"> <i className="fas fa-star fa-lg"></i> {`${avgRating} (${reviews.length} reviews)`}</h2> : 
+      { reviews.length > 0 ? <h2 className="reviews-section-header"> <i className="fas fa-star fa-lg"></i> {`${avgRating} (${reviews.length} ${reviewText})`}</h2> : 
         <h3>There are no reviews yet for this tiny.</h3> }
       <ul className="review-list">
         {reviewItems}

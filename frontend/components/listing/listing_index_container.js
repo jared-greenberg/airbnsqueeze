@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchListings: (query) => dispatch((fetchListings(query))),
-  startQuery: (query) => dispatch(startQuery(query))
+  startQuery: (query) => dispatch(startQuery(query)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListingIndex);

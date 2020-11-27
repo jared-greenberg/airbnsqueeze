@@ -35,12 +35,11 @@ class MapDisplay extends React.Component {
   }
 
   componentDidMount() {
-    
-  
     const map = this.refs.map;
     this.map = new google.maps.Map(map, this.mapOptions());
-    this.markerManager = new MarkerManager(this.map)
-    this.markerManager.updateMarkers(this.props.listings, this.markerClickHandler.bind(this));
+    this.markerManager = new MarkerManager(this.map);
+    this.markerManager.updateMarkers(this.props.listings, this.markerClickHandler.bind(this))
+
   }
 
   componentDidUpdate(){
@@ -49,7 +48,7 @@ class MapDisplay extends React.Component {
     this.map.setZoom(zoom);
     this.markerManager.updateMarkers(this.props.listings, this.markerClickHandler.bind(this))
     new MarkerClusterer(this.map, this.markerManager.markers, {
-      imagePath: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
+      imagePath: window.cluster,
       maxZoom: 12,
     });
   }
