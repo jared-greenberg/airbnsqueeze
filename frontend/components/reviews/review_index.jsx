@@ -19,7 +19,7 @@ export default ({reviews, avgRating, currentUser}) => {
             <h4>{formatDate(review.updatedAt)}</h4>
           </div>
           {currentUser !== review.authorId ? null : (
-            <p class="user-message">(You can make changes to your review on your <Link to={`/users/${currentUser}/bookings`}>Trips</Link> page)</p>
+            <p class="user-message">(You can make changes to your review on your <Link to={`/users/${currentUser}/bookings#past`}>Trips</Link> page)</p>
           )}
         </div>
         <p>{review.body}</p>

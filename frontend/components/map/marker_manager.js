@@ -36,7 +36,6 @@ class MarkerManager {
       map: this.map
     })
     this.markers[listing.id] = marker;
-    debugger
     marker.addListener("click", () => {
       markerClickHandler(listing.id)
     })

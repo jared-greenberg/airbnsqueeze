@@ -6,7 +6,7 @@ class BookingIndex extends React.Component{
 
   constructor(props){
     super(props);
-    this.state = { upcoming: true }
+    this.state = { upcoming: this.props.location.hash !== "#past"  }
     this.switchMode = this.switchMode.bind(this);
     this.upcomingList = this.upcomingList.bind(this);
     this.pastList = this.pastList.bind(this);
@@ -16,7 +16,8 @@ class BookingIndex extends React.Component{
 
   componentDidMount(){
     this.props.fetchBookings(this.props.match.params.userId);
-    this.upcomingRef.current.classList.add("selected-choice");
+    this.state.upcoming ? this.upcomingRef.current.classList.add("selected-choice") :
+      this.pastRef.current.classList.add("selected-choice")
   }
 
   pastList(){
