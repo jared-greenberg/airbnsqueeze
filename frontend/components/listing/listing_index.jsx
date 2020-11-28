@@ -52,7 +52,9 @@ class ListingIndex extends React.Component {
               <MapDisplay query={this.props.query}
                 listings = {this.props.listings}
                 type={this.props.type} 
-                history={this.props.history}/>
+                history={this.props.history}
+                startQuery={this.props.startQuery}
+              />
             </section>
         </main>
           

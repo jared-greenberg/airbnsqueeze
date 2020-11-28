@@ -5,7 +5,6 @@ class Api::ListingsController < ApplicationController
   def index 
     # listings = region ? Listing.filter_by_region(region) : Listing.all
     # listings = (location && self.class.CITIES.include?(location)) ? Listing.where(city: location) : Listing.all
-    
     if location == "" || !location
       listings = Listing.includes(:reviews).includes(:amenities)
     elsif CITIES.include?(location)

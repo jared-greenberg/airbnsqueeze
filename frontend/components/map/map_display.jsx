@@ -39,19 +39,15 @@ class MapDisplay extends React.Component {
     this.map = new google.maps.Map(map, this.mapOptions());
     this.markerManager = new MarkerManager(this.map);
     this.markerManager.updateMarkers(this.props.listings, this.markerClickHandler.bind(this))
-
   }
 
-  componentDidUpdate(){
-    const {center, zoom} = this.mapOptions();
-    this.map.panTo(center);
-    this.map.setZoom(zoom);
-    this.markerManager.updateMarkers(this.props.listings, this.markerClickHandler.bind(this))
-    new MarkerClusterer(this.map, this.markerManager.markers, {
-      imagePath: "https://s3.amazonaws.com/airbnsqueeze-seeds/Clusterer/m",
-      maxZoom: 12,
-    });
+  componentDidUpdate(prevProps){
+      const {center, zoom} = this.mapOptions();
+      this.map.panTo(center);
+      this.map.setZoom(zoom);
+      this.markerManager.updateMarkers(this.props.listings, this.markerClickHandler.bind(this))
   }
+  
 
   render() {
       return (

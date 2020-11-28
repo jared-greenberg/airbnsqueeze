@@ -1,3 +1,5 @@
+import { withRouter } from "react-router-dom";
+
 class MarkerManager {
   
   constructor(map) {
@@ -29,13 +31,15 @@ class MarkerManager {
   }
 
   createMarker(listing, markerClickHandler){
-    const icon = window.circle
     const coords = {lat: listing.latitude, lng: listing.longitude}
     if (!coords.lat || !coords.lng) { return }
     const marker = new google.maps.Marker({
       position: coords,
       map: this.map,
-      icon
+      label: {
+        color: "white",
+        text: listing.price
+      }
     })
     this.markers[listing.id] = marker;
     marker.addListener("click", () => {

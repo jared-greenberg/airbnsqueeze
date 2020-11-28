@@ -29,11 +29,11 @@ class Listing < ApplicationRecord
     self.where("capacity >= #{num_guests}")
   end
 
-  def self.filter_by_location(location)
-    min_lat, max_lat = location["southwest"]["lat"], location["northeast"]["lat"]
-    min_lng, max_lng = location["southwest"]["lng"], location["northeast"]["lng"]
-    self.where(latitude: min_lat..max_lat).where(lng: min_lng..max_lng)
-  end
+  # def self.filter_by_region(region)
+  #   min_lat, max_lat = region["southwest"]["lat"], region["northeast"]["lat"]
+  #   min_lng, max_lng = region["southwest"]["lng"], region["northeast"]["lng"]
+  #   self.where(latitude: min_lat..max_lat).where(lng: min_lng..max_lng)
+  # end
 
   def rating
     self.reviews.average("rating")

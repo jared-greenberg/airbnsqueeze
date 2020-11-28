@@ -11,3 +11,4 @@ export const clearQuery = () => ({
   type: CLEAR_QUERY
 })
 
+
