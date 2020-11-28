@@ -12,9 +12,5 @@ class Review < ApplicationRecord
   has_one :listing,
     through: :booking,
     source: :listing
- # get owner's name
-  # has_one :subject,
-  #   through: :listing,
-  #   source: :owner
-
+ 
 end
