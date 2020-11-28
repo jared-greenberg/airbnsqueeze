@@ -8,32 +8,32 @@
 
 require 'open-uri'
 
-# demoUser = User.create({email: 'demo@gmail.com', first_name: 'Demo User', last_name: 'Smith', birthday: '1995-01-01', password: 'abcd1234'})
+demoUser = User.create({email: 'demo@gmail.com', first_name: 'Demo User', last_name: 'Smith', birthday: '1995-01-01', password: 'abcd1234'})
 
-# ithaca_user_1 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
-# ithaca_user_2 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
-# ithaca_user_3 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
+ithaca_user_1 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
+ithaca_user_2 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
+ithaca_user_3 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
 
-# santacruz_user_1 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
-# santacruz_user_2 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
-# santacruz_user_3 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
-# santacruz_user_4 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
-# santacruz_user_5 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
-# santacruz_user_6 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
+santacruz_user_1 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
+santacruz_user_2 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
+santacruz_user_3 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
+santacruz_user_4 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
+santacruz_user_5 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
+santacruz_user_6 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
 
-# boulder_user_1 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
-# boulder_user_2 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
-# boulder_user_3 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
-# boulder_user_4 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
-
-
-# ithaca_descrip = "Cozy compact house that is perfect for a weekend get away. Close proximity to the stunning Ithaca Falls which is a must see!"
-# santacruz_descrip = "Step outside the tiny and experience Santa Cruz's guaranteed beautiful weather. Within driving distance of Natural Bridges State Beach and downtown shopping and entertainment."
-# boulder_descrip = "Enviromentally friendly tiny house with beautiful views of the Rockies. Love to Ski? Booking for the winter? Only 20 miles away from some of Boulder's most popular skiing resorts."
+boulder_user_1 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
+boulder_user_2 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
+boulder_user_3 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
+boulder_user_4 = User.create({email: Faker::Internet.safe_email, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , birthday: Faker::Date.birthday(min_age: 18, max_age: 65) , password: Faker::Internet.password(min_length: 8) })
 
 
-# ithaca_1 = Listing.create({owner_id: ithaca_user_1.id, address: Faker::Address.street_address, city: "Ithaca, NY", latitude: 42.423619, longitude: -76.503692,
-#   title: "Zen House in Nature", description: ithaca_descrip, capacity: 2, price: 75.00 })    
+ithaca_descrip = "Cozy compact house that is perfect for a weekend get away. Close proximity to the stunning Ithaca Falls which is a must see!"
+santacruz_descrip = "Step outside the tiny and experience Santa Cruz's guaranteed beautiful weather. Within driving distance of Natural Bridges State Beach and downtown shopping and entertainment."
+boulder_descrip = "Enviromentally friendly tiny house with beautiful views of the Rockies. Love to Ski? Booking for the winter? Only 20 miles away from some of Boulder's most popular skiing resorts."
+
+
+ithaca_1 = Listing.create({owner_id: ithaca_user_1.id, address: Faker::Address.street_address, city: "Ithaca, NY", latitude: 42.423619, longitude: -76.503692,
+  title: "Zen House in Nature", description: ithaca_descrip, capacity: 2, price: 75.00 })    
 
 
 
