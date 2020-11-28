@@ -18,7 +18,7 @@ class MapDisplay extends React.Component {
     }
     else if (Object.keys(cities).includes(this.props.query.location)){
       options.center = cities[this.props.query.location];
-      options.zoom = 13;
+      options.zoom = 14;
     }
     else {
       options.center = { lat: 40.227746, lng: - 97.250879 }
@@ -44,7 +44,7 @@ class MapDisplay extends React.Component {
       this.map.panTo(center);
       this.map.setZoom(zoom);
       this.markerManager.updateMarkers(this.props.listings, this.markerClickHandler.bind(this), this.props.type)
-  }
+    }
   
 
   render() {

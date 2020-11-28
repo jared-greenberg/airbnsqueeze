@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Airbnsqueeze</title>
+    <link rel="shortcut icon" href="<%= asset_path('icon.png')%>" type="image/x-icon">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google[:api_key]}" %>
