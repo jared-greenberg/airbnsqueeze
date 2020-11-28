@@ -15,6 +15,11 @@ class BookingIndex extends React.Component{
   }
 
   componentDidMount(){
+    // do not let other users go to each other's bookings
+    if (parseInt(this.props.userId) !== this.props.currentUser){
+      this.props.history.push("/")
+      return
+    }
     this.props.fetchBookings(this.props.match.params.userId);
     this.state.upcoming ? this.upcomingRef.current.classList.add("selected-choice") :
       this.pastRef.current.classList.add("selected-choice")

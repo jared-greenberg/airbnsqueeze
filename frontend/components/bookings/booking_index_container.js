@@ -16,6 +16,7 @@ const mapStateToProps = (state, ownProps) => {
   const listings = listingsFromBookings(state, bookings);
   
   return {
+    currentUser: state.session.id,
     userId,
     bookings,
     upcomingBookings,
