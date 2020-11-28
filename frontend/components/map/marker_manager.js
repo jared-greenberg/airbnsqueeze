@@ -36,10 +36,6 @@ class MarkerManager {
     const marker = new google.maps.Marker({
       position: coords,
       map: this.map,
-      label: {
-        color: "white",
-        text: listing.price
-      }
     })
     this.markers[listing.id] = marker;
     marker.addListener("click", () => {

@@ -52,8 +52,20 @@
 
 #nav-logo {
   font-weight: 700;
-  font-size: 24px;
   margin-left: 20px;
   color: #044241;
+  display: flex;
+  align-items: center;
+  > h1 {
+    font-size: 26px;
+  }
+
+  > img:first-child{
+    height: 50px;
+    width: 75px;
+    margin-right: -8px;
+    margin-left: -20px;
+  }
 }
+
 

@@ -46,7 +46,10 @@ class NavBar extends React.Component {
     return (
       <header className={`${fixed}`}>
         <nav className="normal-nav">
-          <Link to="/" onClick={this.props.clearQuery}><h1 id="nav-logo">airbnsqueeze</h1></Link>
+          <Link id="nav-logo" to="/" onClick={this.props.clearQuery}>
+            <img src={window.logoGreen} />
+            <h1>airbnsqueeze</h1>
+          </Link>
 
           {this.state.searching ? <div className="opened-search"><SearchFormContainer /></div> : (
             <button id="search-button" onClick={this.openSearch}>

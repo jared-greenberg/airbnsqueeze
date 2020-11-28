@@ -35,7 +35,7 @@ class BookingIndex extends React.Component{
     return (
       <div className="empty-bookings">
         <h2>{`You have no ${type} listings at this time.`}</h2>
-        <img src={window.nothingImg} />
+        <img id="nothing-img" src={window.nothingImg} />
       </div>
     )
   }
