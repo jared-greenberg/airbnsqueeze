@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
 
-  validates :start_date, :end_date, :num_guests, :total_cost, :num_guests, presence: true 
+  validates :num_guests, :total_cost, presence: true
+  validates_presence_of :start_date, :end_date, message: "You must choose a start and end date"
   validate :overlapping?
 
   belongs_to :listing,

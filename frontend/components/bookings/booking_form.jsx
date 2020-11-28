@@ -1,5 +1,4 @@
 import React from 'react';
-import {createBooking} from '../../util/bookings_api_util';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import './booking_calendar_custom.css'
@@ -14,6 +13,7 @@ class BookingForm extends React.Component {
     this.toggleDrop = this.toggleDrop.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateCosts = this.updateCosts.bind(this);
+    this.errors = this.errors.bind(this);
   }
 
 
@@ -25,6 +25,16 @@ class BookingForm extends React.Component {
     this.setState({ numGuests: this.state.numGuests + val })
   }
 
+  errors(type) {
+    const { errors } = this.props;
+    if (!errors[type]) return null;
+    return (
+      <div className={`${type}-error`}>
+        <i className="fas fa-exclamation-circle fa-sm"></i> <span>{errors[type]}</span>
+      </div>
+    )
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     if (!this.props.currentUser) {
@@ -34,12 +44,12 @@ class BookingForm extends React.Component {
     const listingId = this.props.match.params.listingId;
     const booking = {
       renter_id: this.props.currentUser,
-      start_date: this.state.startDate.format('YYYY-MM-DD'),
-      end_date: this.state.endDate.format('YYYY-MM-DD'),
+      start_date: this.state.startDate === null ? null : this.state.startDate.format('YYYY-MM-DD'),
+      end_date: this.state.endDate === null ? null : this.state.endDate.format('YYYY-MM-DD'),
       total_cost: this.state.totalCost,
       num_guests: this.state.numGuests
     }
-    createBooking(listingId, booking).then( () => {
+    this.props.createBooking(listingId, booking).then( () => {
         this.props.history.push(`/users/${this.props.currentUser}/bookings`)
       }
     )
@@ -116,6 +126,8 @@ class BookingForm extends React.Component {
                 readOnly
                 daySize={50}
               />
+              {this.errors("start_date")}
+              {this.errors("start_date") === null ? this.errors("end_date"): null}
             </div>
             <div className="guest-options" onClick={this.toggleDrop}>
               <label id="guests-label">Guests</label>

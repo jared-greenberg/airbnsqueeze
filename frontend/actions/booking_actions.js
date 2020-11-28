@@ -1,7 +1,9 @@
 import * as BookingsApiUtils from '../util/bookings_api_util';
 
 export const RECEIVE_BOOKINGS = 'RECEIVE_BOOKINGS';
-export const REMOVE_BOOKING = 'REMOVE_BOOKING'
+export const REMOVE_BOOKING = 'REMOVE_BOOKING';
+export const CLEAR_BOOKING_ERRORS = 'CLEAR_BOOKING_ERRORS';
+export const RECEIVE_BOOKING_ERRORS = 'RECEIVE_BOOKING_ERRORS';
 
 export const receiveBookings = payload => ({
   type: RECEIVE_BOOKINGS,
@@ -13,6 +15,22 @@ export const removeBooking = bookingId => {
   type: REMOVE_BOOKING,
   bookingId
   }
+}
+
+export const clearBookingErrors = () => ({
+  type: CLEAR_BOOKING_ERRORS
+})
+
+export const receiveBookingErrors = errors => ({
+  type: RECEIVE_BOOKING_ERRORS,
+  errors
+})
+
+export const createBooking = (listingId, booking) => dispatch => {
+  return BookingsApiUtils.createBooking(listingId, booking).then(
+    () => dispatch(clearBookingErrors()), 
+    errors => dispatch(receiveBookingErrors(errors.responseJSON))
+  )
 }
 
 
