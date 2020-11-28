@@ -34,7 +34,7 @@
 
 .grouped-inputs > input{
   border: none;
-  height: 46px;
+  height: 60px;
   background: transparent;
 }
 
@@ -192,6 +192,44 @@ p.disclaimer{
 #log-in-input, #log-in-password-input {
   border: none;
 }
+
+.log-in-label, .sign-up-label{
+  position: absolute;
+  font-size: 12px;
+  left: 10px;
+  display: none;
+}
+
+#log-in-input:focus + label,
+#log-in-password-input:focus + label,
+#sign-up-first:focus +label,
+#sign-up-last:focus + label,
+#sign-up-bday:focus + label,
+#sign-up-email:focus + label,
+#sign-up-password:focus + label,
+#sign-up-bday:focus + label,
+label.valid,
+label.nobday
+{
+  display: inline-block;
+}
+
+label.email,
+label.bday,
+label.pword {
+  top: 35px;
+}
+
+label.nobday{
+  font-size: 16px;
+  color: #666;
+  padding-bottom: 3px;
+  top: 43px;
+  width: 100px;
+  height: 38px;
+  background: #fff
+}
+
 
 
 

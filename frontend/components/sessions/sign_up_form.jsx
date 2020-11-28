@@ -7,6 +7,7 @@ class SignUpForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
     this.togglePassword = this.togglePassword.bind(this);
     this.errors = this.errors.bind(this);
+    this.validInput = this.validInput.bind(this);
   }
 
 
@@ -42,6 +43,13 @@ class SignUpForm extends React.Component{
     )
   }
 
+  validInput(field) {
+    if (field === "birthday" && this.state["birthday"] === "") {
+      return "nobday"
+    }
+    return this.state[field] !== "" ? "valid" : ""
+  }
+
   render() {
     return (
       <>
@@ -50,12 +58,14 @@ class SignUpForm extends React.Component{
         <form className="session-form" onSubmit={this.handleSubmit}>
           <section className="grouped-inputs">
             <div className="first-name-input">
-              <input type="text" value={this.props.first_name} 
+              <input id="sign-up-first" type="text" value={this.props.first_name} 
                 onChange={this.changeField("first_name")} placeholder="First name"/>
+                <label className={`${this.validInput("first_name")} sign-up-label`} htmlFor="sign-up-first">First name</label>
             </div>
             <div className="last-name-input rel-input">
-              <input type="text" value={this.props.last_name} 
+              <input id="sign-up-last" type="text" value={this.props.last_name} 
                 onChange={this.changeField("last_name")} placeholder="Last name"/>
+                <label className={`${this.validInput("last_name")} sign-up-label`} htmlFor="sign-up-last">Last name</label>
             </div>
               {this.errors("first_name")}
               {this.errors("last_name")}
@@ -65,19 +75,22 @@ class SignUpForm extends React.Component{
 
           <section className="lower-inputs">
             <div className="birthday-input rel-input">
-              <input type="date" value={this.props.birthday} 
+              <input id="sign-up-bday" type="date" value={this.props.birthday} 
                 onChange={this.changeField("birthday")} />
+                <label className={`${this.validInput("birthday")} bday sign-up-label`} htmlFor="sign-up-bday">Birthdate</label>
               {this.errors("birthday")}
               {this.errors("base")}
             </div>
             <div className="email-input rel-input">
-              <input type="text" value={this.props.email} 
+              <input id="sign-up-email" type="text" value={this.props.email} 
                 onChange={this.changeField("email")} placeholder="Email" />
+                <label className={`${this.validInput("email")} email sign-up-label`} htmlFor="sign-up-email">Email</label>
               {this.errors("email")}
             </div>
             <div className="password-input rel-input">
-              <input type={this.state.passwordType} value={this.props.password} 
+              <input id="sign-up-password" type={this.state.passwordType} value={this.props.password} 
                 onChange={this.changeField("password")} placeholder="Password"/>
+                <label className={`${this.validInput("password")} pword sign-up-label`} htmlFor="sign-up-password">Password</label>
               {this.errors("password")}
             <a id="password-show" onClick={this.togglePassword}>
               {this.state.passwordType === "password" ? "Show" : "Hide"}

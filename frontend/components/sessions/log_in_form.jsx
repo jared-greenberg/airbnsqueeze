@@ -8,6 +8,7 @@ class LogInForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.togglePassword = this.togglePassword.bind(this);
     this.errors = this.errors.bind(this);
+    this.validInput = this.validInput.bind(this);
   }
 
 
@@ -44,19 +45,25 @@ class LogInForm extends React.Component {
     )
   }
 
+  validInput(field){
+    return this.state[field] !== "" ? "valid" : ""
+  }
+
   render() {
     return (
       <>
         <h3 className="form-title">{this.props.formType}</h3>
         <form className="session-form" onSubmit={this.handleSubmit}>
           <section className="log-in-group grouped-inputs">
-            <div className="log-in-email email-input">
+            <div className="log-in-email">
             <input id="log-in-input" type="text" value={this.props.email} 
               onChange={this.changeField("email")} placeholder="Email" />
+            <label className={`${this.validInput("email")} log-in-label`} htmlFor="log-in-input">Email</label>
             </div>
             <div type="password-input">
             <input id="log-in-password-input" type={this.state.passwordType} value={this.props.password} 
               onChange={this.changeField("password")} placeholder="Password"/>
+              <label className={`${this.validInput("password")} log-in-label`} htmlFor="log-in-password-input">Password</label>
             </div>
             <a id="password-show" onClick={this.togglePassword}>
                 {this.state.passwordType === "password" ? "Show" : "Hide"}

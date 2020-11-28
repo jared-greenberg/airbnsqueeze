@@ -6,9 +6,9 @@ class Api::ListingsController < ApplicationController
     # listings = region ? Listing.filter_by_region(region) : Listing.all
     # listings = (location && self.class.CITIES.include?(location)) ? Listing.where(city: location) : Listing.all
     if location == "" || !location
-      listings = Listing.includes(:reviews).includes(:amenities)
+      listings = Listing.with_attached_photos.includes(:reviews).includes(:amenities).includes(:owner)
     elsif CITIES.include?(location)
-      listings = Listing.where(city: location).includes(:reviews).includes(:amenities)
+      listings = Listing.with_attached_photos.where(city: location).includes(:reviews).includes(:amenities)
     else
       render json: {}
       return
