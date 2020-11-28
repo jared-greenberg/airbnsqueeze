@@ -17,7 +17,7 @@ end
 json.listings do
   @listings.each do |listing|
     json.set! listing.id do
-      json.extract! listing, :id, :city, :title, :latitude, :longitude
+      json.extract! listing, :id, :city, :title, :latitude, :longitude, :price
       json.photoUrls listing.photos.map{|photo| url_for(photo)}
     end
   end

@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>Airbnsqueeze</title>
-    <link rel="icon" href="<%=asset_path('logoGreen.png')%>" type="image/icon type">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google[:api_key]}" %>
@@ -27,6 +26,7 @@
       window.unique = "<%= asset_path('unique.jpg') %>"
       window.logoGreen = "<%= asset_path('logoGreen.png') %>"
       window.logoWhite = "<%= asset_path('logoWhite.png') %>"
+      window.marker = "<%= asset_path('marker.png') %>"
     </script>
   </head>
 

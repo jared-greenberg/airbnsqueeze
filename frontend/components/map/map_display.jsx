@@ -1,7 +1,5 @@
 import React from 'react';
 import MarkerManager from './marker_manager';
-import MarkerClusterer from '@googlemaps/markerclustererplus';
-
 
 const cities = {
   "Ithaca, NY": { lat: 42.440498, lng: -76.495697 },
@@ -38,14 +36,14 @@ class MapDisplay extends React.Component {
     const map = this.refs.map;
     this.map = new google.maps.Map(map, this.mapOptions());
     this.markerManager = new MarkerManager(this.map);
-    this.markerManager.updateMarkers(this.props.listings, this.markerClickHandler.bind(this))
+    this.markerManager.updateMarkers(this.props.listings, this.markerClickHandler.bind(this), this.props.type)
   }
 
   componentDidUpdate(prevProps){
       const {center, zoom} = this.mapOptions();
       this.map.panTo(center);
       this.map.setZoom(zoom);
-      this.markerManager.updateMarkers(this.props.listings, this.markerClickHandler.bind(this))
+      this.markerManager.updateMarkers(this.props.listings, this.markerClickHandler.bind(this), this.props.type)
   }
   
 

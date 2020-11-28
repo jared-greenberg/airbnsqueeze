@@ -1,5 +1,3 @@
-import { withRouter } from "react-router-dom";
-
 class MarkerManager {
   
   constructor(map) {
@@ -7,7 +5,7 @@ class MarkerManager {
     this.markers = {};
   }
 
-  updateMarkers(listings, markerClickHandler) {
+  updateMarkers(listings, markerClickHandler, type) {
     
     listings.forEach(listing => {
       if (!this.markers[listing.id]){
@@ -23,6 +21,7 @@ class MarkerManager {
         this.removeMarker(key)
       }
     })
+
   }
 
   removeMarker(markerId) {
@@ -32,10 +31,21 @@ class MarkerManager {
 
   createMarker(listing, markerClickHandler){
     const coords = {lat: listing.latitude, lng: listing.longitude}
+    const label = {
+      url: window.marker,
+      scaledSize: new google.maps.Size(50, 30)
+    }
     if (!coords.lat || !coords.lng) { return }
     const marker = new google.maps.Marker({
       position: coords,
       map: this.map,
+      icon: label,
+      label: {
+        text: `$${listing.price}`,
+        color: 'black',
+        fontSize: "12px",
+        fontWeight: 'bold',
+      }
     })
     this.markers[listing.id] = marker;
     marker.addListener("click", () => {
