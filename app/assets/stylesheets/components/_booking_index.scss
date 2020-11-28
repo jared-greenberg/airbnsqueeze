@@ -3,25 +3,39 @@
   margin: 30px auto;
 }
 
+#trips-title{
+  margin-left: 15px;
+}
+
 .bookings-menu{
   width: 100%;
   border-bottom: 1px solid #ebebeb;
-  padding-top: 35px;
+  padding-top: 20px;
 }
 
 
 .upcoming-choice.selected-choice, .past-choice.selected-choice {
   cursor: default;
   color: black;
-  border-bottom: black 1px solid;
+  border-bottom: black 3px solid;
+}
+
+.upcoming-choice.selected-choice:hover,
+.past-choice.selected-choice:hover{
+  background: none;
 }
 
 .upcoming-choice, .past-choice{
   display: inline-block;
-  margin-right: 50px;
+  padding: 15px;
+  margin-right: 20px;
   color: #aaa;
   cursor: pointer;
   padding-bottom: 15px;
+}
+
+.upcoming-choice:hover, .past-choice:hover{
+  background: #ebebeb;
 }
 
 
@@ -34,8 +48,8 @@
 
 .booking-item{
   margin: 20px 25px;
-  height: 420px;
-  width: 420px;
+  height: 440px;
+  width: 470px;
   border-radius: 15px;
   box-shadow: 1px 3px 12px 7px rgba(190,190,190,0.3);
   overflow: hidden;
@@ -114,6 +128,12 @@
  .cancel-booking:hover {
   background: #ebebeb;
   cursor: pointer;
+}
+
+.empty-bookings > h2 {
+  font-size: 16px; 
+  font-weight: 100;
+  margin: 20px 0;
 }
 
 

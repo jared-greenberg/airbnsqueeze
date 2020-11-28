@@ -48,7 +48,7 @@ class MapDisplay extends React.Component {
     this.map.setZoom(zoom);
     this.markerManager.updateMarkers(this.props.listings, this.markerClickHandler.bind(this))
     new MarkerClusterer(this.map, this.markerManager.markers, {
-      imagePath: window.cluster,
+      imagePath: "https://s3.amazonaws.com/airbnsqueeze-seeds/Clusterer/m",
       maxZoom: 12,
     });
   }

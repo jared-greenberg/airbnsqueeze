@@ -70,7 +70,7 @@ class BookingIndex extends React.Component{
 
     return (
       <main id="booking-index">
-        <h1>Trips</h1>
+        <h1 id="trips-title">Trips</h1>
         <nav className="bookings-menu">
           <h3 className="upcoming-choice" ref={this.upcomingRef} onClick={this.switchMode}>Upcoming</h3>
           <h3 className="past-choice" ref={this.pastRef} onClick={this.switchMode}>Past</h3>
