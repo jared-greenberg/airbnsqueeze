@@ -83,10 +83,12 @@
   display: flex;
   justify-content: space-between;
   border: 1px solid black;
-  border-radius: 10px;
-  width: 100%;
+  width: 85%;
   box-sizing: border-box;
-  padding: 3px 5px;
+  padding: 15px 5px;
+  position: absolute;
+  top: 193px;
+  background: #fff;
 }
 
   .guest-drop > h2 {
@@ -97,6 +99,10 @@
 }
 
 .guest-options{
+  display: flex;
+  justify-content: space-between;
+  
+
    > #guests-label {
     position: absolute;
     left: 40px;
@@ -105,6 +111,15 @@
   > .num-guests{
     padding: 22px 0 7px 15px;
     font-size: 14px;
+  }
+
+  > h3{
+    display: inline-block;
+  }
+
+  > i {
+    align-self: center;
+    margin-right: 20px;
   }
 }
 

@@ -14,6 +14,7 @@ class BookingForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateCosts = this.updateCosts.bind(this);
     this.errors = this.errors.bind(this);
+    this.dropArrow = this.dropArrow.bind(this);
   }
 
 
@@ -23,6 +24,15 @@ class BookingForm extends React.Component {
       return
     }
     this.setState({ numGuests: this.state.numGuests + val })
+  }
+
+  dropArrow() {
+    if (this.state.guestDropOn){
+      return <i className="fas fa-chevron-down"></i>
+    }
+    else {
+      return <i class="fas fa-chevron-up"></i>
+    }
   }
 
   errors(type) {
@@ -133,6 +143,7 @@ class BookingForm extends React.Component {
             <div className="guest-options" onClick={this.toggleDrop}>
               <label id="guests-label">Guests</label>
               <h3 className="num-guests">{`${numGuests} ${guestString}`}</h3>
+              {this.dropArrow()}
             </div>
             </section>
             {!guestDropOn ? null : (
