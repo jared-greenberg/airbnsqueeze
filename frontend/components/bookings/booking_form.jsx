@@ -128,6 +128,7 @@ class BookingForm extends React.Component {
               />
               {this.errors("start_date")}
               {this.errors("start_date") === null ? this.errors("end_date"): null}
+              {this.errors("base")} 
             </div>
             <div className="guest-options" onClick={this.toggleDrop}>
               <label id="guests-label">Guests</label>
