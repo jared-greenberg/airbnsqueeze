@@ -66,7 +66,6 @@ class SearchForm extends React.Component {
     query["startDate"] = null;
     query["endDate"] = null;
     this.props.startQuery(query);
-    // this.props.fetchListings(query);
     if (this.props.location.pathname !== "/listings"){
       this.props.history.push('/listings')
     }
@@ -107,13 +106,13 @@ class SearchForm extends React.Component {
             <label id="checkin-label">Check in</label>
             <label id="checkout-label">Check out</label>
             <DateRangePicker
-              startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-              startDateId="search_start" // PropTypes.string.isRequired,
-              endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-              endDateId="search_end" // PropTypes.string.isRequired,
-              onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
-              focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-              onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+              startDate={this.state.startDate} 
+              startDateId="search_start" 
+              endDate={this.state.endDate} 
+              endDateId="search_end" 
+              onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} 
+              focusedInput={this.state.focusedInput} 
+              onFocusChange={focusedInput => this.setState({ focusedInput })} 
               startDatePlaceholderText="Add dates"
               endDatePlaceholderText="Add dates"
               displayFormat="MMM D"

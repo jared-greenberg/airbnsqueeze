@@ -16,7 +16,6 @@ const mapStatetoProps = (state) => {
     },
     booking,
     type: "Create"
-    // errors: state.errors.reviews
 }}
 
 const mapDispatchtoProps = dispatch => ({

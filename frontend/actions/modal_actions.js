@@ -16,7 +16,6 @@ export const close = () => ({
 export const closeModal = () => dispatch => {
   dispatch(close());
   dispatch(clearSessionErrors());
-  // dispatch(clearReviewErrors())
 }
 
 export const openModal = (modalType) => dispatch => {

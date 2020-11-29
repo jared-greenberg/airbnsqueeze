@@ -5,7 +5,6 @@ import { fetchBookings, deleteBooking } from '../../actions/booking_actions';
 import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  // reviews too
   const userId = ownProps.match.params.userId;
   const bookings = Object.values(state.entities.bookings)
   // order by date

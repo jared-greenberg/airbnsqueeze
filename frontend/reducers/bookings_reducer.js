@@ -8,7 +8,6 @@ export default (state = {}, action) => {
       return action.payload.bookings;
     case REMOVE_BOOKING:
       let newState = {...state};
-      // here is where I encounter the problem
       delete newState[action.bookingId];
       return newState;
     case RECEIVE_REVIEW:
