@@ -1,4 +1,5 @@
 import { fetchListing } from '../../actions/listing_actions';
+import { clearBookingErrors } from '../../actions/booking_actions';
 import { connect } from 'react-redux';
 import ListingShow from './listing_show';
 import {avgRatingByReviews, amenitySelector} from '../../util/selectors';
@@ -24,7 +25,8 @@ const mapStatetoProps = (state, ownProps) => {
 }
 
 const mapDispatchtoProps = dispatch => ({
-  fetchListing: listingId => dispatch(fetchListing(listingId))
+  fetchListing: listingId => dispatch(fetchListing(listingId)),
+  clearBookingErrors: () => dispatch(clearBookingErrors())
 })
 
 export default connect(mapStatetoProps, mapDispatchtoProps)(ListingShow)

@@ -31,7 +31,7 @@ class BookingForm extends React.Component {
       return <i className="fas fa-chevron-down"></i>
     }
     else {
-      return <i class="fas fa-chevron-up"></i>
+      return <i className="fas fa-chevron-up"></i>
     }
   }
 

@@ -13,6 +13,7 @@ class ListingShow extends React.Component {
   }
 
   componentDidMount() {
+    this.props.clearBookingErrors();
     this.props.fetchListing(this.props.match.params.listingId);
     if (this.props.location.hash !== ""){
       const ele = document.querySelector(this.props.location.hash);
