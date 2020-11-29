@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 140%;
+  height: 155%;
   padding-top: 10px;
 }
 
@@ -13,9 +13,13 @@
   border-radius: 5px;
   box-sizing: border-box;
   padding-left: 10px;
+  height: 60px;
+
   font-weight: 100;
   font: inherit;
 }
+
+
 
 .session-form > section{
   width: 90%;
@@ -68,7 +72,7 @@
 }
 
 #demo-button{
-  height: 50px;
+  height: 60px;
   border-radius: 5px;
   font-size: 16px;
 }
@@ -103,7 +107,7 @@ h3.form-title{
   text-decoration: underline;
   font-size: 12px;
   right: 30px;
-  bottom: 15px;
+  bottom: 20px;
 }
 
 .form-wrapper {
@@ -155,7 +159,7 @@ h3.form-title{
 
 div.error-msg{
   position: absolute;
-  top: 85px;
+  top: 94px;
   color: red;
   font-size: 14px;
 }
@@ -165,11 +169,11 @@ div.first_name-error{
 }
 
 div.last_name-error{
-  top: 101px;
+  top: 120px;
 }
 
 div.log_in-error{
-  top: 101px;
+  top: 124px;
 }
 
 log-in-group {
@@ -217,14 +221,14 @@ label.nobday
 label.email,
 label.bday,
 label.pword {
-  top: 35px;
+  top: 32px;
 }
 
 label.nobday{
   font-size: 16px;
   color: #666;
   padding-bottom: 3px;
-  top: 43px;
+  top: 48px;
   width: 100px;
   height: 35px;
   background: #fff
