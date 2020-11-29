@@ -122,7 +122,7 @@ class BookingForm extends React.Component {
               <DateRangePicker
                 startDate={this.state.startDate} 
                 startDateId="search_start" 
-                endDate={this.state.endDate} ,
+                endDate={this.state.endDate} 
                 endDateId="search_end" 
                 onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} 
                 focusedInput={this.state.focusedInput} 
