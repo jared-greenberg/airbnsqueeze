@@ -42,7 +42,7 @@ class MarkerManager {
       icon: label,
       label: {
         text: `$${listing.price}`,
-        color: 'black',
+        color: 'white',
         fontSize: "12px",
         fontWeight: 'bold',
       }
