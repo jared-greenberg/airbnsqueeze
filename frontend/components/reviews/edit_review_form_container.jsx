@@ -34,7 +34,6 @@ const mapStatetoProps = (state) => {
     review,
     type: "Update",
     booking
-    // errors: state.errors.reviews
   }
 }
 

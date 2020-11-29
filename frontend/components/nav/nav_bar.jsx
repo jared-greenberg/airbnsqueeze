@@ -30,7 +30,6 @@ class NavBar extends React.Component {
     this.setState({searching: true});
  }
 
- // TODO switch dates from undefined to null
  buttonText(){
     const {query} = this.props;
     if ((query.location === "" && query.startDate === null && query.endDate === null && query.numGuests === 0) || (isEqual(query, {}))){

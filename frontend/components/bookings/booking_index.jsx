@@ -15,7 +15,6 @@ class BookingIndex extends React.Component{
   }
 
   componentDidMount(){
-    // do not let other users go to each other's bookings
     if (parseInt(this.props.userId) !== this.props.currentUser){
       this.props.history.push("/")
       return
