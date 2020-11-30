@@ -33,7 +33,7 @@ class NavBar extends React.Component {
  buttonText(){
     const {query} = this.props;
     if ((query.location === "" && query.startDate === null && query.endDate === null && query.numGuests === 0) || (isEqual(query, {}))){
-      return "Start you search";
+      return "Start your search";
     }
     else {
       return "Continue your search...";
