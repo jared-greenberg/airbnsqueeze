@@ -3,6 +3,7 @@
 Airbnsqueeze is a clone of Airbnb with a twist. It is an online vacation rental site that allows you to browse, book, and review stays exclusively in tiny homes. Tiny homes are recently quite popular for being "off the grid", enviromentally conscious, and comparatively inexpensive. Rather than hastily taking the full leap into downsizing, why not take the opportunity to try it out on vacation and see what it's all about.
 
 ![splash](https://airbnsqueeze-seeds.s3.amazonaws.com/screenshots/splash.png)
+![search](https://airbnsqueeze-seeds.s3.amazonaws.com/screenshots/search.png)
 
 
 ### You can visit Airbnsqueeze [here](https://airbnsqueeze.herokuapp.com/#/)!
