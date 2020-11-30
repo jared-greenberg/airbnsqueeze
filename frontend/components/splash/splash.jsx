@@ -11,7 +11,6 @@ class Splash extends React.Component{
   constructor(props){
     super(props);
     this.searchBy = this.searchBy.bind(this);
-    this.startSearch = this.startSearch.bind(this);
   }
   
   searchBy(location) {

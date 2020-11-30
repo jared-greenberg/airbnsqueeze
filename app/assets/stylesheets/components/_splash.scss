@@ -28,9 +28,9 @@
   padding: 0 75px;
 }
 
-// .category-link:hover{
-//   cursor: pointer;
-// }
+.category-link:hover{
+  cursor: pointer;
+}
 
 div.link-text > p {
   font-weight: 100;
@@ -43,11 +43,11 @@ div.link-text > p {
   margin-top: 25px;
 }
 
-div.category-link{
+a.category-link{
   margin-right: 15px;
 }
 
-div.category-link > img {
+a.category-link > img {
   height: 425px;
   width: 425px;
   border-radius: 15px;
