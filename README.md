@@ -67,7 +67,7 @@ Ultimately I aimed to stay true the integrity of the site by only letting users 
 
 
 
-### Future Plans
+### ToDos
 - To use geocoding to allow for more flexible input for "location" in the search bar.
 - To include the map bounds as a further search filter for tiny houses
 - To display only available dates on the booking form
