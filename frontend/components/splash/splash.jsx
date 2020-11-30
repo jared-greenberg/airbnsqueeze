@@ -21,11 +21,6 @@ class Splash extends React.Component{
     this.props.history.push("/listings")
   }
 
-  startSearch(){
-    this.props.clearQuery();
-    this.props.history.push("/listings")
-  }
-
   render() {
   
     return (
@@ -68,22 +63,22 @@ class Splash extends React.Component{
         <section className="lower-links">
           <h1 id="link-title">Downsize anywhere</h1>
           <div className="categories">
-            <div className="category-link" onClick={this.startSearch}>
+            <Link to="/" className="category-link" onClick={this.props.clearQuery}>
               <img src={window.luxury}/>
               <h3>Little and Luxurious</h3>
-            </div>
-            <div className="category-link" onClick={this.startSearch}>
+            </Link>
+            <Link to="/" className="category-link" onClick={this.props.clearQuery}>
               <img src={window.family}/>
               <h3>Family Fun</h3>
-            </div>
-            <div className="category-link" onClick={this.startSearch}>
+            </Link>
+            <Link to="/" className="category-link" onClick={this.props.clearQuery}>
               <img src={window.couples} />
               <h3>Intimate Retreat</h3>
-            </div>
-            <div className="category-link" onClick={this.startSearch}>  
+            </Link>
+            <Link to="/" className="category-link" onClick={this.props.clearQuery}>  
               <img src={window.unique} />
               <h3>Unique Stays</h3>
-            </div>
+            </Link>
           </div>
         </section>
       </>
