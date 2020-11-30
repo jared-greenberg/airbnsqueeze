@@ -2,7 +2,7 @@
   position: relative;
 }
 
-#menu-button {
+.menu-button {
   border: 1px solid #ebebeb;
   border-radius: 20px;
   background: #fff;
@@ -14,7 +14,7 @@
 
 }
 
-#menu-button:hover {
+.menu-button:hover {
   box-shadow: 1px 3px 12px 7px rgba(190,190,190,0.3);
 }
 

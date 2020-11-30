@@ -24,6 +24,13 @@ class BookingIndex extends React.Component{
       this.pastRef.current.classList.add("selected-choice")
   }
 
+  componentDidUpdate(){
+    if (parseInt(this.props.userId) !== this.props.currentUser){
+      this.props.history.push("/")
+      return
+    }
+  }
+
   pastList(){
     
     if (this.props.pastBookings.length === 0) {return this.nothing("previous")}

@@ -38,7 +38,8 @@ div.link-text > p {
 
 .categories {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
   margin-top: 25px;
 }
 
@@ -47,8 +48,8 @@ div.category-link{
 }
 
 div.category-link > img {
-  height: 350px;
-  width: 350px;
+  height: 425px;
+  width: 425px;
   border-radius: 15px;
   object-fit: cover;
 }
@@ -56,4 +57,5 @@ div.category-link > img {
 #link-title{
   font-size: 36px;
   font-weight: 600;
+  padding-left: 70px;
 }

@@ -1,0 +1,34 @@
+#all-page-footer{
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid #bbb;
+  background: #ebebeb;
+}
+
+.footer-list-container {
+  width: 85%;
+  margin: 0 auto;
+  border-bottom: 1px solid #bbb;
+  display: flex;
+  padding-bottom: 30px;
+  
+  ul {
+    margin-right: 400px;
+  }
+
+  ul > h3 {
+    text-transform: uppercase;
+  }
+  
+  a:hover{
+    text-decoration: underline;
+  }
+}
+
+#copyright {
+  font-weight: 100;
+  font-size: 14px;
+  width: 85%;
+  margin: 0 auto;
+  padding: 20px 0;
+}

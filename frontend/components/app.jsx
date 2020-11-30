@@ -6,7 +6,7 @@ import Splash from './splash/splash'
 import ListingShowContainer from './listing/listing_show_container';
 import ListingIndexContainer from './listing/listing_index_container';
 import BookingIndexContainer from './bookings/booking_index_container';
-
+import Footer from './footer/footer';
 
 const App = (props) => (
   <>
@@ -18,7 +18,7 @@ const App = (props) => (
         <Route path="/listings" component={ListingIndexContainer} />
         <Route path="/users/:userId/bookings" component={BookingIndexContainer}/>
       </Switch>
-
+    <Footer />
   </>
 )
 
