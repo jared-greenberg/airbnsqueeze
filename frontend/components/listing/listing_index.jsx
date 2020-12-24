@@ -40,7 +40,7 @@ class ListingIndex extends React.Component {
               <h1>{numListings}  Tiny Home Stays </h1>
               {numListings !== 0 ? null : (
                 <ul>
-                  <h3>Why dont you try . . .</h3>
+                  <h3>Why don't you try . . .</h3>
                   {this.locationLinks.call(this)}
                 </ul>
               )}
