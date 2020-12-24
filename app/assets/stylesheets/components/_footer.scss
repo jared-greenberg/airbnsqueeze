@@ -6,18 +6,19 @@
 }
 
 .footer-list-container {
-  width: 85%;
-  margin: 0 auto;
-  border-bottom: 1px solid #bbb;
   display: flex;
-  padding-bottom: 30px;
-  
-  ul {
-    margin-right: 400px;
-  }
+  justify-content: space-between;
+  padding: 0 10% 25px 10%;
+  font-weight: 100;
+  position: relative;
 
   ul > h3 {
     text-transform: uppercase;
+    font-size: 14px;
+  }
+
+  ul > li, ul > h3 {
+    margin-bottom: 15px;
   }
   
   a:hover{
@@ -31,4 +32,13 @@
   width: 85%;
   margin: 0 auto;
   padding: 20px 0;
+}
+
+.footer-list-container:after {
+  content: "";
+  width: 85%;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  border-bottom: 1px solid #bbb;
 }
