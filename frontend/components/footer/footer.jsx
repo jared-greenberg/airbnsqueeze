@@ -8,7 +8,7 @@ export default () => {
         <ul>
           <h3>About me</h3>
           <li><a href="https://github.com/jared-greenberg" target="_blank">Github</a></li>
-          <li><a href="https://www.linkedin.com/in/jared-p-greenberg" target="_blank">Linked In</a></li>
+          <li><a href="https://www.linkedin.com/in/jared-p-greenberg" target="_blank">Linkedin</a></li>
           <li><a href="https://angel.co/u/jared-p-greenberg" target="_blank">AngelList</a></li>
           <li><a href="https://jared-greenberg.github.io" target="_blank">Personal Site</a></li>
         </ul>

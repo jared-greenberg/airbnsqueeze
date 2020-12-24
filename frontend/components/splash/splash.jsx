@@ -62,19 +62,19 @@ class Splash extends React.Component{
         <section className="lower-links">
           <h1 id="link-title">Downsize anywhere</h1>
           <div className="categories">
-            <Link to="/" className="category-link" onClick={this.props.clearQuery}>
+            <Link to="/listings" className="category-link" onClick={this.props.clearQuery}>
               <img src={window.luxury}/>
               <h3>Little and Luxurious</h3>
             </Link>
-            <Link to="/" className="category-link" onClick={this.props.clearQuery}>
+            <Link to="/listings" className="category-link" onClick={this.props.clearQuery}>
               <img src={window.family}/>
               <h3>Family Fun</h3>
             </Link>
-            <Link to="/" className="category-link" onClick={this.props.clearQuery}>
+            <Link to="/listings" className="category-link" onClick={this.props.clearQuery}>
               <img src={window.couples} />
               <h3>Intimate Retreat</h3>
             </Link>
-            <Link to="/" className="category-link" onClick={this.props.clearQuery}>  
+            <Link to="/listings" className="category-link" onClick={this.props.clearQuery}>  
               <img src={window.unique} />
               <h3>Unique Stays</h3>
             </Link>
