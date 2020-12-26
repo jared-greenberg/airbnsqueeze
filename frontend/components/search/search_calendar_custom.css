@@ -144,3 +144,7 @@
   height: 100%;
   width: 100%;
 }
+
+.DayPicker_portal__horizontal {
+  top: 375px;
+}
