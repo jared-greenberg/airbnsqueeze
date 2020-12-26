@@ -5,7 +5,7 @@ class MarkerManager {
     this.markers = {};
   }
 
-  updateMarkers(listings, markerClickHandler, type) {
+  updateMarkers(listings, markerClickHandler) {
     
     listings.forEach(listing => {
       if (!this.markers[listing.id]){
