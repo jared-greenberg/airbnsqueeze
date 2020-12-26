@@ -8,6 +8,7 @@
   background: #fff;
   width: 100%;
   height: 63px;
+  position: relative;
 
    label {
     font-size: 14px;
@@ -59,14 +60,11 @@ input:focus:hover {
   transition: 0.5s;
   background: #044241;
   border-radius: 50%;
-  height: 45px;
-  width: 45px;
-  align-self: center;
-  justify-self: flex-start;
+  height: 52px;
+  width: 52px;
   display: flex;
   align-items: center;
   justify-content: center; 
-  position: absolute;
   border: 0;
 
 
@@ -156,8 +154,8 @@ input:hover, .guests:hover {
 
   .search-bar-button{
     position: absolute;
-    right: 15px;
-    top: 12px;
+    right: 8px;
+    top: 5px;
   }
 }
 
