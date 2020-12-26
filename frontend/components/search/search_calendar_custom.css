@@ -61,13 +61,13 @@
 
 
 #search-form .DateInput_input {
-  font-weight: 200;
-  font-size: 16px;
+  font-weight: 100;
+  font-size: 14px;
   line-height: 22px;
   color: #484848;
   background-color: #fff;
   width: 100%;
-  padding: 35px 11px 9px;
+  padding: 30px 11px 11px;
   border: 0;
   border-top: 0;
   border-right: 0;
@@ -118,7 +118,6 @@
   position: relative;
   display: inline-block;
   border: none;
-  
 }
 .DateRangePicker__block {
   display: block

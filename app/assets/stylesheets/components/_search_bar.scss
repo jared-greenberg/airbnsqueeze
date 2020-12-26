@@ -7,7 +7,7 @@
   border: 1px solid #ebebeb;
   background: #fff;
   width: 100%;
-  height: 65px;
+  height: 63px;
 
    label {
     font-size: 14px;
@@ -32,7 +32,7 @@ input:focus:hover {
 
   > label{
     position: absolute;
-    top: 7px;
+    top: 13px;
     left: 30px;
 
   }
@@ -40,8 +40,8 @@ input:focus:hover {
   > input{
     width: 289px;
     padding-left: 30px;
-    padding-top: 29px;
-    padding-bottom: 7px;
+    padding-top: 28px;
+    padding-bottom: 10px;
     height: 98%;
     border: none;
     border-radius: 35px;
@@ -49,7 +49,7 @@ input:focus:hover {
     background: #fff;
     
     font-weight: 100;
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
@@ -89,7 +89,7 @@ input:focus:hover {
 
 #checkin-label {
   position: absolute;
-  top: 3px;
+  top: 8px;
   left: 11px;
   z-index: 5;
 
@@ -97,7 +97,7 @@ input:focus:hover {
 
 #checkout-label{
   position: absolute;
-  top: 3px;
+  top: 8px;
   left: 164px;
   z-index: 5;
 }
@@ -122,22 +122,22 @@ input:focus:hover {
 .guests {
   position: relative;
   width: 229px;
-  height: 97%;
+  height: 63px;
   border-radius: 30px;
   display: flex;
-  padding: 0 25px 3px 15px;
+  padding: 0 25px 0 15px;
   align-items: flex-end;
   
   #guests-label {
     position: absolute;
-    top: 3px;
+    top: 9px;
   }
 
   > h3 {
     font-weight: 100;
-    font-size: 16px;
-    padding-bottom: 2px;
+    font-size: 14px;
     color: #8e8e8e;
+    margin-bottom: 9px;
   }
 }
 
@@ -208,7 +208,7 @@ input:hover, .guests:hover {
 #search-form:before{
   content: '';
   width: 0;
-  height: 60%;
+  height: 55%;
   position: absolute;
   border-left: 1px solid #ebebeb;
   top: 12px;
@@ -219,17 +219,17 @@ input:hover, .guests:hover {
 #search-form:after{
   content: '';
   width: 0;
-  height: 60%;
+  height: 55%;
   position: absolute;
   border-left: 1px solid #ebebeb;
   top: 12px;
-  left: 478px;
+  left: 477px;
 }
 
 .search-form-wrapper:after{
   content: '';
   width: 0;
-  height: 60%;
+  height: 55%;
   position: absolute;
   border-left: 1px solid #ebebeb;
   top: 12px;
@@ -239,4 +239,6 @@ input:hover, .guests:hover {
 h3.red{
   color: red;
 }
+
+
 
