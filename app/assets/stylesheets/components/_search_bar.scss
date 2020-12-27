@@ -168,7 +168,7 @@ input:hover, .guests:hover {
  .search-form-wrapper .guest-drop {
   position: absolute;
   background: #fff;
-  height: 60px;
+  height: 40px;
   border-radius: 30px;
   width: 350px;
   right: 0;
@@ -183,19 +183,21 @@ input:hover, .guests:hover {
 .search-form-wrapper .changeNum{
   display: flex;
   justify-content: space-evenly;
-  width: 180px;
+  width: 150px;
+  align-items: center;
   
   > p {
-    font-weight: 600;
-    font-size: 24px;
+    font-weight: 100;
+    font-size: 18px;
+    padding-bottom: 3px;
   }
   > button {
     border-radius: 50%;
     border: 1px solid black;
     background: #fff;
-    height: 40px;
-    width: 40px;
-    font-size: 20px;
+    height: 30px;
+    width: 30px;
+    font-size: 22px;
   }
 
   > button:disabled {
@@ -237,6 +239,14 @@ input:hover, .guests:hover {
 h3.red{
   color: red;
 }
+
+h2.drop {
+  font-weight: 500;
+  font-size: 16px;
+  padding-left: 5px;
+}
+
+
 
 
 
