@@ -5,11 +5,11 @@ class MarkerManager {
     this.markers = {};
   }
 
-  updateMarkers(listings, markerClickHandler) {
+  updateMarkers(listings, markerClickHandler, type) {
     
     listings.forEach(listing => {
       if (!this.markers[listing.id]){
-        this.createMarker(listing, markerClickHandler);
+        this.createMarker(listing, markerClickHandler, type);
       }
     })
 
