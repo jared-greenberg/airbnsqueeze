@@ -35,6 +35,11 @@ class MarkerManager {
       url: window.marker,
       scaledSize: new google.maps.Size(50, 30)
     }
+    const label2 = {
+      url: window.marker,
+      scaledSize: new google.maps.Size(70, 50)
+    }
+   
     if (!coords.lat || !coords.lng) { return }
 
     if (type === "show") {
@@ -52,23 +57,44 @@ class MarkerManager {
       return;
     }
 
-    const marker = new google.maps.Marker({
-      position: coords,
-      map: this.map,
+    const markerBase = {
       icon: label,
+      zIndex: 0,
       label: {
         text: `$${listing.price}`,
         color: 'white',
         fontSize: "12px",
         fontWeight: 'bold',
       }
+    }
+
+    const marker = new google.maps.Marker({
+      position: coords,
+      map: this.map,
     })
+
+    marker.setOptions(markerBase)
+
     this.markers[listing.id] = marker;
     marker.addListener("click", () => {
       markerClickHandler(listing.id)
     })
-  }
 
+    google.maps.event.addListener(marker, "mouseover", () => {
+      marker.setOptions({
+        icon: label2, 
+        zIndex: 1,
+        label: {text: `$${listing.price}`,
+          color: 'white',
+          fontSize: "16px",
+          fontWeight: 'bold'}});
+    })
+
+     google.maps.event.addListener(marker, "mouseout", () => {
+      marker.setOptions(markerBase)
+    })
+    
+  }
 }
 
 export default MarkerManager;
