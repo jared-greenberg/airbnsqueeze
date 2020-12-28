@@ -63,6 +63,7 @@ class SearchForm extends React.Component {
     e.preventDefault();
     const query = this.state;
     delete query["guestDropOn"];
+    delete query["focusedInput"]
     query["startDate"] = null;
     query["endDate"] = null;
     this.props.startQuery(query);
