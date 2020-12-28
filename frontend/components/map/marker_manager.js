@@ -5,8 +5,9 @@ class MarkerManager {
     this.markers = {};
   }
 
+  
+
   updateMarkers(listings, markerClickHandler, type) {
-    
     listings.forEach(listing => {
       if (!this.markers[listing.id]){
         this.createMarker(listing, markerClickHandler, type);
@@ -42,7 +43,7 @@ class MarkerManager {
    
     if (!coords.lat || !coords.lng) { return }
 
-    if (type === "show") {
+    if (type === "show" || type === "city") {
       const circ = new google.maps.Circle({
         strokeColor: "#044241",
         strokeOpacity: 0.5,
@@ -51,7 +52,7 @@ class MarkerManager {
         fillOpacity: 0.35,
         map: this.map,
         center: coords,
-        radius: 700,
+        radius: (type === "show") ? 700 : 200000 ,
       })
       this.markers[listing.id] = circ;
       return;
