@@ -22,7 +22,7 @@ class MapDisplay extends React.Component {
     }
     else {
       options.center = { lat: 40.227746, lng: - 97.250879 }
-      options.zoom = 4.10
+      options.zoom = 3.9;
 
     }
     return options;
