@@ -17,9 +17,9 @@ export const clearQuery = () => ({
 
 const parseQueryLocation = query => {
    let str = query.location.replace(/[^a-zA-Z]/g, "").toLowerCase();
-   if (isMatch(["ithaca", "ny"], str) || isMatch(["new", "york"], str)) query.location = "Ithaca, NY"
-   else if (isMatch(["boulder", "co"], str) || isMatch(["colorado"], str)) query.location = "Boulder, CO"
-   else if (isMatch(["santa", "cruz", "ca"], str) || isMatch(["california"], str)) query.location = "Santa Cruz, CA"
+   if (isMatch(["ithaca"], str) || isMatch(["new", "york"], str)) query.location = "Ithaca, NY"
+   else if (isMatch(["boulder"], str) || isMatch(["colorado"], str)) query.location = "Boulder, CO"
+   else if (isMatch(["santa", "cruz"], str) || isMatch(["california"], str)) query.location = "Santa Cruz, CA"
    return query;
 }
 
