@@ -1,9 +1,9 @@
-![logo](https://airbnsqueeze-seeds.s3.amazonaws.com/logo/full_logo.png)
+![logo](../readMedia/full_logo.png?raw=true)
 
 Airbnsqueeze is a clone of Airbnb with a twist. It is an online vacation rental site that allows you to browse, book, and review stays exclusively in tiny homes. Tiny homes are recently quite popular for being "off the grid", enviromentally conscious, and comparatively inexpensive. Rather than hastily taking the full leap into downsizing, why not take the opportunity to try it out on vacation and see what it's all about.
 
-![splash](https://airbnsqueeze-seeds.s3.amazonaws.com/screenshots/splash.png)
-![search](https://airbnsqueeze-seeds.s3.amazonaws.com/screenshots/search.png)
+![splash](../readMedia/splash.png?raw=true)
+![search](../readMedia/search.png?raw=true)
 
 
 ### You can visit Airbnsqueeze [here](https://airbnsqueeze.herokuapp.com/#/)!  
@@ -18,7 +18,7 @@ The backend of the app is implemented using the Ruby on Rails framework with a P
 
 ## User Authentication
 
-![session](https://airbnsqueeze-seeds.s3.amazonaws.com/screenshots/sessions.png)
+![auth](../readMedia/auth.png?raw=true)
 
 Signing up and logging in are available through a drop down menu that is always present the top of the application. Both forms are implemented using a modal component. Validations for user credentials are monitored in the Rails backend, which delivers specific error messages that can be displayed to assist the user during the process. Once logged in, the current user is then given access to make and monitor bookings and to add reviews for their previous stays. A demo login is available to quickly access these features. 
 
@@ -27,7 +27,7 @@ Signing up and logging in are available through a drop down menu that is always 
 
 ## Making a Booking
 
-![booking](https://airbnsqueeze-seeds.s3.amazonaws.com/screenshots/booking.png)
+![booking](../readMedia/booking.png?raw=true)
 
 The page for each specific listing provides all the information needed to make a decision about which tiny house you would like to rent. After seeing the photos, the reviews and ratings, as well as the location on a map, there is a booking menu available where you can try to make a rental request. The user must choose a start and end date on the "react-dates" range calendar and has the option of choosing the number of guests up to the capacity allowed for the specific listing. Error messages will be displayed should the user leave out either date as well as in the event that the booking overlaps with another. A successful booking will bring you to the trips page where it can be cancelled up to its start date.
 
@@ -36,7 +36,7 @@ The page for each specific listing provides all the information needed to make a
 
 ## Adding/Editing Reviews
 
-![review](https://airbnsqueeze-seeds.s3.amazonaws.com/screenshots/review.png)
+![review](../readMedia/review.png?raw=true)
 
 On the Trips page, under the "Past" trips section, the user can add, edit, or remove reviews for their past bookings. The review form also makes use of a modal component where you can give a rating between 1 and 5 stars and leave a text description. After adding or editing a review, the user is directed to the published version of their review on the listing page. Next to their review, a link that is only visible to the current user is available to direct them back to make further changes. A user can only access their own Trips page and must be signed in to do so.
 
