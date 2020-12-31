@@ -66,6 +66,7 @@ class SearchForm extends React.Component {
     delete query["focusedInput"]
     query["startDate"] = null;
     query["endDate"] = null;
+    
     this.props.startQuery(query);
     if (this.props.location.pathname !== "/listings"){
       this.props.history.push('/listings')

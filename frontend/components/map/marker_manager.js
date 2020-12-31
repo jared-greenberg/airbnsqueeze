@@ -55,10 +55,12 @@ class MarkerManager {
         radius: (type === "show") ? 700 : 100000 ,
       })
       this.markers[listing.id] = circ;
-        
-      circ.addListener("click", () => {
-        markerClickHandler("ithaca")
-      })
+      
+      if (type === "city"){
+        circ.addListener("click", () => {
+          markerClickHandler(listing.id)
+        })
+      }
       return
     }
 

@@ -2,9 +2,9 @@ import React from 'react';
 import MarkerManager from './marker_manager';
 
 const cities = {
-  "Ithaca, NY": { id: 'i', latitude: 42.440498, longitude: -76.495697},
-  "Santa Cruz, CA": { id: 's', latitude: 36.974117, longitude: -122.030792},
-  "Boulder, CO": { id: 'b', latitude: 40.016869, longitude: -105.279617}
+  "Ithaca, NY": { id: 'ithaca', latitude: 42.440498, longitude: -76.495697},
+  "Santa Cruz, CA": { id: 'santacruz', latitude: 36.974117, longitude: -122.030792},
+  "Boulder, CO": { id: 'boulder', latitude: 40.016869, longitude: -105.279617}
 }
 
 
@@ -40,6 +40,7 @@ class MapDisplay extends React.Component {
 
   cityClickHandler(city){
     let query = {...this.props.query};
+    debugger
     query.location = city;
     this.props.startQuery(query);
   }
