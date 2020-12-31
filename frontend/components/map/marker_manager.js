@@ -5,8 +5,9 @@ class MarkerManager {
     this.markers = {};
   }
 
+  
+
   updateMarkers(listings, markerClickHandler, type) {
-    
     listings.forEach(listing => {
       if (!this.markers[listing.id]){
         this.createMarker(listing, markerClickHandler, type);
@@ -31,30 +32,54 @@ class MarkerManager {
 
   createMarker(listing, markerClickHandler, type){
     const coords = {lat: listing.latitude, lng: listing.longitude}
-    const label = {
-      url: window.marker,
-      scaledSize: new google.maps.Size(50, 30)
-    }
-    const label2 = {
-      url: window.marker,
-      scaledSize: new google.maps.Size(70, 50)
-    }
-   
+  
     if (!coords.lat || !coords.lng) { return }
 
+    // show page circle
     if (type === "show") {
       const circ = new google.maps.Circle({
         strokeColor: "#044241",
-        strokeOpacity: 0.5,
+        strokeOpacity: 1,
         strokeWeight: 2,
         fillColor: "#044241",
         fillOpacity: 0.35,
         map: this.map,
         center: coords,
-        radius: 700,
+        radius: 700 ,
       })
       this.markers[listing.id] = circ;
-      return;
+      return
+    }
+
+    // city marker
+    if (type === "city") {
+      const cityMarker = {
+        url: window.logoGreen,
+        scaledSize: new google.maps.Size(50, 30)
+      }
+   
+      const city = new google.maps.Marker({
+        position: coords,
+        map: this.map,
+        icon: cityMarker
+      })
+
+      this.markers[listing.id] = city;
+      city.addListener("click", () => {
+        markerClickHandler(listing.id)
+      })
+
+      return 
+    }
+
+    // listing index markers
+    const label = {
+      url: window.marker,
+      scaledSize: new google.maps.Size(50, 30)
+    }
+    const hoverLabel = {
+      url: window.marker,
+      scaledSize: new google.maps.Size(70, 50)
     }
 
     const markerBase = {
@@ -82,7 +107,7 @@ class MarkerManager {
 
     google.maps.event.addListener(marker, "mouseover", () => {
       marker.setOptions({
-        icon: label2, 
+        icon: hoverLabel, 
         zIndex: 1,
         label: {text: `$${listing.price}`,
           color: 'white',

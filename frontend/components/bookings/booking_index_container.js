@@ -20,14 +20,14 @@ const mapStateToProps = (state, ownProps) => {
     bookings,
     upcomingBookings,
     pastBookings,
-    listings
+    listings,
   }
 }
 
 const mapDispatchToProps = dispatch => ({
   fetchBookings: userId => dispatch(fetchBookings(userId)),
   deleteBooking: bookingID => dispatch(deleteBooking(bookingID)),
-  openModal: modalType => dispatch(openModal(modalType))
+  openModal: modalType => dispatch(openModal(modalType)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookingIndex)
