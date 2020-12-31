@@ -40,7 +40,6 @@ class MapDisplay extends React.Component {
 
   cityClickHandler(city){
     let query = {...this.props.query};
-    debugger
     query.location = city;
     this.props.startQuery(query);
   }
@@ -64,7 +63,6 @@ class MapDisplay extends React.Component {
   }
 
   drawCities(){
-    debugger
     if (this.props.type === "index" && (this.props.query.location === "" || !this.props.query.location)){
       this.markerManager.updateMarkers(Object.values(cities), this.cityClickHandler.bind(this), "city");
       return true

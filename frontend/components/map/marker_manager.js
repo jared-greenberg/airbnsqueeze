@@ -32,6 +32,47 @@ class MarkerManager {
 
   createMarker(listing, markerClickHandler, type){
     const coords = {lat: listing.latitude, lng: listing.longitude}
+  
+    if (!coords.lat || !coords.lng) { return }
+
+    // show page circle
+    if (type === "show") {
+      const circ = new google.maps.Circle({
+        strokeColor: "#044241",
+        strokeOpacity: 1,
+        strokeWeight: 2,
+        fillColor: "#044241",
+        fillOpacity: 0.35,
+        map: this.map,
+        center: coords,
+        radius: 700 ,
+      })
+      this.markers[listing.id] = circ;
+      return
+    }
+
+    // city marker
+    if (type === "city") {
+      const cityMarker = {
+        url: window.logoGreen,
+        scaledSize: new google.maps.Size(50, 30)
+      }
+   
+      const city = new google.maps.Marker({
+        position: coords,
+        map: this.map,
+        icon: cityMarker
+      })
+
+      this.markers[listing.id] = city;
+      city.addListener("click", () => {
+        markerClickHandler(listing.id)
+      })
+
+      return 
+    }
+
+    // listing index markers
     const label = {
       url: window.marker,
       scaledSize: new google.maps.Size(50, 30)
@@ -39,29 +80,6 @@ class MarkerManager {
     const hoverLabel = {
       url: window.marker,
       scaledSize: new google.maps.Size(70, 50)
-    }
-   
-    if (!coords.lat || !coords.lng) { return }
-
-    if (type === "show" || type === "city") {
-      const circ = new google.maps.Circle({
-        strokeColor: "#044241",
-        strokeOpacity: 1,
-        strokeWeight: 2,
-        fillColor: "#044241",
-        fillOpacity: (type === "show") ? 0.35 : 1,
-        map: this.map,
-        center: coords,
-        radius: (type === "show") ? 700 : 100000 ,
-      })
-      this.markers[listing.id] = circ;
-      
-      if (type === "city"){
-        circ.addListener("click", () => {
-          markerClickHandler(listing.id)
-        })
-      }
-      return
     }
 
     const markerBase = {
