@@ -15,7 +15,7 @@ class Splash extends React.Component{
   
   searchBy(location) {
     this.props.clearQuery();
-    const query = {location, numGuests: 0, startDate: null, endDate: null}
+    const query = {location, numGuests: 0, startDate: null, endDate: null, region: {}}
     this.props.startQuery(query);
     this.props.history.push("/listings")
   }

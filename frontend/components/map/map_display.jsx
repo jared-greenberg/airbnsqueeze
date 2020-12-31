@@ -1,5 +1,6 @@
 import React from 'react';
 import MarkerManager from './marker_manager';
+import {isEqual} from 'lodash';
 
 const cities = {
   "Ithaca, NY": { id: 'ithaca', latitude: 42.440498, longitude: -76.495697},
@@ -25,7 +26,7 @@ class MapDisplay extends React.Component {
     else if (Object.keys(cities).includes(this.props.query.location)){
       let {latitude, longitude} = cities[this.props.query.location]
       options.center = {lat: latitude, lng: longitude};
-      options.zoom = 13.5;
+      options.zoom = 13;
     }
     else {
       options.center = { lat: 40.227746, lng: - 97.250879 }
@@ -41,6 +42,7 @@ class MapDisplay extends React.Component {
   cityClickHandler(city){
     let query = {...this.props.query};
     query.location = city;
+    query.region = {};
     this.props.startQuery(query);
   }
 
@@ -51,19 +53,35 @@ class MapDisplay extends React.Component {
     if (!this.drawCities()) {
       this.markerManager.updateMarkers(this.props.listings, this.markerClickHandler.bind(this), this.props.type)
     }
+
+    if (this.props.type === "index") {
+      this.map.addListener("idle", () => {
+        const coords = this.map.getBounds();
+        const region = {
+          northeast: coords.getNorthEast().toJSON(),
+          southwest: coords.getSouthWest().toJSON()
+        };
+        let query = {...this.props.query};
+        query.region = region;
+        this.props.startQuery(query);
+      })
+    }
   }
 
   componentDidUpdate(prevProps){
-      const {center, zoom} = this.mapOptions();
-      this.map.panTo(center);
-      this.map.setZoom(zoom);
-      if (!this.drawCities()) {
+      if (isEqual(prevProps.query, this.props.query) && isEqual(prevProps.listings, this.props.listings)) return;
+      if (this.props.type === "show" || isEqual(this.props.query.region, {})){
+        const {center, zoom} = this.mapOptions();
+        this.map.panTo(center);
+        this.map.setZoom(zoom);
+      }
+       if (!this.drawCities()) {
         this.markerManager.updateMarkers(this.props.listings, this.markerClickHandler.bind(this), this.props.type)
       }
   }
 
   drawCities(){
-    if (this.props.type === "index" && (this.props.query.location === "" || !this.props.query.location)){
+    if (this.props.type === "index" && this.map.getZoom() < 11 && this.props.query.location === ""){
       this.markerManager.updateMarkers(Object.values(cities), this.cityClickHandler.bind(this), "city");
       return true
     }

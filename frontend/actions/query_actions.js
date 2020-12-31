@@ -10,7 +10,6 @@ export const startQuery = query => {
   }
 }
 
-
 export const clearQuery = () => ({
   type: CLEAR_QUERY
 })
