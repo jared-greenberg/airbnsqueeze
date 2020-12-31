@@ -36,7 +36,7 @@ class MarkerManager {
       url: window.marker,
       scaledSize: new google.maps.Size(50, 30)
     }
-    const label2 = {
+    const hoverLabel = {
       url: window.marker,
       scaledSize: new google.maps.Size(70, 50)
     }
@@ -46,16 +46,20 @@ class MarkerManager {
     if (type === "show" || type === "city") {
       const circ = new google.maps.Circle({
         strokeColor: "#044241",
-        strokeOpacity: 0.5,
+        strokeOpacity: 1,
         strokeWeight: 2,
         fillColor: "#044241",
-        fillOpacity: 0.35,
+        fillOpacity: (type === "show") ? 0.35 : 1,
         map: this.map,
         center: coords,
-        radius: (type === "show") ? 700 : 200000 ,
+        radius: (type === "show") ? 700 : 100000 ,
       })
       this.markers[listing.id] = circ;
-      return;
+        
+      circ.addListener("click", () => {
+        markerClickHandler("ithaca")
+      })
+      return
     }
 
     const markerBase = {
@@ -83,7 +87,7 @@ class MarkerManager {
 
     google.maps.event.addListener(marker, "mouseover", () => {
       marker.setOptions({
-        icon: label2, 
+        icon: hoverLabel, 
         zIndex: 1,
         label: {text: `$${listing.price}`,
           color: 'white',

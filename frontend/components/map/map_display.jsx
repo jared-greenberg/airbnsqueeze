@@ -13,6 +13,7 @@ class MapDisplay extends React.Component {
   constructor(props){
     super(props);
     this.drawCities = this.drawCities.bind(this);
+    this.cityClickHandler = this.cityClickHandler.bind(this);
   }
 
   mapOptions() {
@@ -37,6 +38,12 @@ class MapDisplay extends React.Component {
     this.props.history.push(`/listings/${id}`)
   }
 
+  cityClickHandler(city){
+    let query = {...this.props.query};
+    query.location = city;
+    this.props.startQuery(query);
+  }
+
   componentDidMount() {
     const map = this.refs.map;
     this.map = new google.maps.Map(map, this.mapOptions());
@@ -56,9 +63,9 @@ class MapDisplay extends React.Component {
   }
 
   drawCities(){
-    if (this.props.type === "index" && this.props.query.location === "" || !this.props.query.location){
-      debugger
-      this.markerManager.updateMarkers(Object.values(cities), null, "city");
+    debugger
+    if (this.props.type === "index" && (this.props.query.location === "" || !this.props.query.location)){
+      this.markerManager.updateMarkers(Object.values(cities), this.cityClickHandler.bind(this), "city");
       return true
     }
     return false
@@ -74,5 +81,6 @@ class MapDisplay extends React.Component {
       )
     }
 }
+
 
 export default MapDisplay;
