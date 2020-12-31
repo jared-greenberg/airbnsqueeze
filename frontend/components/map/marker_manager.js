@@ -8,7 +8,6 @@ class MarkerManager {
   
 
   updateMarkers(listings, markerClickHandler, type) {
-    debugger
     listings.forEach(listing => {
       if (!this.markers[listing.id]){
         this.createMarker(listing, markerClickHandler, type);

@@ -19,15 +19,21 @@ class MapDisplay extends React.Component {
 
   mapOptions() {
     const options = { }
+    
+    // listing show
     if (this.props.coords){
       options.center = this.props.coords;
       options.zoom = 15;
     }
+
+    // search for a city
     else if (Object.keys(cities).includes(this.props.query.location)){
       let {latitude, longitude} = cities[this.props.query.location]
       options.center = {lat: latitude, lng: longitude};
       options.zoom = 13;
     }
+
+    // general search
     else {
       options.center = { lat: 40.227746, lng: - 97.250879 }
       options.zoom = 3.9;
@@ -50,6 +56,7 @@ class MapDisplay extends React.Component {
     const map = this.refs.map;
     this.map = new google.maps.Map(map, this.mapOptions());
     this.markerManager = new MarkerManager(this.map);
+    
     if (!this.drawCities()) {
       this.markerManager.updateMarkers(this.props.listings, this.markerClickHandler.bind(this), this.props.type)
     }
@@ -70,11 +77,13 @@ class MapDisplay extends React.Component {
 
   componentDidUpdate(prevProps){
       if (isEqual(prevProps.query, this.props.query) && isEqual(prevProps.listings, this.props.listings)) return;
+      
       if (this.props.type === "show" || isEqual(this.props.query.region, {})){
         const {center, zoom} = this.mapOptions();
         this.map.panTo(center);
         this.map.setZoom(zoom);
       }
+
        if (!this.drawCities()) {
         this.markerManager.updateMarkers(this.props.listings, this.markerClickHandler.bind(this), this.props.type)
       }
