@@ -4,7 +4,7 @@ import MarkerManager from './marker_manager';
 const cities = {
   "Ithaca, NY": { id: 'i', latitude: 42.440498, longitude: -76.495697, lat: 42.440498, lng: -76.495697},
   "Santa Cruz, CA": { id: 's', latitude: 36.974117, longitude: -122.030792, lat: 36.974117, lng: -122.030792 },
-  "Boulder, CO": { id: 'b', latitude: 40.016869, longitude: -105.279617, lat: 36.974117, lng: -122.030792 }
+  "Boulder, CO": { id: 'b', latitude: 40.016869, longitude: -105.279617, lat: 40.016869, lng: -105.279617 }
 }
 
 
@@ -56,6 +56,7 @@ class MapDisplay extends React.Component {
 
   drawCities(){
     if (this.props.type === "index" && this.props.query.location === "" || !this.props.query.location){
+      debugger
       this.markerManager.updateMarkers(Object.values(cities), null, "city");
       return true
     }
