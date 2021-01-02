@@ -61,7 +61,14 @@ class MarkerManager {
       const city = new google.maps.Marker({
         position: coords,
         map: this.map,
-        icon: cityMarker
+        icon: cityMarker,
+        label: {
+          text: `${listing.id}`,
+          color: 'black',
+          fontSize: "12px",
+          fontWeight: 'bold',
+          className: 'city-label'
+        }
       })
 
       this.markers[listing.id] = city;

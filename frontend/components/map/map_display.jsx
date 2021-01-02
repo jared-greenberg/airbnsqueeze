@@ -3,9 +3,9 @@ import MarkerManager from './marker_manager';
 import {isEqual} from 'lodash';
 
 const cities = {
-  "Ithaca, NY": { id: 'ithaca', latitude: 42.440498, longitude: -76.495697},
-  "Santa Cruz, CA": { id: 'santacruz', latitude: 36.974117, longitude: -122.030792},
-  "Boulder, CO": { id: 'boulder', latitude: 40.016869, longitude: -105.279617}
+  "Ithaca, NY": { id: 'Ithaca', latitude: 42.440498, longitude: -76.495697},
+  "Santa Cruz, CA": { id: 'Santa Cruz', latitude: 36.974117, longitude: -122.030792},
+  "Boulder, CO": { id: 'Boulder', latitude: 40.016869, longitude: -105.279617}
 }
 
 
