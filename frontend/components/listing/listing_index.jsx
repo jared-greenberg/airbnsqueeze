@@ -19,7 +19,11 @@ class ListingIndex extends React.Component {
 
     locationLinks(){
       return ["Ithaca, NY", "Boulder, CO", "Santa Cruz, CA"].map((loc, i) => (
-        <li className="notfound-link" key={i} onClick={() => this.props.startQuery({location: loc, numGuests: 0})}>{loc}</li>
+        <li className="notfound-link" key={i} 
+            onClick={() => this.props.startQuery({...this.props.query, ["location"]: loc, ["region"]: {}})}
+        >
+          {loc}
+        </li>
       ))
     }
 
