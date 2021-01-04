@@ -3,6 +3,13 @@
   <head>
     <title>Airbnsqueeze</title>
     <link rel="shortcut icon" href="<%= asset_path('icon.png')%>" type="image/x-icon">
+
+    <meta property="og:title" content="Airbnsqueeze" />
+     <meta property='og:image' content="<%= asset_path('air_screen.png') %>"/>
+     <meta property="og:description" content="Airbnsqueeze, a clone of Airbnb. Maximize your adventure by downsizing your
+     vacation rental. Enjoy unique and special experiences at tiny houses around the country."/>
+     <meta property="og:url" content="http://airbnsqueeze.herokuapp.com/"/>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google[:api_key]}" %>
