@@ -44,12 +44,13 @@
   flex-wrap: wrap;
   width: 100%;
   margin-top: 15px auto;
+  justify-content: space-between;
 }
 
 .booking-item{
-  margin: 20px 25px;
-  height: 440px;
-  width: 470px;
+  margin: 20px 0;
+  height: 375px;
+  width: 375px;
   border-radius: 15px;
   box-shadow: 1px 3px 12px 7px rgba(190,190,190,0.3);
   overflow: hidden;
@@ -71,12 +72,21 @@
 
 .booking-dates{
   font-size: 14px;
+  font-weight: 100;
+  margin-bottom: -5px;
 }
 
 .date-and-city{
-  margin-top: 27px;
+  margin-top: 15px;
   width: 80%;
 }
+
+.booking-dates + h2 {
+  font-size: 20px;
+  margin-top: 0;
+}
+
+
 
 .booking-links {
   display: flex;
@@ -139,7 +149,7 @@
 
 
 #nothing-img {
-  margin-left: 5%
+  margin: 0 auto;
 }
 
 
