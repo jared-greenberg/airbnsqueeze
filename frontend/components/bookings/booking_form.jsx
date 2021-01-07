@@ -28,10 +28,10 @@ class BookingForm extends React.Component {
 
   dropArrow() {
     if (this.state.guestDropOn){
-      return <i className="fas fa-chevron-down"></i>
+      return <i className="fas fa-chevron-up"></i>
     }
     else {
-      return <i className="fas fa-chevron-up"></i>
+      return <i className="fas fa-chevron-down"></i>
     }
   }
 
