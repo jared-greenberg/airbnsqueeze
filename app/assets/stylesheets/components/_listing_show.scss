@@ -24,7 +24,7 @@
 .second-column, .third-column {
   display: inline-block;
   height: 100%;
-  width: 24.5%;
+  width: 24.25%;
   > img {
     height: 50%;
     object-fit: cover;
@@ -38,8 +38,8 @@
 }
 
 .listing-show {
-    padding-left: px;
-    width: 1250px;
+    width: 80%;
+    min-width: 920px;
     margin: 0 auto;
     position: relative;
 

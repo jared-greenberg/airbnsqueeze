@@ -22,8 +22,10 @@ class ListingShow extends React.Component {
     else {
         window.scrollTo(0, 0);
     }
-      
+    
   }
+
+  
 
   componentDidUpdate(prevProps){
     if (prevProps.match.params.listingId !== this.props.match.params.listingId) {
