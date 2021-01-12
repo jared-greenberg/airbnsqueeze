@@ -43,17 +43,31 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  margin-top: 15px auto;
-  justify-content: space-between;
+  margin: 15px auto;
+  justify-content: center;
 }
 
 .booking-item{
-  margin: 20px 0;
+  margin: 20px 15px;;
   height: 375px;
-  width: 375px;
+  width: 30%;
   border-radius: 15px;
   box-shadow: 1px 3px 12px 7px rgba(190,190,190,0.3);
   overflow: hidden;
+}
+
+@media screen and (max-width: 1120px) {
+  .booking-item {
+    width: 45%;
+  }
+
+}
+
+@media screen and (max-width: 740px) {
+  .booking-item {
+    width: 100%;
+  }
+
 }
 
 .booking-image {
