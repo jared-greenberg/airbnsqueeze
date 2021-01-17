@@ -177,7 +177,7 @@ boulder_2.photos.attach(io: open("https://s3.amazonaws.com/airbnsqueeze-seed-pho
 boulder_2.photos.attach(io: open("https://s3.amazonaws.com/airbnsqueeze-seed-photos/Boulder/angular/angular_interior3.jpg"), filename: "angular_interior3.jpg")
 boulder_2.photos.attach(io: open("https://s3.amazonaws.com/airbnsqueeze-seed-photos/Boulder/angular/angular_interior4.jpg"), filename: "angular_interior4.jpg")
 
-boulder_3 = Listing.create({owner_id: boulder_user_3.id, address: Faker::Address.street_address, city: "Boulder, CO", latitude: 40.018866, longitude: -105.292325,
+boulder_3 = Listing.create({owner_id: boulder_user_3.id, address: Faker::Address.street_address, city: "Boulder, CO", latitude: 40.024966 longitude: -105.292325,
   title: "Rustic and Tiny", description: boulder_descrip, capacity: 3, price: 89.00 })   
 
 boulder_3.photos.attach(io: open("https://s3.amazonaws.com/airbnsqueeze-seed-photos/Boulder/antler/antler_exterior.jpg"), filename: "antler_exterior.jpg")

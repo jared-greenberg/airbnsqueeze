@@ -5,7 +5,7 @@ json.listings do
       json.avgRating listing.reviews.average("rating").to_f
       json.numReviews listing.reviews.count
       json.amenities listing.amenities.map(&:id)
-      json.photoUrls listing.photos.map{|photo| url_for(photo)}
+      json.photoUrls [url_for(listing.photos.first)]
     end
   end
 end

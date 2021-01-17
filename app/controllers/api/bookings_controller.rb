@@ -13,7 +13,7 @@ class Api::BookingsController < ApplicationController
   def index
     @bookings = Booking.where(renter_id: params[:user_id])
     booking_ids = @bookings.pluck(:listing_id)
-    @listings = Listing.where('id IN (?)', booking_ids)
+    @listings = Listing.with_attached_photos.where('id IN (?)', booking_ids)
     render :index
   end
 
