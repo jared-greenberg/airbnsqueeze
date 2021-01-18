@@ -32,7 +32,7 @@ santacruz_descrip = "Step outside the tiny and experience Santa Cruz's guarantee
 boulder_descrip = "Enviromentally friendly tiny house with beautiful views of the Rockies. Love to Ski? Booking for the winter? Only 20 miles away from some of Boulder's most popular skiing resorts."
 
 
-ithaca_1 = Listing.create({owner_id: ithaca_user_1.id, address: Faker::Address.street_address, city: "Ithaca, NY", latitude: 42.423619, longitude: -76.503692,
+ithaca_1 = Listing.create({owner_id: ithaca_user_1.id, address: Faker::Address.street_address, city: "Ithaca, NY", latitude: 42.423618, longitude: -76.503692,
   title: "Zen House in Nature", description: ithaca_descrip, capacity: 2, price: 75.00 })    
 
 
