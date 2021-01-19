@@ -53,7 +53,7 @@ ithaca_2.photos.attach(io: open("https://s3.amazonaws.com/airbnsqueeze-seed-phot
 ithaca_2.photos.attach(io: open("https://s3.amazonaws.com/airbnsqueeze-seed-photos/Ithaca/modern/modern_interior3.jpg"), filename: "modern_interior3.jpg")
 ithaca_2.photos.attach(io: open("https://s3.amazonaws.com/airbnsqueeze-seed-photos/Ithaca/modern/modern_interior4.jpg"), filename: "modern_interior4.jpg")
 
-ithaca_3 = Listing.create({owner_id: ithaca_user_2.id, address: Faker::Address.street_address, city: "Ithaca, NY", latitude: 42.434277, longitude: -76.517257,
+ithaca_3 = Listing.create({owner_id: ithaca_user_2.id, address: Faker::Address.street_address, city: "Ithaca, NY", latitude: 42.434277, longitude: -76.517256,
   title: "Newly Decorated Tiny in the Country", description: ithaca_descrip, capacity: 4, price: 110.00 })   
   
 ithaca_3.photos.attach(io: open("https://s3.amazonaws.com/airbnsqueeze-seed-photos/Ithaca/country/country_exterior.jpg"), filename: "country_exterior.jpg")
