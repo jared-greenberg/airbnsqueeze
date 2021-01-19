@@ -63,7 +63,7 @@ ithaca_3.photos.attach(io: open("https://s3.amazonaws.com/airbnsqueeze-seed-phot
 ithaca_3.photos.attach(io: open("https://s3.amazonaws.com/airbnsqueeze-seed-photos/Ithaca/country/country_interior4.jpg"), filename: "country_interior4.jpg")
 
 
-ithaca_4 = Listing.create({owner_id: ithaca_user_3.id, address: Faker::Address.street_address, city: "Ithaca, NY", latitude: 42.435460, longitude: -76.485322,
+ithaca_4 = Listing.create({owner_id: ithaca_user_3.id, address: Faker::Address.street_address, city: "Ithaca, NY", latitude: 42.435460, longitude: -76.485321,
   title: "Squeaky Clean and Small", description: ithaca_descrip, capacity: 2, price: 79.00 })   
   
 ithaca_4.photos.attach(io: open("https://s3.amazonaws.com/airbnsqueeze-seed-photos/Ithaca/clean/clean_exterior.jpg"), filename: "clean_exterior.jpg")
