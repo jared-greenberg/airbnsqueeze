@@ -4,7 +4,7 @@ class Api::BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.listing_id = params[:listing_id]
     if @booking.save
-      render json: ['Booking was successful!'], status: 200
+      render json: ['Booking was successful'], status: 200
     else
       render json: @booking.errors.as_json, status: 422
     end
