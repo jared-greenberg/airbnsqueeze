@@ -18,7 +18,7 @@ json.listings do
   @listings.each do |listing|
     json.set! listing.id do
       json.extract! listing, :id, :city, :title, :latitude, :longitude, :price
-      json.photoUrls [(listing.photos.first.service_url)]
+      json.photoUrls [url_for(listing.photos.first)]
     end
   end
 end
