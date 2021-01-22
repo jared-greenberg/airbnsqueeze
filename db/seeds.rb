@@ -120,7 +120,7 @@ santacruz_3.photos.attach(io: open("https://s3.amazonaws.com/airbnsqueeze-seed-p
 santacruz_3.photos.attach(io: open("https://s3.amazonaws.com/airbnsqueeze-seed-photos/SantaCruz/darkwood/darkwood_interior3.jpg"), filename: "darkwood_interior3.jpg")
 santacruz_3.photos.attach(io: open("https://s3.amazonaws.com/airbnsqueeze-seed-photos/SantaCruz/darkwood/darkwood_interior4.jpg"), filename: "darkwood_interior4.jpg")
 
-santacruz_4 = Listing.create({owner_id: santacruz_user_4.id, address: Faker::Address.street_address, city: "Santa Cruz, CA", latitude: 36.982624, longitude: -121.984095,
+santacruz_4 = Listing.create({owner_id: santacruz_user_4.id, address: Faker::Address.street_address, city: "Santa Cruz, CA", latitude: 36.982625, longitude: -121.984095,
   title: "Mini Cabin in the Woods", description: santacruz_descrip, capacity: 2, price: 107.00 })    
 
 santacruz_4.photos.attach(io: open("https://s3.amazonaws.com/airbnsqueeze-seed-photos/SantaCruz/cabin/cabin_exterior.jpg"), filename: "cabin_exterior.jpg")
