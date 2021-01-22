@@ -29,7 +29,7 @@ class ListingIndexItem extends React.Component {
     return (
       <li onClick={this.handleClick} className="listing-item" >
         
-        <img src={listing.photoUrls[0]} />
+        <img loading="lazy" src={listing.photoUrls[0]} />
 
         <div className='index-text'>
       
