@@ -12,7 +12,6 @@ class DropDown extends React.Component {
     super(props);
     this.state = { menu: false }
     this.toggleMenu = this.toggleMenu.bind(this);
-    this.changeColor = this.changeColor.bind(this);
   }
 
   componentWillUnmount(){
@@ -38,18 +37,15 @@ class DropDown extends React.Component {
     else { return <LoggedOutDrop openModal={this.props.openModal} /> }
   }
 
-  changeColor(){
-    return this.props.currentUser ? "green" : ""
-  }
-
 
   render() {
     return (
       <section className="right-nav">
         <div className="nav-drop-down">
-          <button className={`menu-button ${this.changeColor()}`} onClick={this.toggleMenu}>
+          <button className="menu-button" onClick={this.toggleMenu}>
             <i className="fas fa-bars"></i>
-            <i className="fas fa-user-circle fa-2x"></i>
+            {this.props.currentUser ? <img src={window.avatar}/> : 
+               <i className="fas fa-user-circle fa-2x"></i>}
           </button>
           {this.dropDown()}
         </div>

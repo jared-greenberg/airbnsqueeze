@@ -11,11 +11,16 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-
 }
 
 .menu-button:hover {
   box-shadow: 1px 3px 12px 7px rgba(190,190,190,0.3);
+}
+
+.menu-button > img {
+  height: 35px; 
+  width: 35px;
+  margin-right: -5px;
 }
 
 .drop-menu {
