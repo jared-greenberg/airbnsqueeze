@@ -177,7 +177,7 @@ boulder_2.photos.attach(io: open("https://s3.amazonaws.com/airbnsqueeze-seed-pho
 boulder_2.photos.attach(io: open("https://s3.amazonaws.com/airbnsqueeze-seed-photos/Boulder/angular/angular_interior3.jpg"), filename: "angular_interior3.jpg")
 boulder_2.photos.attach(io: open("https://s3.amazonaws.com/airbnsqueeze-seed-photos/Boulder/angular/angular_interior4.jpg"), filename: "angular_interior4.jpg")
 
-boulder_3 = Listing.create({owner_id: boulder_user_3.id, address: Faker::Address.street_address, city: "Boulder, CO", latitude: 40.024966 longitude: -105.292325,
+boulder_3 = Listing.create({owner_id: boulder_user_3.id, address: Faker::Address.street_address, city: "Boulder, CO", latitude: 40.024966, longitude: -105.292325,
   title: "Rustic and Tiny", description: boulder_descrip, capacity: 3, price: 89.00 })   
 
 boulder_3.photos.attach(io: open("https://s3.amazonaws.com/airbnsqueeze-seed-photos/Boulder/antler/antler_exterior.jpg"), filename: "antler_exterior.jpg")
@@ -216,27 +216,27 @@ pets = Amenity.create({name: "Pets allowed", icon_path: "fas fa-paw"})
 
 
 
-ratings = [2, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5]
-reviews = [
-  "Very clean upon arrival. Host was easy to communicate with.",
-  "Booking was cancelled less than a week before the reservation.",
-  "We will definitely stay here again. Would highly recommend!",
-  "The house was not as immaculate as it was in the photos, but there are so many amazing things to do in the area.",
-  "We had some minor problems with the hot water, but the host came to fix it themselves.",
-  "It was so cute and fun. I am honestly thinking about downsizing to a tiny of my own.",
-  "It was nice, but I felt cramped the entire weekend.",
-  "We were surprised with how much we loved living small on our vacation.",
-  "What a unique place!",
-  "You must book this place.",
-  "Everything in the house is brand new. We were spoiled.",
-  "Way better than staying in a hotel.",
-  "Not our typical vacation, but it wasn't bad.",
-  "An interesting and very pleasant experience.",
-  "Fantastic!",
-  "Host was super helpful.",
-  "Checking in was so painless and easy.",
-  "The house was parked in the most beautiful location.",
-  "Cute and charming!"
+# ratings = [2, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5]
+review_combos = [
+  ["Very clean upon arrival. Host was easy to communicate with.", 5],
+  ["Booking was cancelled less than a week before the reservation.", 2],
+  ["We will definitely stay here again. Would highly recommend!", 5],
+  ["The house was not as immaculate as it was in the photos, but there are so many amazing things to do in the area.", 4],
+  ["We had some minor problems with the hot water, but the host came to fix it themselves.", 3],
+  ["Beautiful house! I recommend keeping the windows open when cooking.", 4],
+  ["It was so cute and fun. I am honestly thinking about downsizing to a tiny of my own.", 5],
+  ["We were surprised with how much we loved living small on our vacation.", 5],
+  ["What a unique place!", 5],
+  ["You must book this place.", 5],
+  ["Everything in the house is brand new. We were spoiled.", 5],
+  ["Way better than staying in a hotel.", 5],
+  ["Not our typical vacation, but it wasn't bad.", 4],
+  ["An interesting and very pleasant experience.", 4],
+  ["Fantastic!", 5],
+  ["Host was super helpful.", 4],
+  ["Checking in was so painless and easy.", 5],
+  ["The house was parked in the most beautiful location.", 5],
+  ["Cute and charming!", 4]
 ]
 
 Listing.all.each do |listing|
@@ -245,14 +245,15 @@ Listing.all.each do |listing|
   chosen_amenities.each { |a_id| TaggedAmenity.create({listing_id: listing.id, amenity_id: a_id})}
 
   num_bookings = rand(0..6)
-  booking_reviews = reviews.sample(num_bookings)
+  booking_reviews = review_combos.sample(num_bookings)
   num_bookings.times do |i|
     renter = [*2...listing.owner_id, *(listing.owner_id+1)...User.count].sample
     start = Faker::Date.between(from: '2016-01-01', to: '2020-11-27')
    
     b = Booking.create!({renter_id: renter, listing_id: listing.id, start_date: start, end_date: (start + 2), num_guests: listing.capacity, total_cost: (2 * listing.price * 1.12)})
-   
-    Review.create!({author_id: renter, booking_id: b.id, rating: ratings.sample, body: booking_reviews[i], created_at: b.end_date, updated_at: b.end_date})
+    
+    review, rating = booking_reviews[i]
+    Review.create!({author_id: renter, booking_id: b.id, rating: rating, body: review, created_at: b.end_date, updated_at: b.end_date})
     
   end
   
@@ -263,7 +264,8 @@ end
   start = Faker::Date.between(from: '2016-01-01', to: '2020-11-27')
   b = Booking.create!(renter_id: 1, listing_id: rand(1..Listing.count), start_date: start, end_date: start + 3, num_guests: 2, total_cost: 300 )
   if rand(3) === 1
-      Review.create!({author_id: 1, booking_id: b.id, rating: ratings.sample, body: reviews.sample, created_at: b.end_date, updated_at: b.end_date})
+      review, rating = review_combos.sample
+      Review.create!({author_id: 1, booking_id: b.id, rating: rating, body: review, created_at: b.end_date, updated_at: b.end_date})
   end
 end
 
