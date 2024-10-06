@@ -9,7 +9,7 @@ json.listing do
 end
 
 json.user do
-    json.partial! '/api/users/user/', user: @listing.owner
+    json.partial! '/api/users/user', user: @listing.owner
 end
 
 json.partial! '/api/listings/amenities', amenities: @listing.amenities
