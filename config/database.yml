@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: airbnsqueeze_production
+  url: <%= ENV['DATABASEURL'] %>
   username: jberg127
   password: <%= ENV['AIRBNSQUEEZE_DATABASE_PASSWORD'] %>
