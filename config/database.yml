@@ -72,7 +72,7 @@ test:
 # available as an environment variable. For example:
 #
 #   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
-#
+# 
 # You can use this database configuration with:
 #
 #   production:
@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: airbnsqueeze_production
-  username: airbnsqueeze
+  username: jberg127
   password: <%= ENV['AIRBNSQUEEZE_DATABASE_PASSWORD'] %>
