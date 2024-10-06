@@ -2,16 +2,15 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_27_170808) do
-
+ActiveRecord::Schema[7.0].define(version: 2020_11_27_170808) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_11_27_170808) do
     t.string "record_type", null: false
     t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: nil, null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
@@ -32,15 +31,15 @@ ActiveRecord::Schema.define(version: 2020_11_27_170808) do
     t.text "metadata"
     t.bigint "byte_size", null: false
     t.string "checksum", null: false
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: nil, null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
   create_table "amenities", force: :cascade do |t|
     t.string "name", null: false
     t.string "icon_path", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "bookings", force: :cascade do |t|
@@ -50,8 +49,8 @@ ActiveRecord::Schema.define(version: 2020_11_27_170808) do
     t.date "end_date", null: false
     t.integer "num_guests", null: false
     t.float "total_cost", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["listing_id"], name: "index_bookings_on_listing_id"
     t.index ["renter_id"], name: "index_bookings_on_renter_id"
   end
@@ -66,8 +65,8 @@ ActiveRecord::Schema.define(version: 2020_11_27_170808) do
     t.string "description", null: false
     t.integer "capacity", null: false
     t.float "price", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["owner_id"], name: "index_listings_on_owner_id"
   end
 
@@ -76,8 +75,8 @@ ActiveRecord::Schema.define(version: 2020_11_27_170808) do
     t.integer "author_id", null: false
     t.text "body", null: false
     t.integer "rating", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["author_id"], name: "index_reviews_on_author_id"
     t.index ["booking_id"], name: "index_reviews_on_booking_id", unique: true
   end
@@ -85,8 +84,8 @@ ActiveRecord::Schema.define(version: 2020_11_27_170808) do
   create_table "tagged_amenities", force: :cascade do |t|
     t.integer "listing_id", null: false
     t.integer "amenity_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["amenity_id"], name: "index_tagged_amenities_on_amenity_id"
     t.index ["listing_id", "amenity_id"], name: "index_tagged_amenities_on_listing_id_and_amenity_id", unique: true
     t.index ["listing_id"], name: "index_tagged_amenities_on_listing_id"
@@ -99,8 +98,8 @@ ActiveRecord::Schema.define(version: 2020_11_27_170808) do
     t.string "password_digest", null: false
     t.string "session_token", null: false
     t.date "birthday", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end
